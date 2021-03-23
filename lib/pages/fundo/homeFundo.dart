@@ -216,9 +216,16 @@ class CanchaSintetica extends StatelessWidget {
             left: 0,
             right: 0,
             child: GestureDetector(
+              onTap: () {
+                print('puta');
+              },
               onVerticalDragUpdate: (update) {
+                if (update.primaryDelta > -2) {
+                  print(update.primaryDelta);
+                }
                 print(update.primaryDelta);
-                Navigator.of(context).push(PageRouteBuilder(
+
+                /* Navigator.of(context).push(PageRouteBuilder(
                   pageBuilder: (context, animation, secondaryAnimation) {
                     return DetalleFundo();
                   },
@@ -238,8 +245,9 @@ class CanchaSintetica extends StatelessWidget {
                     );
                   },
                 ));
+               */
               },
-              child: Container(height: responsive.hp(50), color: Colors.transparent),
+              child: Container(height: responsive.hp(50), color: Colors.red),
             ),
           )
         ],

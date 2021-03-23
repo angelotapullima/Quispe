@@ -62,66 +62,98 @@ class DetalleFundo extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                transform: Matrix4.translationValues(0, -responsive.hp(4), 0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              Expanded(
+                child: ListView(
                   children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: responsive.wp(4),
-                      ),
-                      child: Text(
-                        'Fotos del Lugar',
-                        style: TextStyle(
-                            fontSize: responsive.ip(1.8),
-                            fontWeight: FontWeight.bold),
-                      ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: responsive.wp(4),
+                          ),
+                          child: Text(
+                            'Fotos del Lugar',
+                            style: TextStyle(
+                                fontSize: responsive.ip(1.8),
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        SizedBox(
+                          height: responsive.hp(2),
+                        ),
+                        Container(
+                          height: responsive.hp(10),
+                          child: ListView.builder(
+                              padding: EdgeInsets.all(0),
+                              scrollDirection: Axis.horizontal,
+                              shrinkWrap: true,
+                              itemCount: 8,
+                              itemBuilder: (_, index) {
+                                if (index.isOdd) {
+                                  return Container(
+                                    margin: EdgeInsets.symmetric(
+                                      horizontal: responsive.wp(3),
+                                    ),
+                                    height: responsive.hp(10),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Image.asset('assets/social1.jpg'),
+                                    ),
+                                  );
+                                } else {
+                                  return Container(
+                                    margin: EdgeInsets.symmetric(
+                                        horizontal: responsive.wp(3)),
+                                    height: responsive.hp(10),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Image.asset('assets/social4.jpg'),
+                                    ),
+                                  );
+                                }
+                              }),
+                        )
+                      ],
                     ),
-                    SizedBox(
-                      height: responsive.hp(2),
-                    ),
-                    Container(
-                      height: responsive.hp(10),
-                      child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-                          itemCount: 8,
-                          itemBuilder: (_, index) {
-                            if (index.isOdd) {
-                              return Container(
-                                margin: EdgeInsets.symmetric(
-                                  horizontal: responsive.wp(3),
-                                ),
-                                height: responsive.hp(10),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Image.asset('assets/social1.jpg'),
-                                ),
-                              );
-                            } else {
-                              return Container(
-                                margin: EdgeInsets.symmetric(
-                                    horizontal: responsive.wp(3)),
-                                height: responsive.hp(10),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Image.asset('assets/social4.jpg'),
-                                ),
-                              );
-                            }
-                          }),
-                    )
+                    GridView.builder(
+                        shrinkWrap: true,
+                        physics: ClampingScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2, childAspectRatio: 0.7),
+                        itemBuilder: (_, index) {
+                          return Transform.translate(
+                            offset: Offset(0.0, index.isOdd ? 100.0 : 0.0),
+                            child: Container(
+                              height: responsive.hp(10),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      CircleAvatar(),
+                                      Column(
+                                        children: [
+                                          Text('Angelo Tapullima'),
+                                          Text('14 de febrero del 2021'),
+                                        ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          );
+                        })
                   ],
                 ),
-              )
+              ),
             ],
           ),
           Container(
