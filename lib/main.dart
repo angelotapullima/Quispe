@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:quispe_ui/bloc/provider_bloc.dart';
 import 'package:quispe_ui/pages/comercial/homeComercial.dart';
+import 'package:quispe_ui/pages/ferreteria/homeFerreteria.dart';
+import 'package:quispe_ui/pages/ferreteria/tabs/InicioFerreteria.dart';
+import 'package:quispe_ui/pages/fundo/homeFundo.dart';
+import 'package:quispe_ui/pages/fundo/tabs/InicioFundo.dart';
 import 'package:quispe_ui/pages/seleccion_inicial.dart';
 import 'package:quispe_ui/pages/splash.dart';
 
@@ -26,10 +30,16 @@ class MyApp extends StatelessWidget {
              "homeComercial": (BuildContext context) => HomeComercialPage(),
              "inicio": (BuildContext context) => SeleccionInicial(),
             /*  "pruebas": (BuildContext context) => PuebasPage(),
-              //"splash": (BuildContext context) => Splash(),
+              //"splash": (BuildContext context) => Splash(),*/
 
-              //Mi Perfil
-              'perfil': (BuildContext context) => PerfilPage(), */
+              //FerroCentro
+              "homeFerreteria": (BuildContext context) => HomeFerreteriaPage(),
+             //"inicioFerro": (BuildContext context) => InicioFerro(),
+
+              //Fundo
+              "homeFundo": (BuildContext context) => HomeFundoPage(),
+            // "inicioFundo": (BuildContext context) => InicioFundoPage(),
+
           }),
     );
   }
