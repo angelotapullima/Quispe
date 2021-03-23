@@ -12,7 +12,7 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      Future.delayed(Duration(milliseconds: 200), () {
+      Future.delayed(Duration(milliseconds: 2000), () {
         Navigator.pushReplacementNamed(context, 'inicio'); //home
       });
       /*  final preferences = Preferences();

@@ -15,7 +15,9 @@ class Responsive {
     final MediaQueryData data = MediaQuery.of(context);
     final size = data.size;
 
-    final inch = math.sqrt(math.pow(size.width, 2) + math.pow(size.height, 2));
+    final inch = math.sqrt(
+      math.pow(size.width, 2) + math.pow(size.height, 2),
+    );
     return Responsive(width: size.width, height: size.height, inch: inch);
   }
 
