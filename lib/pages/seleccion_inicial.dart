@@ -122,6 +122,7 @@ class FundoQuispe extends StatelessWidget {
             child: GestureDetector(
               onVerticalDragUpdate: (update) {
                 print(update.primaryDelta);
+                 Navigator.pushNamed(context, 'homeFundo');
               },
               child: Stack(
                 children: [
@@ -210,6 +211,7 @@ class FerroQuispe extends StatelessWidget {
             child: GestureDetector(
               onVerticalDragUpdate: (update) {
                 print(update.primaryDelta);
+                Navigator.pushNamed(context, 'homeFerreteria');
               },
               child: Stack(
                 children: [
