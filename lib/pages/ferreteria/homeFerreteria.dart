@@ -32,7 +32,7 @@ class _HomePageState extends State<HomeFerreteriaPage> {
   @override
   Widget build(BuildContext context) {
     final buttonBloc = ProviderBloc.homeComercial(context);
-    buttonBloc.changePage(0);
+    buttonBloc.changePage(4);
     final responsive = Responsive.of(context);
     return Scaffold(
       body: StreamBuilder(
