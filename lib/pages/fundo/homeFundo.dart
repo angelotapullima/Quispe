@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quispe_ui/bloc/provider_bloc.dart';
 import 'package:quispe_ui/pages/comercial/tabs/CarritoComercial.dart';
-import 'package:quispe_ui/pages/comercial/tabs/CategoriasComercial.dart';
+import 'package:quispe_ui/pages/comercial/tabs/Categorias/CategoriasComercial.dart';
+
 import 'package:quispe_ui/pages/comercial/tabs/FavoritosComercial.dart';
 import 'package:quispe_ui/pages/comercial/tabs/InicioComercial.dart';
 import 'package:quispe_ui/pages/comercial/tabs/UsuarioComercial.dart';
