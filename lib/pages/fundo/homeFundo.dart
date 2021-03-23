@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:quispe_ui/bloc/provider_bloc.dart';
-import 'package:quispe_ui/pages/comercial/tabs/CarritoComercial.dart';
-import 'package:quispe_ui/pages/comercial/tabs/CategoriasComercial.dart';
-import 'package:quispe_ui/pages/comercial/tabs/FavoritosComercial.dart';
-import 'package:quispe_ui/pages/comercial/tabs/InicioComercial.dart';
-import 'package:quispe_ui/pages/comercial/tabs/UsuarioComercial.dart';
+import 'package:quispe_ui/pages/fundo/detalle_fundo.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class HomeFundoPage extends StatefulWidget {
@@ -16,222 +11,239 @@ class HomeFundoPage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomeFundoPage> {
-  List<Widget> listPages = List<Widget>();
+  int page = 0;
 
-  @override
-  void initState() {
-    listPages.add(InicioComercial());
-    listPages.add(FavoritosComercial());
-    listPages.add(CategoriasComercial());
-    listPages.add(CarritoComercial());
-    listPages.add(UsuarioComercial());
-
-    super.initState();
-  }
+  final _pageController = PageController(viewportFraction: 1, initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
-    final buttonBloc = ProviderBloc.homeComercial(context);
-    buttonBloc.changePage(0);
-    final responsive = Responsive.of(context);
     return Scaffold(
-      body: StreamBuilder(
-          stream: buttonBloc.selectPageStream,
-          builder: (BuildContext context, AsyncSnapshot snapshot) {
-            return Stack(
+      body: Stack(
+        children: [
+          PageView(
+            controller: _pageController,
+            scrollDirection: Axis.horizontal,
+            children: [CanchaSintetica()],
+            onPageChanged: (index) {
+              setState(() {
+                page = index;
+              });
+            },
+          ),
+          Center(
+            child: Row(
+              //crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                StreamBuilder(
-                  stream: buttonBloc.selectPageStream,
-                  builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
-                    return IndexedStack(
-                      index: snapshot.data,
-                      children: listPages,
-                    );
-                  },
+                IconButton(
+                    icon: Icon(Icons.arrow_back_ios,
+                        color: Colors.white, size: 37),
+                    onPressed: () {
+                      if (page == 0) {
+                      } else {
+                        setState(() {
+                          _pageController.jumpToPage(page - 1);
+                          page--;
+                          print(page);
+                        });
+                      }
+                    }),
+                Spacer(),
+                IconButton(
+                    icon: Icon(Icons.arrow_forward_ios,
+                        color: Colors.white, size: 37),
+                    onPressed: () {
+                      if (page == 2) {
+                      } else {
+                        setState(() {
+                          _pageController.jumpToPage(page + 1);
+                          page++;
+                          print(page);
+                        });
+                      }
+                    })
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class CanchaSintetica extends StatelessWidget {
+  const CanchaSintetica({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final responsive = Responsive.of(context);
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      child: Stack(
+        children: [
+          Image.asset(
+            'assets/home2.jpg',
+            height: double.infinity,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+          Container(
+            color: Colors.black.withOpacity(.5),
+          ),
+          SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/fundo_logo.png',
+                      height: responsive.hp(13),
+                      fit: BoxFit.cover,
+                    ),
+                  ],
                 ),
-                Positioned(
-                  bottom: responsive.hp(3),
-                  left: 0,
-                  right: 0,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: responsive.wp(2),
-                      vertical: responsive.hp(.7),
-                    ),
-                    margin: EdgeInsets.symmetric(
-                      horizontal: responsive.wp(3),
-                      vertical: responsive.hp(1),
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
+                Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: responsive.wp(2),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Piscinas',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: responsive.ip(5),
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      color: Colors.white.withOpacity(.9),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            buttonBloc.changePage(0);
-                          },
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.home,
-                                color: (buttonBloc.page == 0)
-                                    ? Colors.red
-                                    : Colors.black,
-                              ),
-                              Text(
-                                "Inicio",
-                                style: TextStyle(
-                                  fontSize: responsive.ip(1.5),
-                                  color: (buttonBloc.page == 0)
-                                      ? Colors.red
-                                      : Colors.black,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            buttonBloc.changePage(1);
-                          },
-                          child: Column(
-                            children: [
-                              Icon(
-                                FontAwesomeIcons.heart,
-                                //size: responsive.ip(2.7),
-                                color: (buttonBloc.page == 1)
-                                    ? Colors.red
-                                    : Colors.black,
-                              ),
-                              Text(
-                                "Favoritos",
-                                style: TextStyle(
-                                  fontSize: responsive.ip(1.5),
-                                  color: (buttonBloc.page == 1)
-                                      ? Colors.red
-                                      : Colors.black,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            buttonBloc.changePage(2);
-                          },
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.category,
-                                color: (buttonBloc.page == 2)
-                                    ? Colors.red
-                                    : Colors.black,
-                              ),
-                              Text(
-                                "Cátegorias",
-                                style: TextStyle(
-                                  fontSize: responsive.ip(1.5),
-                                  color: (buttonBloc.page == 2)
-                                      ? Colors.red
-                                      : Colors.black,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            buttonBloc.changePage(3);
-                          },
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.home,
-                                color: (buttonBloc.page == 3)
-                                    ? Colors.red
-                                    : Colors.black,
-                              ),
-                              Text(
-                                "Carrito",
-                                style: TextStyle(
-                                  fontSize: responsive.ip(1.5),
-                                  color: (buttonBloc.page == 3)
-                                      ? Colors.red
-                                      : Colors.black,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            buttonBloc.changePage(4);
-                          },
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.home,
-                                color: (buttonBloc.page == 4)
-                                    ? Colors.red
-                                    : Colors.black,
-                              ),
-                              Text(
-                                "Usuario",
-                                style: TextStyle(
-                                  fontSize: responsive.ip(1.5),
-                                  color: (buttonBloc.page == 4)
-                                      ? Colors.red
-                                      : Colors.black,
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
+                    ],
+                  ),
+                ),
+                Spacer(),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: responsive.wp(4),
+                  ),
+                  child: Text(
+                    'Información',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: responsive.ip(1.8),
                     ),
                   ),
+                ),
+                SizedBox(
+                  height: responsive.hp(2),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: responsive.wp(4),
+                  ),
+                  child: Text(
+                    'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: responsive.ip(1.2),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: responsive.hp(2),
+                ),
+                Row(
+                  children: [
+                    Spacer(),
+                    Icon(FontAwesomeIcons.heart, color: Colors.white),
+                    Text(
+                      '20',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: responsive.ip(2),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      width: responsive.wp(5),
+                    ),
+                    Icon(FontAwesomeIcons.comment, color: Colors.white),
+                    Text(
+                      '20',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: responsive.ip(2),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Spacer(),
+                  ],
+                ),
+                SizedBox(height: responsive.hp(4)),
+                Container(
+                  child: Center(
+                    child: Icon(
+                      Icons.keyboard_arrow_up_outlined,
+                      color: Colors.white,
+                      size: responsive.ip(3),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: responsive.wp(4),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Deslizar hacia arriba',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: responsive.ip(1.8),
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: responsive.hp(3),
                 )
               ],
-            );
-          }),
-      /* bottomNavigationBar: StreamBuilder(
-          stream: buttonBloc.selectPageStream,
-          builder: (context, snapshot) {
-            return BottomNavigationBar(
-              selectedItemColor: Theme.of(context).textSelectionColor,
-              type: BottomNavigationBarType.fixed,
-              items: [
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.home,
-                  ),
-                  label: "Principal",
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.shopping_cart),
-                  label: "Pedidos",
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.data_usage),
-                  label: "Pagos",
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.supervised_user_circle),
-                  label: "Usuario",
-                ),
-              ],
-              currentIndex: buttonBloc.page,
-              onTap: (valor) {
-                buttonBloc.changePage(valor);
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: GestureDetector(
+              onVerticalDragUpdate: (update) {
+                print(update.primaryDelta);
+                Navigator.of(context).push(PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) {
+                    return DetalleFundo();
+                  },
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) {
+                    var begin = Offset(0.0, 1.0);
+                    var end = Offset.zero;
+                    var curve = Curves.ease;
+
+                    var tween = Tween(begin: begin, end: end).chain(
+                      CurveTween(curve: curve),
+                    );
+
+                    return SlideTransition(
+                      position: animation.drive(tween),
+                      child: child,
+                    );
+                  },
+                ));
               },
-            );
-          }),
-    */
+              child: Container(height: responsive.hp(50), color: Colors.transparent),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

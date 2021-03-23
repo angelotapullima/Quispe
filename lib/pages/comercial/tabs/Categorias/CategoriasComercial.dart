@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:quispe_ui/Models/Comercial/Tabs.dart';
-import 'package:quispe_ui/pages/comercial/tabs/Categorias/categorias_bloc.dart';
+import 'package:quispe_ui/pages/comercial/tabs/Categorias/categorias_comercial_bloc.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 const heigthCategory = 40.00;
@@ -16,7 +16,7 @@ class CategoriasComercial extends StatefulWidget {
 
 class _CategoriasComercialState extends State<CategoriasComercial>
     with SingleTickerProviderStateMixin {
-  final bloc = CategoriaBloc();
+  final bloc = CategoriaComercialBloc();
 
   @override
   void initState() {

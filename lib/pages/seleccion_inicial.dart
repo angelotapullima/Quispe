@@ -29,9 +29,8 @@ class _SeleccionInicialState extends State<SeleccionInicial> {
             ],
             onPageChanged: (index) {
               setState(() {
-                page=index;
+                page = index;
               });
-
             },
           ),
           Center(
@@ -86,12 +85,12 @@ class FundoQuispe extends StatelessWidget {
         new Container(
           decoration: new BoxDecoration(
             image: new DecorationImage(
-              image: new ExactAssetImage('assets/quispe_back.jpg'),
+              image: new ExactAssetImage('assets/splash.jpg'),
               fit: BoxFit.cover,
             ),
           ),
           child: new BackdropFilter(
-            filter: new ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+            filter: new ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
             child: new Container(
               decoration: new BoxDecoration(
                 color: Colors.white.withOpacity(0.0),
@@ -122,7 +121,7 @@ class FundoQuispe extends StatelessWidget {
             child: GestureDetector(
               onVerticalDragUpdate: (update) {
                 print(update.primaryDelta);
-                 Navigator.pushNamed(context, 'homeFundo');
+                Navigator.pushNamed(context, 'homeFundo');
               },
               child: Stack(
                 children: [
@@ -131,7 +130,7 @@ class FundoQuispe extends StatelessWidget {
                     children: [
                       IconButton(
                           icon: Icon(
-                            Icons.arrow_upward,
+                            Icons.keyboard_arrow_up_outlined,
                             color: Colors.white,
                           ),
                           onPressed: () {}),
@@ -141,7 +140,9 @@ class FundoQuispe extends StatelessWidget {
                         ),
                         child: Text(
                           'Deslizar hacia arriba para conocer nuestros servicios',
-                          style: TextStyle(color: Colors.white,fontSize: responsive.ip(1.8)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: responsive.ip(1.8)),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -230,7 +231,9 @@ class FerroQuispe extends StatelessWidget {
                         ),
                         child: Text(
                           'Deslizar hacia arriba para conocer nuestros productos',
-                          style: TextStyle(color: Colors.white,fontSize: responsive.ip(1.8)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: responsive.ip(1.8)),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -303,9 +306,8 @@ class QuispeInicio extends StatelessWidget {
               onVerticalDragUpdate: (update) {
                 print(update.primaryDelta);
 
-                if(update.primaryDelta<-7){
+                if (update.primaryDelta < -7) {
                   Navigator.pushNamed(context, 'homeComercial');
-
                 }
               },
               child: Stack(
@@ -325,7 +327,9 @@ class QuispeInicio extends StatelessWidget {
                         ),
                         child: Text(
                           'Deslizar hacia arriba para conocer nuestros productos',
-                          style: TextStyle(color: Colors.white,fontSize: responsive.ip(1.8)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: responsive.ip(1.8)),
                           textAlign: TextAlign.center,
                         ),
                       ),

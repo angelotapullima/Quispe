@@ -9,22 +9,24 @@ class FavoritosFerroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final responsive = Responsive.of(context);
     return Scaffold(
-        body: SingleChildScrollView(
-      child: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: responsive.wp(2),
-              ),
-              child: Text(
-                'Productos Favoritos',
-                style: TextStyle(
-                    fontSize: responsive.ip(2.5), fontWeight: FontWeight.bold),
-              ),
+        body: SafeArea(
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: responsive.wp(2),
             ),
-            SizedBox(height: responsive.hp(2),),
-            ListView.builder(
+            child: Text(
+              'Productos Favoritos',
+              style: TextStyle(
+                  fontSize: responsive.ip(2.5), fontWeight: FontWeight.bold),
+            ),
+          ),
+          SizedBox(
+            height: responsive.hp(2),
+          ),
+          Expanded(
+            child: ListView.builder(
               itemCount: 20,
               shrinkWrap: true,
               physics: ClampingScrollPhysics(),
@@ -75,11 +77,14 @@ class FavoritosFerroPage extends StatelessWidget {
                               children: [
                                 Expanded(
                                   flex: 4,
-                                  child: Text('Nombre del producto',style: TextStyle(
+                                  child: Text(
+                                    'Nombre del producto',
+                                    style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
                                       fontSize: responsive.ip(1.6),
-                                    ),),
+                                    ),
+                                  ),
                                 ),
                                 SizedBox(
                                   width: responsive.wp(5),
@@ -104,9 +109,9 @@ class FavoritosFerroPage extends StatelessWidget {
                   ),
                 );
               },
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     ));
   }

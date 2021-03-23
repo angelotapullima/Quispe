@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quispe_ui/bloc/provider_bloc.dart';
 import 'package:quispe_ui/pages/comercial/homeComercial.dart';
 import 'package:quispe_ui/pages/ferreteria/homeFerreteria.dart';
-import 'package:quispe_ui/pages/ferreteria/tabs/InicioFerreteria.dart';
 import 'package:quispe_ui/pages/fundo/homeFundo.dart';
-import 'package:quispe_ui/pages/fundo/tabs/InicioFundo.dart';
 import 'package:quispe_ui/pages/seleccion_inicial.dart';
 import 'package:quispe_ui/pages/splash.dart';
 

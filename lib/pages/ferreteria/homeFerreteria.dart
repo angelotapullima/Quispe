@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quispe_ui/bloc/provider_bloc.dart';
-import 'package:quispe_ui/pages/comercial/tabs/CarritoComercial.dart';
-import 'package:quispe_ui/pages/comercial/tabs/CategoriasComercial.dart';
-import 'package:quispe_ui/pages/comercial/tabs/FavoritosComercial.dart';
-import 'package:quispe_ui/pages/comercial/tabs/InicioComercial.dart';
-import 'package:quispe_ui/pages/comercial/tabs/UsuarioComercial.dart';
 import 'package:quispe_ui/pages/ferreteria/tabs/CarritoFerreteria.dart';
-import 'package:quispe_ui/pages/ferreteria/tabs/CategoriasFerreteria.dart';
+import 'package:quispe_ui/pages/ferreteria/tabs/Categorias/CategoriasFerreteria.dart';
 import 'package:quispe_ui/pages/ferreteria/tabs/FavoritosFerreteria.dart';
 import 'package:quispe_ui/pages/ferreteria/tabs/InicioFerreteria.dart';
 import 'package:quispe_ui/pages/ferreteria/tabs/UsuarioFerreteria.dart';
@@ -27,7 +22,7 @@ class _HomePageState extends State<HomeFerreteriaPage> {
   void initState() {
     listPages.add(InicioFerro());
     listPages.add(FavoritosFerroPage());
-    listPages.add(CategoriasFerroPage());
+    listPages.add(CategoriasFerreteria());
     listPages.add(CarritoFerroPage());
     listPages.add(UsuarioFerroPage());
 
@@ -37,7 +32,7 @@ class _HomePageState extends State<HomeFerreteriaPage> {
   @override
   Widget build(BuildContext context) {
     final buttonBloc = ProviderBloc.homeComercial(context);
-    buttonBloc.changePage(3);
+    buttonBloc.changePage(0);
     final responsive = Responsive.of(context);
     return Scaffold(
       body: StreamBuilder(
