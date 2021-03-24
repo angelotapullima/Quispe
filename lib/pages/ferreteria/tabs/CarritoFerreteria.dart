@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:quispe_ui/utils/customCacheManager.dart';
 
 import '../../../utils/responsive.dart';
 
@@ -105,7 +106,7 @@ class CarritoFerroPage extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: CachedNetworkImage(
-                    //cacheManager: CustomCacheManager(),
+                    cacheManager: CustomCacheManager(),
                     imageUrl:
                         'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
                     errorWidget: (context, url, error) => Image(

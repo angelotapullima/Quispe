@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:quispe_ui/Models/Comercial/Tabs.dart';
 import 'package:quispe_ui/pages/ferreteria/tabs/Categorias/categorias_ferreteria_bloc.dart';
+import 'package:quispe_ui/utils/customCacheManager.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 const heigthCategory = 40.00;
@@ -168,7 +169,7 @@ class ProductoItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: CachedNetworkImage(
-                  //cacheManager: CustomCacheManager(),
+                  cacheManager: CustomCacheManager(),
                   imageUrl:
                       'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
                   errorWidget: (context, url, error) => Image(

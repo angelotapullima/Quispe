@@ -127,7 +127,7 @@ class _HomePageState extends State<HomeComercialPage> {
                           child: Column(
                             children: [
                               Icon(
-                                Icons.home,
+                                Icons.near_me,
                                 color: (buttonBloc.page == 2)
                                     ? Colors.red
                                     : Colors.black,
@@ -151,7 +151,7 @@ class _HomePageState extends State<HomeComercialPage> {
                           child: Column(
                             children: [
                               Icon(
-                                Icons.home,
+                                Icons.shopping_cart,
                                 color: (buttonBloc.page == 3)
                                     ? Colors.red
                                     : Colors.black,
@@ -175,7 +175,7 @@ class _HomePageState extends State<HomeComercialPage> {
                           child: Column(
                             children: [
                               Icon(
-                                Icons.home,
+                                Icons.verified_user_rounded,
                                 color: (buttonBloc.page == 4)
                                     ? Colors.red
                                     : Colors.black,

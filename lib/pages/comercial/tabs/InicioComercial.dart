@@ -2,6 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quispe_ui/pages/comercial/detalle_producto_comercial.dart';
+import 'package:quispe_ui/utils/constants.dart';
+import 'package:quispe_ui/utils/customCacheManager.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class InicioComercial extends StatelessWidget {
@@ -63,7 +66,8 @@ class InicioComercial extends StatelessWidget {
             ProductosInicio(
                 alturaCard: responsive.hp(15),
                 anchoCard: responsive.wp(55),
-                titulo: 'Abarrotes',
+                titulo: 'Calzados',
+                imagen: '$calzado',
                 responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
@@ -71,7 +75,8 @@ class InicioComercial extends StatelessWidget {
             ProductosInicio(
                 alturaCard: responsive.hp(17),
                 anchoCard: responsive.wp(45),
-                titulo: 'Ferreteria',
+                imagen: '$cartera',
+                titulo: 'Carteras',
                 responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
@@ -79,13 +84,15 @@ class InicioComercial extends StatelessWidget {
             ProductosInicio(
                 alturaCard: responsive.hp(18),
                 anchoCard: responsive.wp(60),
-                titulo: 'Botica',
+                imagen: '$deporte',
+                titulo: 'Deporte',
                 responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
             ),
             ProductosInicio(
                 alturaCard: responsive.hp(19),
+                imagen: '$lenceria',
                 anchoCard: responsive.wp(55),
                 titulo: 'Lenceria',
                 responsive: responsive),
@@ -94,17 +101,13 @@ class InicioComercial extends StatelessWidget {
             ),
             ProductosInicio(
                 alturaCard: responsive.hp(16),
+                imagen: '$muebles',
                 anchoCard: responsive.wp(45),
-                titulo: 'Abarrotes',
+                titulo: 'Muebles',
                 responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
             ),
-            ProductosInicio(
-                alturaCard: responsive.hp(18),
-                anchoCard: responsive.wp(35),
-                titulo: 'Abarrotes',
-                responsive: responsive),
             SizedBox(
               height: responsive.hp(12),
             ),
@@ -121,11 +124,13 @@ class ProductosInicio extends StatelessWidget {
       @required this.responsive,
       @required this.titulo,
       @required this.alturaCard,
+      @required this.imagen,
       @required this.anchoCard})
       : super(key: key);
 
   final Responsive responsive;
   final String titulo;
+  final String imagen;
   final double alturaCard;
   final double anchoCard;
 
@@ -146,7 +151,9 @@ class ProductosInicio extends StatelessWidget {
               Spacer(),
               Container(
                 padding: EdgeInsets.symmetric(
-                    horizontal: responsive.wp(1), vertical: responsive.hp(.3)),
+                  horizontal: responsive.wp(1),
+                  vertical: responsive.hp(.3),
+                ),
                 decoration: BoxDecoration(
                   color: Colors.green[600],
                   borderRadius: BorderRadiusDirectional.circular(10),
@@ -154,13 +161,17 @@ class ProductosInicio extends StatelessWidget {
                 child: Text(
                   'Ver más',
                   style: TextStyle(
-                      color: Colors.white, fontSize: responsive.ip(1.8)),
+                    color: Colors.white,
+                    fontSize: responsive.ip(1.8),
+                  ),
                 ),
               )
             ],
           ),
         ),
-        SizedBox(height: responsive.hp(1)),
+        SizedBox(
+          height: responsive.hp(1),
+        ),
         Container(
           height: alturaCard,
           width: double.infinity,
@@ -168,60 +179,83 @@ class ProductosInicio extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: 10,
               itemBuilder: (_, index) {
-                return Container(
-                  margin: EdgeInsets.symmetric(horizontal: responsive.wp(2)),
-                  height: alturaCard,
-                  width: anchoCard,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Stack(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: CachedNetworkImage(
-                          //cacheManager: CustomCacheManager(),
-                          imageUrl:
-                              'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
-                          errorWidget: (context, url, error) => Image(
-                              image: AssetImage('assets/carga_fallida.jpg'),
-                              fit: BoxFit.cover),
-                          imageBuilder: (context, imageProvider) => Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: imageProvider,
-                                fit: BoxFit.cover,
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return DetalleProductoComercial();
+                      },
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        var begin = Offset(0.0, 1.0);
+                        var end = Offset.zero;
+                        var curve = Curves.ease;
+
+                        var tween = Tween(begin: begin, end: end).chain(
+                          CurveTween(curve: curve),
+                        );
+
+                        return SlideTransition(
+                          position: animation.drive(tween),
+                          child: child,
+                        );
+                      },
+                    ));
+                  },
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: responsive.wp(2)),
+                    height: alturaCard,
+                    width: anchoCard,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: CachedNetworkImage(
+                            cacheManager: CustomCacheManager(),
+                            imageUrl: imagen,
+                            errorWidget: (context, url, error) => Image(
+                                image: AssetImage('assets/carga_fallida.jpg'),
+                                fit: BoxFit.cover),
+                            imageBuilder: (context, imageProvider) => Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: imageProvider,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        child: Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: responsive.wp(2),
-                            vertical: responsive.hp(.3),
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(10),
-                              bottomRight: Radius.circular(10),
+                        Positioned(
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: responsive.wp(2),
+                              vertical: responsive.hp(.3),
                             ),
-                            color: Colors.black.withOpacity(.7),
-                          ),
-                          child: Text(
-                            'Nombre de producto',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: responsive.ip(2),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(10),
+                              ),
+                              color: Colors.black.withOpacity(.7),
+                            ),
+                            child: Text(
+                              'Nombre de producto',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: responsive.ip(2),
+                              ),
                             ),
                           ),
-                        ),
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                 );
               }),
@@ -281,7 +315,7 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: CachedNetworkImage(
-                //cacheManager: CustomCacheManager(),
+                cacheManager: CustomCacheManager(),
                 imageUrl:
                     'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
                 errorWidget: (context, url, error) => Image(
@@ -300,7 +334,7 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: CachedNetworkImage(
-                //cacheManager: CustomCacheManager(),
+                cacheManager: CustomCacheManager(),
                 imageUrl:
                     'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
                 errorWidget: (context, url, error) => Image(
@@ -318,7 +352,7 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: CachedNetworkImage(
-                //cacheManager: CustomCacheManager(),
+                cacheManager: CustomCacheManager(),
                 imageUrl:
                     'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
                 errorWidget: (context, url, error) => Image(

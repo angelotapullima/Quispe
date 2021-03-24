@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ProviderBloc(
           child: MaterialApp(
-          title: 'Flutter Demo',
+          title: 'Quispe',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             primarySwatch: Colors.blue,

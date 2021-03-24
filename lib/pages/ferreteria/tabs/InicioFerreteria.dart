@@ -2,6 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quispe_ui/pages/ferreteria/detalle_producto_ferreteria.dart';
+import 'package:quispe_ui/utils/constants.dart';
+import 'package:quispe_ui/utils/customCacheManager.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class InicioFerro extends StatelessWidget {
@@ -63,48 +66,49 @@ class InicioFerro extends StatelessWidget {
             ProductosInicio(
                 alturaCard: responsive.hp(15),
                 anchoCard: responsive.wp(55),
-                titulo: 'Abarrotes',
+                imagen: '$iluminacion',
+                titulo: 'Iluminación',
                 responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
             ),
             ProductosInicio(
                 alturaCard: responsive.hp(17),
+                imagen: '$taladros',
                 anchoCard: responsive.wp(45),
-                titulo: 'Ferreteria',
+                titulo: 'Taladros',
                 responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
             ),
             ProductosInicio(
                 alturaCard: responsive.hp(18),
+                imagen: '$desarmadores',
                 anchoCard: responsive.wp(60),
-                titulo: 'Botica',
+                titulo: 'Desarmadores',
                 responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
             ),
             ProductosInicio(
                 alturaCard: responsive.hp(19),
+                imagen: '$martillo',
                 anchoCard: responsive.wp(55),
-                titulo: 'Lenceria',
+                titulo: 'Martillos',
                 responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
             ),
             ProductosInicio(
                 alturaCard: responsive.hp(16),
+                imagen: '$tubos',
                 anchoCard: responsive.wp(45),
-                titulo: 'Abarrotes',
+                titulo: 'Tubos',
                 responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
             ),
-            ProductosInicio(
-                alturaCard: responsive.hp(18),
-                anchoCard: responsive.wp(35),
-                titulo: 'Abarrotes',
-                responsive: responsive),
+           
             SizedBox(
               height: responsive.hp(12),
             ),
@@ -121,12 +125,14 @@ class ProductosInicio extends StatelessWidget {
       @required this.responsive,
       @required this.titulo,
       @required this.alturaCard,
+      @required this.imagen,
       @required this.anchoCard})
       : super(key: key);
 
   final Responsive responsive;
   final String titulo;
   final double alturaCard;
+  final String  imagen;
   final double anchoCard;
 
   @override
@@ -168,60 +174,83 @@ class ProductosInicio extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: 10,
               itemBuilder: (_, index) {
-                return Container(
-                  margin: EdgeInsets.symmetric(horizontal: responsive.wp(2)),
-                  height: alturaCard,
-                  width: anchoCard,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Stack(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: CachedNetworkImage(
-                          //cacheManager: CustomCacheManager(),
-                          imageUrl:
-                              'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
-                          errorWidget: (context, url, error) => Image(
-                              image: AssetImage('assets/carga_fallida.jpg'),
-                              fit: BoxFit.cover),
-                          imageBuilder: (context, imageProvider) => Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: imageProvider,
-                                fit: BoxFit.cover,
+                return InkWell(
+                  onTap: (){
+                    Navigator.of(context).push(PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return DetalleProductoFerreteria();
+                      },
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        var begin = Offset(0.0, 1.0);
+                        var end = Offset.zero;
+                        var curve = Curves.ease;
+
+                        var tween = Tween(begin: begin, end: end).chain(
+                          CurveTween(curve: curve),
+                        );
+
+                        return SlideTransition(
+                          position: animation.drive(tween),
+                          child: child,
+                        );
+                      },
+                    ));
+                  },
+                                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: responsive.wp(2)),
+                    height: alturaCard,
+                    width: anchoCard,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: CachedNetworkImage(
+                            cacheManager: CustomCacheManager(),
+                            imageUrl: imagen,
+                            errorWidget: (context, url, error) => Image(
+                                image: AssetImage('assets/carga_fallida.jpg'),
+                                fit: BoxFit.cover),
+                            imageBuilder: (context, imageProvider) => Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: imageProvider,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        child: Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: responsive.wp(2),
-                            vertical: responsive.hp(.3),
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(10),
-                              bottomRight: Radius.circular(10),
+                        Positioned(
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: responsive.wp(2),
+                              vertical: responsive.hp(.3),
                             ),
-                            color: Colors.black.withOpacity(.7),
-                          ),
-                          child: Text(
-                            'Nombre de producto',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: responsive.ip(2),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(10),
+                              ),
+                              color: Colors.black.withOpacity(.7),
+                            ),
+                            child: Text(
+                              'Nombre de producto',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: responsive.ip(2),
+                              ),
                             ),
                           ),
-                        ),
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                 );
               }),
@@ -281,7 +310,7 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: CachedNetworkImage(
-                //cacheManager: CustomCacheManager(),
+                cacheManager: CustomCacheManager(),
                 imageUrl:
                     'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
                 errorWidget: (context, url, error) => Image(
@@ -300,7 +329,7 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: CachedNetworkImage(
-                //cacheManager: CustomCacheManager(),
+                cacheManager: CustomCacheManager(),
                 imageUrl:
                     'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
                 errorWidget: (context, url, error) => Image(
@@ -318,7 +347,7 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: CachedNetworkImage(
-                //cacheManager: CustomCacheManager(),
+                cacheManager: CustomCacheManager(),
                 imageUrl:
                     'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
                 errorWidget: (context, url, error) => Image(
@@ -454,7 +483,7 @@ class CabeceraInicio extends StatelessWidget {
                   width: responsive.wp(3),
                 ),
                 Image.asset(
-                  'assets/quispe_logo.png',
+                  'assets/ferro_logo.png',
                   height: responsive.hp(5),
                 ),
                 SizedBox(

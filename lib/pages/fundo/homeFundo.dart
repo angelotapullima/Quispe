@@ -217,37 +217,66 @@ class CanchaSintetica extends StatelessWidget {
             right: 0,
             child: GestureDetector(
               onTap: () {
-                print('puta');
+                print('puta mare');
+                /*  Navigator.of(context).push(
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) {
+                      return DetalleFundo();
+                    },
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      var begin = Offset(0.0, 1.0);
+                      var end = Offset.zero;
+                      var curve = Curves.ease;
+
+                      var tween = Tween(begin: begin, end: end).chain(
+                        CurveTween(curve: curve),
+                      );
+
+                      return SlideTransition(
+                        position: animation.drive(tween),
+                        child: child,
+                      );
+                    },
+                  ),
+                ); */
               },
               onVerticalDragUpdate: (update) {
-                if (update.primaryDelta > -2) {
+
                   print(update.primaryDelta);
+                if (update.primaryDelta > -10) {
+                  print(update.primaryDelta);
+
+                  Navigator.of(context).push(
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return DetalleFundo2();
+                      },
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        var begin = Offset(0.0, 1.0);
+                        var end = Offset.zero;
+                        var curve = Curves.ease;
+
+                        var tween = Tween(begin: begin, end: end).chain(
+                          CurveTween(curve: curve),
+                        );
+
+                        return SlideTransition(
+                          position: animation.drive(tween),
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
                 }
-                print(update.primaryDelta);
-
-                /* Navigator.of(context).push(PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) {
-                    return DetalleFundo();
-                  },
-                  transitionsBuilder:
-                      (context, animation, secondaryAnimation, child) {
-                    var begin = Offset(0.0, 1.0);
-                    var end = Offset.zero;
-                    var curve = Curves.ease;
-
-                    var tween = Tween(begin: begin, end: end).chain(
-                      CurveTween(curve: curve),
-                    );
-
-                    return SlideTransition(
-                      position: animation.drive(tween),
-                      child: child,
-                    );
-                  },
-                ));
-               */
+                
               },
-              child: Container(height: responsive.hp(50), color: Colors.red),
+              child: Container(
+                height: responsive.hp(50),
+                width: double.infinity,
+                color: Colors.white.withOpacity(.01),
+              ),
             ),
           )
         ],
