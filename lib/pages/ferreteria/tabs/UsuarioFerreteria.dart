@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,132 +17,199 @@ class UsuarioFerroPage extends StatelessWidget {
       child: Column(
         children: <Widget>[
           SizedBox(height: responsive.hp(3.5)),
-          Container(
-              height: responsive.hp(45),
-              margin: EdgeInsets.symmetric(
-                horizontal: responsive.ip(1.5),
-              ),
-              padding: EdgeInsets.symmetric(
-                vertical: responsive.hp(2),
-                horizontal: responsive.wp(2),
-              ),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), 
-                  color: Colors.white
-                  //image: DecorationImage(image: NetworkImage("https://image.freepik.com/foto-gratis/cuatro-colores-amarillo-verde-rojo-azul-abstracto-fondo-carton-hojas-carton-apilan-encima-otras-copia-espacio_107288-1660.jpg"))
+          Stack(
+            children: [
+              Container(
+                height: responsive.hp(30),
+
+                width: double.infinity,
+
+                // margin: EdgeInsets.symmetric(
+
+                //   horizontal: responsive.ip(1.5),
+
+                // ),
+
+                padding: EdgeInsets.symmetric(
+                  vertical: responsive.hp(2),
+                  horizontal: responsive.wp(2),
+                ),
+
+                decoration: BoxDecoration(
+                    // borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(25),
+                      bottomRight: Radius.circular(25),
+                    ),
+
+                    //color: Colors.white
+
+                    image: DecorationImage(
+                        image: NetworkImage(
+                            "https://image.freepik.com/foto-gratis/cuatro-colores-amarillo-verde-rojo-azul-abstracto-fondo-carton-hojas-carton-apilan-encima-otras-copia-espacio_107288-1660.jpg"),
+                        fit: BoxFit.cover)),
+                child: new BackdropFilter(
+                  filter: new ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
+                  child: new Container(
+                    decoration: new BoxDecoration(
+                      color: Colors.white.withOpacity(0.1),
+                    ),
                   ),
-              child: Column(
-                children: [
-                  Container(
-                    width: responsive.ip(15),
-                    height: responsive.ip(15),
-                    
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(100),
-                      child: CachedNetworkImage(
-                        // cacheManager: CustomCacheManager(),
-                        placeholder: (context, url) => Container(
-                          width: double.infinity,
-                          height: double.infinity,
-                          child: Image(
-                              image: AssetImage('assets/no-image.png'),
-                              fit: BoxFit.cover),
-                        ),
-                        errorWidget: (context, url, error) => Container(
+                ),
+              ),
+              Positioned(
+                top: responsive.hp(3),
+                left: responsive.wp(25),
+                child: Column(
+                  children: [
+                    Container(
+                      width: responsive.ip(15),
+                      height: responsive.ip(15),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100),
+                        child: CachedNetworkImage(
+                          // cacheManager: CustomCacheManager(),
+
+                          placeholder: (context, url) => Container(
                             width: double.infinity,
                             height: double.infinity,
-                            child: Center(child: Icon(Icons.error))),
-                        imageUrl:
-                            'https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png',
-                        imageBuilder: (context, imageProvider) => Container(
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                              image: imageProvider,
-                              fit: BoxFit.cover,
+                            child: Image(
+                                image: AssetImage('assets/no-image.png'),
+                                fit: BoxFit.cover),
+                          ),
+
+                          errorWidget: (context, url, error) => Container(
+                              width: double.infinity,
+                              height: double.infinity,
+                              child: Center(child: Icon(Icons.error))),
+
+                          imageUrl:
+                              'https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png',
+
+                          imageBuilder: (context, imageProvider) => Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: imageProvider,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: responsive.hp(3)),
+                    SizedBox(height: responsive.hp(2)),
+                    Container(
+                      child: Text(
+                        "Angelo Melendez",
+                        style: TextStyle(
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                          // color: Colors.white
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+          SizedBox(height: responsive.hp(1)),
+          Card(
+            //elevation: 4,
+                      child: Container(
+              margin: EdgeInsets.symmetric(
+                  horizontal: responsive.ip(1.5), vertical: responsive.ip(0.5)),
+              width: double.infinity,
+              height: responsive.ip(15),
+              color: Colors.white,
+              child:
 
-                  Container(child: Text("Angelo Melendez", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),),
-                  SizedBox(height: responsive.hp(3)),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: responsive.wp(25),
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.blue[100],
-                              radius: responsive.wp(8),
-                              child: Icon(Icons.ad_units,color: Colors.red),
-                            ),
-                            Text(
-                              "Mis Pedidos",
-                              textAlign: TextAlign.center,
-                            )
-                          ],
-                        ),
+                  // SizedBox(height: responsive.hp(3)),
+                  Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  //crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: responsive.wp(28),
+                      child: Column(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.blue[500],
+                            radius: responsive.wp(8),
+                            child: Icon(Icons.ad_units, color: Colors.white,size: 30,),
+                          ),
+                          Text(
+                            "Mis Pedidos",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),
+                          )
+                        ],
                       ),
-                      Container(
-                        width: responsive.wp(25),
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.green[100],
-                              radius: responsive.wp(8),
-                              child: Icon(Icons.star ,color: Colors.red,),
+                    ),
+                    Container(
+                      width: responsive.wp(28),
+                      child: Column(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.green[500],
+                            radius: responsive.wp(8),
+                            child: Icon(
+                              Icons.star,
+                              color: Colors.yellow,
+                              size: 30,
                             ),
-                            Text(
-                              "Favoritos",
-                              textAlign: TextAlign.center,
-                            )
-                          ],
-                        ),
+                          ),
+                          Text(
+                            "Favoritos",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),
+                          )
+                        ],
                       ),
-                      Container(
-                        width: responsive.wp(25),
-                        
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.yellow,
-                              radius: responsive.wp(8),
-                              child: Icon(Icons.lightbulb,color: Colors.red),
-                            ),
-                            Text(
-                              "Recomendados",
-                              textAlign: TextAlign.center,
-                            )
-                          ],
-                        ),
+                    ),
+                    Container(
+                      width: responsive.wp(28),
+                      child: Column(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.yellow,
+                            radius: responsive.wp(8),
+                            child: Icon(Icons.lightbulb, color: Colors.red,size: 30,),
+                          ),
+                          Text(
+                            "Recomendados",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),
+                          )
+                        ],
                       ),
-                    ],
-                  ),
-                ],
-              )),
-         
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+
           // SizedBox(
           //   height: responsive.hp(2),
           // ),
 
-          _item(responsive, "Mi perfil", "perfil", FontAwesomeIcons.user),
+          _item(responsive, "Mi perfil", "perfil", FontAwesomeIcons.user, Colors.green),
 
           //Direccion
           _item(responsive, "Direcciones de entrega", "direccion",
-              Icons.gps_fixed),
+              Icons.gps_fixed, Colors.red),
+          
 
           _item(responsive, "Políticas de Privacidad", "direccion",
-              Icons.privacy_tip_outlined),
+              Icons.privacy_tip_outlined, Colors.blue),
 
-          _item(responsive, "Términos y Condiciones", "intro", Icons.save_alt),
+          _item(responsive, "Términos y Condiciones", "intro", Icons.save_alt, Colors.red),
 
-          _item(responsive, "Configuración", "direccion", Icons.settings),
+          _item(responsive, "Configuración", "direccion", Icons.settings, Colors.blueGrey),
 
           //SizedBox(height: responsive.hp(2)),
 
@@ -194,7 +263,7 @@ class UsuarioFerroPage extends StatelessWidget {
     ));
   }
 
-  Widget _item(Responsive responsive, nombre, ruta, IconData icon) {
+  Widget _item(Responsive responsive, nombre, ruta, IconData icon, Color color) {
     return Container(
         margin: EdgeInsets.symmetric(
             horizontal: responsive.ip(1.5), vertical: responsive.ip(0.5)),
@@ -208,7 +277,29 @@ class UsuarioFerroPage extends StatelessWidget {
                   color: Colors.blueGrey[900],
                   fontSize: responsive.ip(2),
                   fontWeight: FontWeight.bold)),
-          leading: Icon(icon, color: Colors.blueGrey[500]),
+          leading: Icon(icon, color: color),
+          trailing: Icon(Icons.arrow_right_outlined, color: Colors.green),
+          onTap: () {
+            //Navigator.pushNamed(context, ruta);
+          },
+        ));
+  }
+
+  Widget _item2(Responsive responsive, nombre, ruta, IconData icon, Color color) {
+    return Container(
+        margin: EdgeInsets.symmetric(
+            horizontal: responsive.ip(1.5), vertical: responsive.ip(0.5)),
+        width: double.infinity,
+        height: responsive.ip(8),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10), color: Colors.white),
+        child: ListTile(
+          title: Text(nombre,
+              style: TextStyle(
+                  color: Colors.blueGrey[900],
+                  fontSize: responsive.ip(2),
+                  fontWeight: FontWeight.bold)),
+          leading: Icon(icon, color: color),
           trailing: Icon(Icons.arrow_right_outlined, color: Colors.green),
           onTap: () {
             //Navigator.pushNamed(context, ruta);
