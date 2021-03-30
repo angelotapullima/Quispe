@@ -56,7 +56,9 @@ class FavoritosFerroPage extends StatelessWidget {
                                 'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
                             errorWidget: (context, url, error) => Image(
                                 image: AssetImage('assets/carga_fallida.jpg'),
-                                fit: BoxFit.cover),
+                                fit: BoxFit.cover),placeholder: (context, url) => Image(
+                image: const AssetImage('assets/jar-loading.gif'),
+                fit: BoxFit.cover),
                             imageBuilder: (context, imageProvider) => Container(
                               decoration: BoxDecoration(
                                 image: DecorationImage(

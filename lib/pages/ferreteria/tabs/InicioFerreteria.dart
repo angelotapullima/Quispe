@@ -210,7 +210,9 @@ class ProductosInicio extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                           child: CachedNetworkImage(
                             cacheManager: CustomCacheManager(),
-                            imageUrl: imagen,
+                            imageUrl: imagen,placeholder: (context, url) => Image(
+                image: const AssetImage('assets/jar-loading.gif'),
+                fit: BoxFit.cover),
                             errorWidget: (context, url, error) => Image(
                                 image: AssetImage('assets/carga_fallida.jpg'),
                                 fit: BoxFit.cover),
@@ -315,7 +317,9 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
                     'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
                 errorWidget: (context, url, error) => Image(
                     image: AssetImage('assets/carga_fallida.jpg'),
-                    fit: BoxFit.cover),
+                    fit: BoxFit.cover),placeholder: (context, url) => Image(
+                image: const AssetImage('assets/jar-loading.gif'),
+                fit: BoxFit.cover),
                 imageBuilder: (context, imageProvider) => Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -334,7 +338,9 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
                     'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
                 errorWidget: (context, url, error) => Image(
                     image: AssetImage('assets/carga_fallida.jpg'),
-                    fit: BoxFit.cover),
+                    fit: BoxFit.cover),placeholder: (context, url) => Image(
+                image: const AssetImage('assets/jar-loading.gif'),
+                fit: BoxFit.cover),
                 imageBuilder: (context, imageProvider) => Container(
                   decoration: BoxDecoration(
                       image: DecorationImage(
@@ -352,7 +358,9 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
                     'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
                 errorWidget: (context, url, error) => Image(
                     image: AssetImage('assets/carga_fallida.jpg'),
-                    fit: BoxFit.cover),
+                    fit: BoxFit.cover),placeholder: (context, url) => Image(
+                image: const AssetImage('assets/jar-loading.gif'),
+                fit: BoxFit.cover),
                 imageBuilder: (context, imageProvider) => Container(
                   decoration: BoxDecoration(
                       image: DecorationImage(

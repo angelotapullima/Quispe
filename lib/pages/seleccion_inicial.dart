@@ -18,48 +18,11 @@ class _SeleccionInicialState extends State<SeleccionInicial> {
   Widget build(BuildContext context) {
     return Scaffold(
       body:
-          /* Column(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.blue,
-            borderRadius: BorderRadius.circular(25),
-          ),
-          height: responsive.hp(40),
-          child: Center(
-            child: Image.asset(
-              'assets/quispe_logo.png',
-              height: responsive.hp(25),
-            ),
-          ),
-        ),
-        SizedBox(
-          height: responsive.hp(2),
-        ),
-        ContainerItem(responsive: responsive,color: Colors.red,titulo:'Centro Comercial'),
-        SizedBox(
-          height: responsive.hp(2),
-        ),
-        ContainerItem(responsive: responsive,color: Colors.green,titulo: 'Ferretería',),
-        SizedBox(
-          height: responsive.hp(2),
-        ),
-        ContainerItem(responsive: responsive,color: Colors.yellow[700],titulo:'Fundo'),
-      ],
-    ) */
-
+         
+         
           Stack(
         children: [
-          /*  Positioned(
-            top: responsive.hp(30),
-                      child: Container(
-            width: 400,
-            height: 400,
-            child: CustomPaint(
-              painter: OpenPainter(),
-            ),
-        ),
-          ), */
+         
 
           PageView(
             controller: _pageController,

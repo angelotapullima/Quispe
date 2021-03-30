@@ -1,22 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:quispe_ui/utils/responsive.dart';
 
-
-class Splash extends StatefulWidget {
+class SplashFundo extends StatefulWidget {
   @override
   _SplashState createState() => _SplashState();
 }
 
-class _SplashState extends State<Splash> {
+class _SplashState extends State<SplashFundo> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      Future.delayed(Duration(milliseconds: 1000), () {
-        Navigator.pushReplacementNamed(context, 'inicio'); //home
+      Future.delayed(Duration(milliseconds: 1500), () {
+       Navigator.pushReplacementNamed(context, 'homeFundo'); //home
       });
-    
-    
     });
 
     super.initState();
@@ -31,14 +29,57 @@ class _SplashState extends State<Splash> {
       ),
     );
 
-    //final responsive = Responsive.of(context);
+    final responsive = Responsive.of(context);
 
     return Scaffold(
-      body: Image.asset(
-        'assets/quispe_splash.png',
-        height: double.infinity,
-        width: double.infinity,
-        fit: BoxFit.fitWidth,
+      body: Stack(
+        children: [
+          Image.asset(
+            'assets/home2.jpg',
+            height: double.infinity,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+
+          Container(
+            width: double.infinity,
+            height: double.infinity,
+            color: Colors.black.withOpacity(.4),
+          ),
+          Center(
+            child: Image.asset(
+              'assets/fundo_logo.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+
+          
+          Positioned(
+            bottom: responsive.hp(10),
+            left: responsive.wp(4),
+            right: 0,
+            child: Text(
+              'Bienvenido',
+              style: TextStyle(
+                color: Color(0xff00b1f6),
+                fontSize: responsive.ip(5),
+                fontWeight: FontWeight.bold,
+                shadows: <Shadow>[
+                  Shadow(
+                    offset: Offset(1.0, 1.0),
+                    blurRadius: 1.0,
+                    color: Colors.white,
+                  ),
+                  Shadow(
+                    offset: Offset(1.0, 1.0),
+                    blurRadius: 2.0,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
       ),
 
       /* Stack(

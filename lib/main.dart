@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quispe_ui/bloc/provider_bloc.dart';
+import 'package:quispe_ui/pages/clipper.dart';
 import 'package:quispe_ui/pages/comercial/homeComercial.dart';
 import 'package:quispe_ui/pages/ferreteria/homeFerreteria.dart';
 import 'package:quispe_ui/pages/fundo/homeFundo.dart';
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
           routes: {
             //"login": (BuildContext context) => LoginPage(),
              "homeComercial": (BuildContext context) => HomeComercialPage(),
-             "inicio": (BuildContext context) => SeleccionInicial(),
+             "inicio2": (BuildContext context) => SeleccionInicial(),
+             "inicio": (BuildContext context) => InicioQuispe(),
             /*  "pruebas": (BuildContext context) => PuebasPage(),
               //"splash": (BuildContext context) => Splash(),*/
 

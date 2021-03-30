@@ -42,13 +42,9 @@ class UsuarioComercial extends StatelessWidget {
                       borderRadius: BorderRadius.circular(100),
                       child: CachedNetworkImage(
                         cacheManager: CustomCacheManager(),
-                        placeholder: (context, url) => Container(
-                          width: double.infinity,
-                          height: double.infinity,
-                          child: Image(
-                              image: AssetImage('assets/no-image.png'),
-                              fit: BoxFit.cover),
-                        ),
+                       placeholder: (context, url) => Image(
+                image: const AssetImage('assets/jar-loading.gif'),
+                fit: BoxFit.cover),
                         errorWidget: (context, url, error) => Container(
                             width: double.infinity,
                             height: double.infinity,

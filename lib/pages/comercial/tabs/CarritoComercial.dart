@@ -2,6 +2,7 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:quispe_ui/utils/constants.dart';
 import 'package:quispe_ui/utils/customCacheManager.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
@@ -111,10 +112,12 @@ class CarritoComercial extends StatelessWidget {
                   child: CachedNetworkImage(
                     cacheManager: CustomCacheManager(),
                     imageUrl:
-                        'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
+                        '$calzado',
                     errorWidget: (context, url, error) => Image(
                         image: AssetImage('assets/carga_fallida.jpg'),
-                        fit: BoxFit.cover),
+                        fit: BoxFit.cover),placeholder: (context, url) => Image(
+                image: const AssetImage('assets/jar-loading.gif'),
+                fit: BoxFit.cover),
                     imageBuilder: (context, imageProvider) => Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(

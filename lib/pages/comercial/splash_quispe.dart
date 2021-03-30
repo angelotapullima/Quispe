@@ -1,22 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:quispe_ui/utils/responsive.dart';
 
-
-class Splash extends StatefulWidget {
+class SplashQuispe extends StatefulWidget {
   @override
   _SplashState createState() => _SplashState();
 }
 
-class _SplashState extends State<Splash> {
+class _SplashState extends State<SplashQuispe> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      Future.delayed(Duration(milliseconds: 1000), () {
-        Navigator.pushReplacementNamed(context, 'inicio'); //home
+      Future.delayed(Duration(milliseconds: 1500), () {
+        Navigator.pushReplacementNamed(context, 'homeComercial'); //home
       });
-    
-    
     });
 
     super.initState();
@@ -31,14 +29,29 @@ class _SplashState extends State<Splash> {
       ),
     );
 
-    //final responsive = Responsive.of(context);
+    final responsive = Responsive.of(context);
 
     return Scaffold(
-      body: Image.asset(
-        'assets/quispe_splash.png',
-        height: double.infinity,
-        width: double.infinity,
-        fit: BoxFit.fitWidth,
+      body: Stack(
+        children: [
+          Image.asset(
+            'assets/quispe_splash.png',
+            height: double.infinity,
+            width: double.infinity,
+            fit: BoxFit.fitWidth,
+          ),
+          Positioned(
+            bottom: responsive.hp(10),
+            left: responsive.wp(4),
+            right: 0,
+            child: Text(
+              'Bienvenido',
+              style: TextStyle(
+                color: Colors.yellow[800],
+                  fontSize: responsive.ip(5), fontWeight: FontWeight.bold),
+            ),
+          )
+        ],
       ),
 
       /* Stack(

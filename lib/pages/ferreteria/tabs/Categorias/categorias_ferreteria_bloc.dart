@@ -18,28 +18,23 @@ class CategoriaFerreteriaBloc with ChangeNotifier {
 
   void init(TickerProvider ticker) {
     tabController = TabController(vsync: ticker, length: listCategorias.length);
-
     double offsetFrom = 0.0;
-
     double offsetTo = 0.0;
 
     for (var i = 0; i < listCategorias.length; i++) {
       final category = listCategorias[i];
-
       if (i > 0) {
         offsetFrom += listCategorias[i - 1].productos.length * heigthProduct;
       }
-
       if (i < listCategorias.length - 1) {
         offsetTo =
             offsetFrom + listCategorias[i + 1].productos.length * heigthProduct;
       } else {
         offsetTo = double.infinity;
       }
-
       tabs.add(
         CategoriaTab(
-            category: category,
+            category: category, 
             selected: (i == 0),
             offsetFrom: (heigthCategory * i) + offsetFrom,
             offsetTo: offsetTo),
@@ -73,8 +68,7 @@ class CategoriaFerreteriaBloc with ChangeNotifier {
 
     print(tabs[value].category.categoriaNombre);
     for (var i = 0; i < tabs.length; i++) {
-      final condition =
-          selected.category.categoriaNombre == tabs[i].category.categoriaNombre;
+      final condition = selected.category.categoriaNombre == tabs[i].category.categoriaNombre;
       print(condition);
       tabs[i] = tabs[i].copyWith(condition);
     }

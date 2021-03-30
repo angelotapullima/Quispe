@@ -23,7 +23,7 @@ class _HomePageState extends State<HomeFundoPage> {
           PageView(
             controller: _pageController,
             scrollDirection: Axis.horizontal,
-            children: [CanchaSintetica()],
+            children: [CanchaSintetica(), PatioDeComidad()],
             onPageChanged: (index) {
               setState(() {
                 page = index;
@@ -83,7 +83,7 @@ class CanchaSintetica extends StatelessWidget {
       child: Stack(
         children: [
           Image.asset(
-            'assets/home2.jpg',
+            'assets/welcome.jpg',
             height: double.infinity,
             width: double.infinity,
             fit: BoxFit.cover,
@@ -242,9 +242,8 @@ class CanchaSintetica extends StatelessWidget {
                 ); */
               },
               onVerticalDragUpdate: (update) {
-
-                  print(update.primaryDelta);
-                if (update.primaryDelta > -10) {
+                print(update.primaryDelta);
+                if (update.primaryDelta <10) {
                   print(update.primaryDelta);
 
                   Navigator.of(context).push(
@@ -270,7 +269,220 @@ class CanchaSintetica extends StatelessWidget {
                     ),
                   );
                 }
-                
+              },
+              child: Container(
+                height: responsive.hp(50),
+                width: double.infinity,
+                color: Colors.white.withOpacity(.01),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class PatioDeComidad extends StatelessWidget {
+  const PatioDeComidad({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final responsive = Responsive.of(context);
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      child: Stack(
+        children: [
+          Image.asset(
+            'assets/home2.jpg',
+            height: double.infinity,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+          Container(
+            color: Colors.black.withOpacity(.5),
+          ),
+          SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/fundo_logo.png',
+                      height: responsive.hp(13),
+                      fit: BoxFit.cover,
+                    ),
+                  ],
+                ),
+                Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: responsive.wp(2),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'Patio de comidas',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: responsive.ip(5),
+                          ),
+                          textAlign: TextAlign.start,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Spacer(),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: responsive.wp(4),
+                  ),
+                  child: Text(
+                    'Información',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: responsive.ip(1.8),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: responsive.hp(2),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: responsive.wp(4),
+                  ),
+                  child: Text(
+                    'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: responsive.ip(1.2),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: responsive.hp(2),
+                ),
+                Row(
+                  children: [
+                    Spacer(),
+                    Icon(FontAwesomeIcons.heart, color: Colors.white),
+                    Text(
+                      '20',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: responsive.ip(2),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      width: responsive.wp(5),
+                    ),
+                    Icon(FontAwesomeIcons.comment, color: Colors.white),
+                    Text(
+                      '20',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: responsive.ip(2),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Spacer(),
+                  ],
+                ),
+                SizedBox(height: responsive.hp(4)),
+                Container(
+                  child: Center(
+                    child: Icon(
+                      Icons.keyboard_arrow_up_outlined,
+                      color: Colors.white,
+                      size: responsive.ip(3),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: responsive.wp(4),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Deslizar hacia arriba',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: responsive.ip(1.8),
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: responsive.hp(3),
+                )
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: GestureDetector(
+              onTap: () {
+                print('puta mare');
+                /*  Navigator.of(context).push(
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) {
+                      return DetalleFundo();
+                    },
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      var begin = Offset(0.0, 1.0);
+                      var end = Offset.zero;
+                      var curve = Curves.ease;
+
+                      var tween = Tween(begin: begin, end: end).chain(
+                        CurveTween(curve: curve),
+                      );
+
+                      return SlideTransition(
+                        position: animation.drive(tween),
+                        child: child,
+                      );
+                    },
+                  ),
+                ); */
+              },
+              onVerticalDragUpdate: (update) {
+                print(update.primaryDelta);
+                if (update.primaryDelta < 10) {
+                  print(update.primaryDelta);
+
+                  Navigator.of(context).push(
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return DetalleFundo2();
+                      },
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        var begin = Offset(0.0, 1.0);
+                        var end = Offset.zero;
+                        var curve = Curves.ease;
+
+                        var tween = Tween(begin: begin, end: end).chain(
+                          CurveTween(curve: curve),
+                        );
+
+                        return SlideTransition(
+                          position: animation.drive(tween),
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                }
               },
               child: Container(
                 height: responsive.hp(50),

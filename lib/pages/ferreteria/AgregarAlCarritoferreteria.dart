@@ -75,8 +75,7 @@ class _AgregarcarritoState extends State<AgregarcarritoFerreteria>
       child: AnimatedBuilder(
           animation: _controller,
           builder: (context, child) {
-            final buttonSize =
-                (responsive.wp(30) * _animationButton1.value).clamp(
+            final buttonSize = (responsive.wp(30) * _animationButton1.value).clamp(
               responsive.ip(6),
               responsive.wp(30),
             );
