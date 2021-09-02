@@ -85,7 +85,7 @@ class MetodoEntregaPage extends StatelessWidget {
                       margin: EdgeInsets.symmetric(
                         horizontal: ScreenUtil().setWidth(24),
                       ),
-                      height: ScreenUtil().setHeight(118),
+                      height: ScreenUtil().setHeight(120),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(color: Color(0XFF8DD433), width: 2),
@@ -180,7 +180,7 @@ class MetodoEntregaPage extends StatelessWidget {
                       margin: EdgeInsets.symmetric(
                         horizontal: ScreenUtil().setWidth(24),
                       ),
-                      height: ScreenUtil().setHeight(118),
+                      height: ScreenUtil().setHeight(120),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(color: Color(0XFFC4C4C4), width: 2),
