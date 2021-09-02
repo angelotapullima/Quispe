@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:quispe_ui/bloc/provider_bloc.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class SplashQuispe extends StatefulWidget {
@@ -12,6 +13,9 @@ class _SplashState extends State<SplashQuispe> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
+
+    final buttonBloc = ProviderBloc.homeComercial(context);
+    buttonBloc.changePage(0);
       Future.delayed(Duration(milliseconds: 1500), () {
         Navigator.pushReplacementNamed(context, 'homeComercial'); //home
       });
