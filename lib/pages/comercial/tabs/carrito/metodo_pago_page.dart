@@ -571,6 +571,9 @@ class MetodoPagoPage extends StatelessWidget {
                         ],
                       ),
                     ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(100),
+                    )
                   ],
                 ),
               ),
