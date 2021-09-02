@@ -34,7 +34,7 @@ class _HomePageState extends State<HomeComercialPage> {
   @override
   Widget build(BuildContext context) {
     final bottomBloc = ProviderBloc.homeComercial(context);
-    bottomBloc.changePage(0);
+    //bottomBloc.changePage(0);
     final responsive = Responsive.of(context);
     return Scaffold(
       body: StreamBuilder(
