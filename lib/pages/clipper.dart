@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quispe_ui/pages/comercial/homeComercial.dart';
 import 'package:quispe_ui/pages/comercial/splash_quispe.dart';
 import 'package:quispe_ui/pages/ferreteria/splash_ferreteria.dart';
 import 'package:quispe_ui/pages/fundo/splash_fundo.dart';

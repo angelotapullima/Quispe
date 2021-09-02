@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:quispe_ui/pages/comercial/AgregarAlCarritoAnimacion.dart';
 import 'package:quispe_ui/utils/constants.dart';
-import 'package:quispe_ui/utils/customCacheManager.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class DetalleProductoComercial extends StatelessWidget {
@@ -106,7 +105,6 @@ class DetalleProductoComercial extends StatelessWidget {
         height: size.height * 0.50,
         child: ClipRRect(
           child: CachedNetworkImage(
-            cacheManager: CustomCacheManager(),
             placeholder: (context, url) => Image(
                 image: const AssetImage('assets/jar-loading.gif'),
                 fit: BoxFit.cover),

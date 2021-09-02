@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quispe_ui/pages/comercial/detalle_producto_comercial.dart';
 import 'package:quispe_ui/utils/constants.dart';
-import 'package:quispe_ui/utils/customCacheManager.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class InicioComercial extends StatelessWidget {
@@ -214,7 +213,6 @@ class ProductosInicio extends StatelessWidget {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: CachedNetworkImage(
-                            cacheManager: CustomCacheManager(),
                             imageUrl: imagen,placeholder: (context, url) => Image(
                 image: const AssetImage('assets/jar-loading.gif'),
                 fit: BoxFit.cover),
@@ -317,7 +315,6 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: CachedNetworkImage(
-                cacheManager: CustomCacheManager(),
                 imageUrl:
                     'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
                 errorWidget: (context, url, error) => Image(
@@ -338,7 +335,6 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: CachedNetworkImage(
-                cacheManager: CustomCacheManager(),
                 imageUrl:
                     'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
                 errorWidget: (context, url, error) => Image(
@@ -358,7 +354,6 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: CachedNetworkImage(
-                cacheManager: CustomCacheManager(),
                 imageUrl:
                     'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
                 errorWidget: (context, url, error) => Image(

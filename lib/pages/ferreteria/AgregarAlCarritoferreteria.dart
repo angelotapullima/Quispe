@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:quispe_ui/bloc/provider_bloc.dart';
-import 'package:quispe_ui/utils/customCacheManager.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class AgregarcarritoFerreteria extends StatefulWidget {
@@ -240,8 +239,7 @@ class _AgregarcarritoState extends State<AgregarcarritoFerreteria>
                                   height: responsive.ip(8),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(100),
-                                    child: CachedNetworkImage(
-                                      cacheManager: CustomCacheManager(),
+                                    child: CachedNetworkImage( 
                                       placeholder: (context, url) => Image(
                                           image: AssetImage(
                                               'assets/jar-loading.gif'),
@@ -412,7 +410,6 @@ class _AgregarcarritoState extends State<AgregarcarritoFerreteria>
                           children: [
                             Container(
                               child: CachedNetworkImage(
-                                cacheManager: CustomCacheManager(),
                                 placeholder: (context, url) => Image(
                                     image: AssetImage('assets/jar-loading.gif'),
                                     fit: BoxFit.cover),

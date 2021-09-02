@@ -3,7 +3,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:quispe_ui/utils/customCacheManager.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 
@@ -41,7 +40,6 @@ class UsuarioComercial extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(100),
                       child: CachedNetworkImage(
-                        cacheManager: CustomCacheManager(),
                        placeholder: (context, url) => Image(
                 image: const AssetImage('assets/jar-loading.gif'),
                 fit: BoxFit.cover),

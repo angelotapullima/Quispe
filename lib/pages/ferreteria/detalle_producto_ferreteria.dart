@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'package:quispe_ui/pages/ferreteria/AgregarAlCarritoferreteria.dart';
 import 'package:quispe_ui/utils/constants.dart';
-import 'package:quispe_ui/utils/customCacheManager.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class DetalleProductoFerreteria extends StatelessWidget {
@@ -107,7 +106,6 @@ class DetalleProductoFerreteria extends StatelessWidget {
         height: size.height * 0.50,
         child: ClipRRect(
           child: CachedNetworkImage(
-            cacheManager: CustomCacheManager(),
             placeholder: (context, url) => Image(
                 image: const AssetImage('assets/jar-loading.gif'),
                 fit: BoxFit.cover),
