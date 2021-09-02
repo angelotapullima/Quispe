@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quispe_ui/Models/Comercial/categorias.dart';
 import 'package:quispe_ui/pages/comercial/detalle_producto_comercial.dart';
 import 'package:quispe_ui/utils/constants.dart';
 import 'package:quispe_ui/utils/responsive.dart';
@@ -26,7 +27,7 @@ class InicioComercial extends StatelessWidget {
               height: responsive.hp(5),
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 10,
+                itemCount:categoryList.length,
                 itemBuilder: (_, index) {
                   return Container(
                     margin: EdgeInsetsDirectional.only(
@@ -52,7 +53,7 @@ class InicioComercial extends StatelessWidget {
                         SizedBox(
                           width: responsive.wp(1),
                         ),
-                        Text('Categoría'),
+                        Text('${categoryList[index].nombre}'),
                         SizedBox(
                           width: responsive.wp(1),
                         ),

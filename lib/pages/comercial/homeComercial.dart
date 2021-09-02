@@ -7,6 +7,7 @@ import 'package:quispe_ui/pages/comercial/tabs/Categorias/CategoriasComercial.da
 import 'package:quispe_ui/pages/comercial/tabs/FavoritosComercial.dart';
 import 'package:quispe_ui/pages/comercial/tabs/InicioComercial.dart';
 import 'package:quispe_ui/pages/comercial/tabs/categorias2.dart';
+import 'package:quispe_ui/pages/comercial/tabs/detail_categoria.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class HomeComercialPage extends StatefulWidget {
@@ -25,6 +26,7 @@ class _HomePageState extends State<HomeComercialPage> {
     listPages.add(Categorias2());
     listPages.add(FavoritosComercial());
     listPages.add(CarritoComercial());
+    listPages.add(DetailCategory());
 
     super.initState();
   }
@@ -115,7 +117,7 @@ class _HomePageState extends State<HomeComercialPage> {
                                Container(
                                  height: ScreenUtil().setHeight(28),
                                   width: ScreenUtil().setWidth(28),
-                                  child: (bottomBloc.page == 1)
+                                  child: (bottomBloc.page == 1|| bottomBloc.page == 4)
                                       ? SvgPicture.asset(
                                           'assets/svg/search_b.svg',
                                         )
@@ -128,7 +130,7 @@ class _HomePageState extends State<HomeComercialPage> {
                                 ),
                                 CircleAvatar(
                                   radius: ScreenUtil().setSp(3),
-                                  backgroundColor: (bottomBloc.page == 1) ? Colors.blue : Colors.transparent,
+                                  backgroundColor: (bottomBloc.page == 1 || bottomBloc.page == 4) ? Colors.blue : Colors.transparent,
                                 )
                               ],
                             ),
