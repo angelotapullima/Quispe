@@ -320,8 +320,8 @@ class _AgregarcarritoState extends State<Agregarcarrito>
                                 final buttonBloc =
                                     ProviderBloc.homeComercial(context);
                                 buttonBloc.changePage(3);
-                                Navigator.pop(context);
-                                Navigator.pop(context);
+                                
+                                Navigator.pushReplacementNamed(context, 'homeComercial');
                               },
                               child: Container(
                                 margin: EdgeInsets.symmetric(
