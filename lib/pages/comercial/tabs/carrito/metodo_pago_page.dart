@@ -287,6 +287,191 @@ class MetodoPagoPage extends StatelessWidget {
                       height: ScreenUtil().setHeight(10),
                     ),
                     Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: ScreenUtil().setWidth(24),
+                      ),
+                      child: Text(
+                        'Comprobante de pago',
+                        style: TextStyle(
+                          fontSize: ScreenUtil().setSp(18),
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: ScreenUtil().setSp(0.016),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(8),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: ScreenUtil().setWidth(24),
+                      ),
+                      child: Text(
+                        'Seleccione un tipo de comprobante',
+                        style: TextStyle(
+                          color: Color(0XFF808080),
+                          fontSize: ScreenUtil().setSp(16),
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: ScreenUtil().setSp(0.016),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(10),
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                        horizontal: ScreenUtil().setWidth(24),
+                      ),
+                      height: ScreenUtil().setHeight(53),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: Color(0XFF8DD433), width: 2),
+                      ),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: ScreenUtil().setWidth(16),
+                          ),
+                          Text(
+                            'Boleta',
+                            style: TextStyle(
+                              fontSize: ScreenUtil().setSp(16),
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: ScreenUtil().setSp(0.016),
+                            ),
+                          ),
+                          Spacer(),
+                          Container(
+                            child: SvgPicture.asset(
+                              'assets/carrito/selectOption.svg',
+                              fit: BoxFit.cover,
+                              height: ScreenUtil().setHeight(30),
+                            ),
+                          ),
+                          SizedBox(
+                            width: ScreenUtil().setWidth(16),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(16),
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                        horizontal: ScreenUtil().setWidth(24),
+                      ),
+                      height: ScreenUtil().setHeight(53),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: Color(0XFFC4C4C4), width: 2),
+                      ),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: ScreenUtil().setWidth(16),
+                          ),
+                          Text(
+                            'Factura',
+                            style: TextStyle(
+                              color: Color(0XFFC4C4C4),
+                              fontSize: ScreenUtil().setSp(16),
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: ScreenUtil().setSp(0.016),
+                            ),
+                          ),
+                          Spacer(),
+                          Container(
+                            child: SvgPicture.asset(
+                              'assets/carrito/unSelect.svg',
+                              fit: BoxFit.cover,
+                              height: ScreenUtil().setHeight(30),
+                            ),
+                          ),
+                          SizedBox(
+                            width: ScreenUtil().setWidth(16),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(10),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(24)),
+                      child: Divider(
+                        thickness: 1,
+                        color: Color(0XFFC4C4C4),
+                      ),
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(10),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: ScreenUtil().setWidth(24),
+                      ),
+                      child: Text(
+                        'Dirección de entrega',
+                        style: TextStyle(
+                          fontSize: ScreenUtil().setSp(18),
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: ScreenUtil().setSp(0.016),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(8),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: ScreenUtil().setWidth(24),
+                      ),
+                      child: Text(
+                        'Tu orden se enviará a esta dirección',
+                        style: TextStyle(
+                          color: Color(0XFF808080),
+                          fontSize: ScreenUtil().setSp(16),
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: ScreenUtil().setSp(0.016),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(20),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(24)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Domicilio: Ricardo Palma N° 132'),
+                          SizedBox(
+                            height: ScreenUtil().setHeight(8),
+                          ),
+                          Text('Distrito: Iquitos'),
+                          SizedBox(
+                            height: ScreenUtil().setHeight(8),
+                          ),
+                          Text('Teléfono: 912 456 789'),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(10),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(24)),
+                      child: Divider(
+                        thickness: 1,
+                        color: Color(0XFFC4C4C4),
+                      ),
+                    ),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(10),
+                    ),
+                    Padding(
                       padding: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(24)),
                       child: Column(
                         children: [
