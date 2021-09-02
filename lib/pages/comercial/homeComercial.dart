@@ -63,7 +63,6 @@ class _HomePageState extends State<HomeComercialPage> {
                       height: kBottomNavigationBarHeight + responsive.hp(2),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey.withOpacity(0.5),
@@ -112,8 +111,8 @@ class _HomePageState extends State<HomeComercialPage> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                               Container(
-                                 height: ScreenUtil().setHeight(28),
+                                Container(
+                                  height: ScreenUtil().setHeight(28),
                                   width: ScreenUtil().setWidth(28),
                                   child: (bottomBloc.page == 1)
                                       ? SvgPicture.asset(
@@ -173,10 +172,10 @@ class _HomePageState extends State<HomeComercialPage> {
                                   width: ScreenUtil().setWidth(28),
                                   child: (bottomBloc.page == 3)
                                       ? SvgPicture.asset(
-                                          'assets/svg/car_b.svg',
+                                          'assets/svg/shopping2.svg',
                                         )
                                       : SvgPicture.asset(
-                                          'assets/svg/car_g.svg',
+                                          'assets/svg/shopping.svg',
                                         ), //Imagsset('assets/logo_largo.svg'),
                                 ),
                                 SizedBox(
