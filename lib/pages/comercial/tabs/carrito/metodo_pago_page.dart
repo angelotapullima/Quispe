@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:quispe_ui/pages/comercial/tabs/carrito/metodo_pago_page.dart';
 
-class MetodoEntregaPage extends StatelessWidget {
-  const MetodoEntregaPage({Key key}) : super(key: key);
+class MetodoPagoPage extends StatelessWidget {
+  const MetodoPagoPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +38,7 @@ class MetodoEntregaPage extends StatelessWidget {
                     Center(
                       child: Container(
                         child: SvgPicture.asset(
-                          'assets/carrito/entregaStep.svg',
+                          'assets/carrito/pagoStep.svg',
                           fit: BoxFit.cover,
                           height: ScreenUtil().setHeight(30),
                         ),
@@ -53,7 +52,7 @@ class MetodoEntregaPage extends StatelessWidget {
                         horizontal: ScreenUtil().setWidth(24),
                       ),
                       child: Text(
-                        'Método de entrega',
+                        'Método de pago',
                         style: TextStyle(
                           fontSize: ScreenUtil().setSp(18),
                           fontWeight: FontWeight.w700,
@@ -69,7 +68,7 @@ class MetodoEntregaPage extends StatelessWidget {
                         horizontal: ScreenUtil().setWidth(24),
                       ),
                       child: Text(
-                        'Seleccione una opción',
+                        'Seleccione un método de pago',
                         style: TextStyle(
                           color: Color(0XFF808080),
                           fontSize: ScreenUtil().setSp(16),
@@ -85,20 +84,20 @@ class MetodoEntregaPage extends StatelessWidget {
                       margin: EdgeInsets.symmetric(
                         horizontal: ScreenUtil().setWidth(24),
                       ),
-                      height: ScreenUtil().setHeight(118),
+                      height: ScreenUtil().setHeight(164),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(color: Color(0XFF8DD433), width: 2),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.all(8),
+                        padding: EdgeInsets.all(16),
                         child: Row(
                           children: [
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Dirección principal',
+                                  'Tarjeta principal',
                                   style: TextStyle(
                                     color: Color(0XFF8DD433),
                                     fontSize: ScreenUtil().setSp(16),
@@ -110,7 +109,7 @@ class MetodoEntregaPage extends StatelessWidget {
                                   height: ScreenUtil().setHeight(8),
                                 ),
                                 Text(
-                                  'Domicilio: Ricardo Palma N° 132',
+                                  '4551 **** **** 9075',
                                   style: TextStyle(
                                     fontSize: ScreenUtil().setSp(14),
                                     fontWeight: FontWeight.w400,
@@ -120,33 +119,45 @@ class MetodoEntregaPage extends StatelessWidget {
                                 SizedBox(
                                   height: ScreenUtil().setHeight(8),
                                 ),
-                                Text(
-                                  'Distrito: Iquitos',
-                                  style: TextStyle(
-                                    fontSize: ScreenUtil().setSp(14),
-                                    fontWeight: FontWeight.w400,
-                                    letterSpacing: ScreenUtil().setSp(0.016),
+                                Container(
+                                  height: ScreenUtil().setHeight(21),
+                                  width: ScreenUtil().setWidth(69),
+                                  child: Column(
+                                    children: [
+                                      Center(
+                                        child: Text(
+                                          'CVV',
+                                          style: TextStyle(
+                                            color: Color(0XFF808080),
+                                            fontSize: ScreenUtil().setSp(16),
+                                            fontWeight: FontWeight.w400,
+                                            letterSpacing: ScreenUtil().setSp(0.016),
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: ScreenUtil().setHeight(1),
+                                        width: ScreenUtil().setWidth(69),
+                                        color: Color(0XFFC4C4C4),
+                                      )
+                                    ],
                                   ),
                                 ),
-                                SizedBox(
-                                  height: ScreenUtil().setHeight(8),
-                                ),
-                                Text(
-                                  'Teléfono: 912 456 789',
-                                  style: TextStyle(
-                                    fontSize: ScreenUtil().setSp(14),
-                                    fontWeight: FontWeight.w400,
-                                    letterSpacing: ScreenUtil().setSp(0.016),
+                                Spacer(),
+                                Container(
+                                  child: Image.asset(
+                                    'assets/carrito/visa.png',
+                                    fit: BoxFit.cover,
+                                    height: ScreenUtil().setHeight(30),
+                                    width: ScreenUtil().setWidth(54),
                                   ),
-                                ),
+                                )
                               ],
                             ),
                             Spacer(),
                             Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                SizedBox(
-                                  height: ScreenUtil().setHeight(8),
-                                ),
                                 Container(
                                   child: SvgPicture.asset(
                                     'assets/carrito/selectOption.svg',
@@ -156,16 +167,13 @@ class MetodoEntregaPage extends StatelessWidget {
                                 ),
                                 Spacer(),
                                 Text(
-                                  'Editar',
+                                  'Eliminar',
                                   style: TextStyle(
                                     color: Color(0XFF8DD433),
                                     fontSize: ScreenUtil().setSp(16),
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: ScreenUtil().setSp(0.016),
                                   ),
-                                ),
-                                SizedBox(
-                                  height: ScreenUtil().setHeight(8),
                                 ),
                               ],
                             ),
@@ -180,7 +188,7 @@ class MetodoEntregaPage extends StatelessWidget {
                       margin: EdgeInsets.symmetric(
                         horizontal: ScreenUtil().setWidth(24),
                       ),
-                      height: ScreenUtil().setHeight(118),
+                      height: ScreenUtil().setHeight(57),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(color: Color(0XFFC4C4C4), width: 2),
@@ -189,70 +197,39 @@ class MetodoEntregaPage extends StatelessWidget {
                         padding: EdgeInsets.all(8),
                         child: Row(
                           children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Recoger en tienda',
-                                  style: TextStyle(
-                                    color: Color(0XFF808080),
-                                    fontSize: ScreenUtil().setSp(16),
-                                    fontWeight: FontWeight.w600,
-                                    letterSpacing: ScreenUtil().setSp(0.016),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: ScreenUtil().setHeight(8),
-                                ),
-                                Text(
-                                  'Domicilio: Jirón Próspero N° 935',
-                                  style: TextStyle(
-                                    color: Color(0XFF808080),
-                                    fontSize: ScreenUtil().setSp(14),
-                                    fontWeight: FontWeight.w400,
-                                    letterSpacing: ScreenUtil().setSp(0.016),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: ScreenUtil().setHeight(8),
-                                ),
-                                Text(
-                                  'Distrito: Iquitos',
-                                  style: TextStyle(
-                                    color: Color(0XFF808080),
-                                    fontSize: ScreenUtil().setSp(14),
-                                    fontWeight: FontWeight.w400,
-                                    letterSpacing: ScreenUtil().setSp(0.016),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: ScreenUtil().setHeight(8),
-                                ),
-                                Text(
-                                  'Teléfono: 065 22 55 66',
-                                  style: TextStyle(
-                                    color: Color(0XFF808080),
-                                    fontSize: ScreenUtil().setSp(14),
-                                    fontWeight: FontWeight.w400,
-                                    letterSpacing: ScreenUtil().setSp(0.016),
-                                  ),
-                                ),
-                              ],
+                            SizedBox(
+                              width: ScreenUtil().setWidth(8),
+                            ),
+                            Container(
+                              child: Image.asset(
+                                'assets/carrito/master.png',
+                                fit: BoxFit.cover,
+                                height: ScreenUtil().setHeight(30),
+                                width: ScreenUtil().setWidth(54),
+                              ),
+                            ),
+                            SizedBox(
+                              width: ScreenUtil().setWidth(8),
+                            ),
+                            Text(
+                              '5278 **** **** 2147',
+                              style: TextStyle(
+                                color: Color(0XFF808080),
+                                fontSize: ScreenUtil().setSp(14),
+                                fontWeight: FontWeight.w400,
+                                letterSpacing: ScreenUtil().setSp(0.016),
+                              ),
                             ),
                             Spacer(),
-                            Column(
-                              children: [
-                                SizedBox(
-                                  height: ScreenUtil().setHeight(8),
-                                ),
-                                Container(
-                                  child: SvgPicture.asset(
-                                    'assets/carrito/unSelect.svg',
-                                    fit: BoxFit.cover,
-                                    height: ScreenUtil().setHeight(30),
-                                  ),
-                                ),
-                              ],
+                            Container(
+                              child: SvgPicture.asset(
+                                'assets/carrito/unSelect.svg',
+                                fit: BoxFit.cover,
+                                height: ScreenUtil().setHeight(30),
+                              ),
+                            ),
+                            SizedBox(
+                              width: ScreenUtil().setWidth(8),
                             ),
                           ],
                         ),
@@ -276,7 +253,7 @@ class MetodoEntregaPage extends StatelessWidget {
                             width: ScreenUtil().setWidth(16),
                           ),
                           Text(
-                            'AGREGAR NUEVA DIRECCIÓN ',
+                            'AGREGAR NUEVA TARJETA ',
                             style: TextStyle(
                               color: Color(0XFF2186D0),
                               fontSize: ScreenUtil().setSp(16),
@@ -286,9 +263,9 @@ class MetodoEntregaPage extends StatelessWidget {
                           ),
                           Spacer(),
                           Icon(
-                            FontAwesomeIcons.plus,
+                            FontAwesomeIcons.creditCard,
                             color: Color(0XFF2186D0),
-                            size: ScreenUtil().setSp(14),
+                            size: ScreenUtil().setSp(16),
                           ),
                           SizedBox(
                             width: ScreenUtil().setWidth(16),
@@ -409,9 +386,6 @@ class MetodoEntregaPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: ScreenUtil().setHeight(100),
-                    )
                   ],
                 ),
               ),
@@ -425,14 +399,6 @@ class MetodoEntregaPage extends StatelessWidget {
               height: ScreenUtil().setHeight(80),
               decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.25),
-                    spreadRadius: 0.5,
-                    blurRadius: 3,
-                    offset: Offset(0, -1),
-                  ),
-                ],
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(8),
                   topRight: Radius.circular(8),
@@ -440,21 +406,21 @@ class MetodoEntregaPage extends StatelessWidget {
               ),
               child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    PageRouteBuilder(
-                      transitionDuration: const Duration(milliseconds: 700),
-                      pageBuilder: (context, animation, secondaryAnimation) {
-                        return MetodoPagoPage();
-                      },
-                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                        return FadeTransition(
-                          opacity: animation,
-                          child: child,
-                        );
-                      },
-                    ),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   PageRouteBuilder(
+                  //     transitionDuration: const Duration(milliseconds: 700),
+                  //     pageBuilder: (context, animation, secondaryAnimation) {
+                  //       return MetodoPagoPage();
+                  //     },
+                  //     transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                  //       return FadeTransition(
+                  //         opacity: animation,
+                  //         child: child,
+                  //       );
+                  //     },
+                  //   ),
+                  // );
                 },
                 child: Container(
                   height: ScreenUtil().setHeight(40),
