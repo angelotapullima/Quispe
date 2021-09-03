@@ -61,8 +61,9 @@ class _HomePageState extends State<HomeComercialPage> {
                         left: responsive.wp(3),
                         right: responsive.wp(3),
                         bottom: responsive.hp(1.5),
+                        top: responsive.hp(1),
                       ),
-                      height: kBottomNavigationBarHeight + responsive.hp(2),
+                      height: kBottomNavigationBarHeight + responsive.hp(3),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         boxShadow: [
@@ -86,8 +87,8 @@ class _HomePageState extends State<HomeComercialPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
-                                  height: ScreenUtil().setHeight(28),
-                                  width: ScreenUtil().setWidth(28),
+                                  height: ScreenUtil().setHeight(23),
+                                  width: ScreenUtil().setWidth(23),
                                   child: (bottomBloc.page == 0)
                                       ? SvgPicture.asset(
                                           'assets/svg/home_b.svg',
@@ -114,8 +115,8 @@ class _HomePageState extends State<HomeComercialPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
-                                  height: ScreenUtil().setHeight(28),
-                                  width: ScreenUtil().setWidth(28),
+                                  height: ScreenUtil().setHeight(23),
+                                  width: ScreenUtil().setWidth(23),
                                   child: (bottomBloc.page == 1|| bottomBloc.page == 4)
                                       ? SvgPicture.asset(
                                           'assets/svg/search_b.svg',
@@ -142,8 +143,8 @@ class _HomePageState extends State<HomeComercialPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
-                                  height: ScreenUtil().setHeight(28),
-                                  width: ScreenUtil().setWidth(28),
+                                  height: ScreenUtil().setHeight(23),
+                                  width: ScreenUtil().setWidth(23),
                                   child: (bottomBloc.page == 2)
                                       ? SvgPicture.asset(
                                           'assets/svg/heart_b.svg',
@@ -170,8 +171,8 @@ class _HomePageState extends State<HomeComercialPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
-                                  height: ScreenUtil().setHeight(28),
-                                  width: ScreenUtil().setWidth(28),
+                                  height: ScreenUtil().setHeight(23),
+                                  width: ScreenUtil().setWidth(23),
                                   child: (bottomBloc.page == 3)
                                       ? SvgPicture.asset(
                                           'assets/svg/shopping2.svg',

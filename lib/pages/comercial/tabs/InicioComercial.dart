@@ -187,7 +187,7 @@ class ProductosInicio extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          height: alturaCard - ScreenUtil().setHeight(90),
+                          height: alturaCard - ScreenUtil().setHeight(110),
                           child: Stack(
                             children: [
                               ClipRRect(

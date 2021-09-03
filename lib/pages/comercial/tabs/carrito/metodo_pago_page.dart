@@ -134,7 +134,7 @@ class MetodoPagoPage extends StatelessWidget {
                                     height: ScreenUtil().setHeight(8),
                                   ),
                                   Container(
-                                    height: ScreenUtil().setHeight(21),
+                                    height: ScreenUtil().setHeight(23),
                                     width: ScreenUtil().setWidth(69),
                                     child: Column(
                                       children: [

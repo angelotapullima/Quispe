@@ -375,14 +375,18 @@ class _AgregarcarritoState extends State<Agregarcarrito>
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
+            topLeft: (_animationButton1.value == 1)
+                ? Radius.circular(30)
+                : Radius.circular(100),
+            topRight:(_animationButton1.value == 1)
+                ? Radius.circular(30)
+                : Radius.circular(100),
             bottomLeft: (_animationButton1.value == 1)
                 ? Radius.circular(0)
-                : Radius.circular(30),
+                : Radius.circular(100),
             bottomRight: (_animationButton1.value == 1)
                 ? Radius.circular(0)
-                : Radius.circular(30),
+                : Radius.circular(100),
           ),
         ),
         child: (_animationButton1.value == 1)

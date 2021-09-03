@@ -65,14 +65,17 @@ class _Categorias2State extends State<Categorias2> {
                     ),
                     child: Row(
                       children: [
+                        SizedBox(width: ScreenUtil().setWidth(8),),
                         Icon(
                           Icons.search,
                           color: Colors.grey[400],
+                          size: ScreenUtil().setSp(22),
                         ),
                         Text(
                           'Buscar productos',
                           style: TextStyle(
                             color: Colors.grey[500],
+                            fontSize: ScreenUtil().setSp(16),
                           ),
                         )
                       ],
@@ -177,7 +180,7 @@ class _Categorias2State extends State<Categorias2> {
                                           padding: EdgeInsets.symmetric(
                                             horizontal: ScreenUtil().setWidth(16),
                                           ),
-                                          child: Text('${categoryList[index].nombre}'),
+                                          child: Text('${categoryList[index].nombre}',style: TextStyle(fontSize: ScreenUtil().setSp(16),),),
                                         ),
                                         Divider(),
                                       ],
