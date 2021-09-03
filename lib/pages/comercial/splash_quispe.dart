@@ -13,9 +13,8 @@ class _SplashState extends State<SplashQuispe> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-
-    final buttonBloc = ProviderBloc.homeComercial(context);
-    buttonBloc.changePage(0);
+      final buttonBloc = ProviderBloc.homeComercial(context);
+      buttonBloc.changePage(0);
       Future.delayed(Duration(milliseconds: 1500), () {
         Navigator.pushReplacementNamed(context, 'homeComercial'); //home
       });
@@ -50,9 +49,7 @@ class _SplashState extends State<SplashQuispe> {
             right: 0,
             child: Text(
               'Bienvenido',
-              style: TextStyle(
-                color: Colors.yellow[800],
-                  fontSize: responsive.ip(5), fontWeight: FontWeight.bold),
+              style: TextStyle(color: Colors.yellow[800], fontSize: responsive.ip(5), fontWeight: FontWeight.bold),
             ),
           )
         ],
