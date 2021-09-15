@@ -2,10 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quispe_ui/pages/comercial/tabs/carrito/metodo_pago_page.dart';
 
-class MetodoEntregaPage extends StatelessWidget {
+class MetodoEntregaPage extends StatefulWidget {
   const MetodoEntregaPage({Key key}) : super(key: key);
+
+  @override
+  _MetodoEntregaPageState createState() => _MetodoEntregaPageState();
+}
+
+class _MetodoEntregaPageState extends State<MetodoEntregaPage> {
+  final TextEditingController direccion = TextEditingController();
+  final TextEditingController telefono = TextEditingController();
+  final TextEditingController distrito = TextEditingController();
+  @override
+  void initState() {
+    direccion.text = 'Ricardo Palma N° 132';
+    telefono.text = '912 456 789';
+    distrito.text = 'Iquitos';
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,20 +110,20 @@ class MetodoEntregaPage extends StatelessWidget {
                         margin: EdgeInsets.symmetric(
                           horizontal: ScreenUtil().setWidth(24),
                         ),
-                        height: ScreenUtil().setHeight(120),
+                        //height: ScreenUtil().setHeight(120),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(color: Color(0XFF8DD433), width: 2),
                         ),
                         child: Padding(
                           padding: EdgeInsets.all(8),
-                          child: Row(
+                          child: Stack(
                             children: [
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Dirección principal',
+                                    'Dirección de envío',
                                     style: TextStyle(
                                       color: Color(0XFF8DD433),
                                       fontSize: ScreenUtil().setSp(16),
@@ -115,68 +132,129 @@ class MetodoEntregaPage extends StatelessWidget {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: ScreenUtil().setHeight(8),
-                                  ),
-                                  Text(
-                                    'Domicilio: Ricardo Palma N° 132',
-                                    style: TextStyle(
-                                      fontSize: ScreenUtil().setSp(14),
-                                      fontWeight: FontWeight.w400,
-                                      letterSpacing: ScreenUtil().setSp(0.016),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: ScreenUtil().setHeight(8),
-                                  ),
-                                  Text(
-                                    'Distrito: Iquitos',
-                                    style: TextStyle(
-                                      fontSize: ScreenUtil().setSp(14),
-                                      fontWeight: FontWeight.w400,
-                                      letterSpacing: ScreenUtil().setSp(0.016),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: ScreenUtil().setHeight(8),
-                                  ),
-                                  Text(
-                                    'Teléfono: 912 456 789',
-                                    style: TextStyle(
-                                      fontSize: ScreenUtil().setSp(14),
-                                      fontWeight: FontWeight.w400,
-                                      letterSpacing: ScreenUtil().setSp(0.016),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Spacer(),
-                              Column(
-                                children: [
-                                  SizedBox(
-                                    height: ScreenUtil().setHeight(8),
+                                    height: ScreenUtil().setHeight(24),
                                   ),
                                   Container(
-                                    child: SvgPicture.asset(
-                                      'assets/carrito/selectOption.svg',
-                                      fit: BoxFit.cover,
-                                      height: ScreenUtil().setHeight(30),
+                                    height: ScreenUtil().setHeight(35),
+                                    child: TextField(
+                                      controller: direccion,
+                                      maxLines: 1,
+                                      keyboardType: TextInputType.text,
+                                      decoration: InputDecoration(
+                                        prefixStyle: TextStyle(
+                                          fontSize: ScreenUtil().setSp(14),
+                                          fontWeight: FontWeight.w400,
+                                          letterSpacing: ScreenUtil().setSp(0.016),
+                                        ),
+                                        prefixText: 'Domicilio: ',
+                                        suffixIcon: Icon(
+                                          Icons.keyboard,
+                                          color: Color(0XFFD1D1D1),
+                                        ),
+                                        hintText: 'Ricardo Palma N° 132',
+                                        hintStyle: GoogleFonts.poppins(
+                                            fontSize: ScreenUtil().setSp(14),
+                                            fontWeight: FontWeight.w400,
+                                            letterSpacing: ScreenUtil().setSp(0.016),
+                                            fontStyle: FontStyle.normal),
+                                        enabledBorder: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                        border: InputBorder.none,
+                                      ),
+                                      style: GoogleFonts.poppins(
+                                        fontSize: ScreenUtil().setSp(14),
+                                        fontWeight: FontWeight.w400,
+                                        letterSpacing: ScreenUtil().setSp(0.016),
+                                      ),
                                     ),
                                   ),
-                                  Spacer(),
-                                  Text(
-                                    'Editar',
-                                    style: TextStyle(
-                                      color: Color(0XFF8DD433),
-                                      fontSize: ScreenUtil().setSp(16),
-                                      fontWeight: FontWeight.w400,
-                                      letterSpacing: ScreenUtil().setSp(0.016),
+                                  Container(
+                                    height: ScreenUtil().setHeight(35),
+                                    child: TextField(
+                                      controller: distrito,
+                                      maxLines: 1,
+                                      keyboardType: TextInputType.text,
+                                      decoration: InputDecoration(
+                                        prefixStyle: TextStyle(
+                                          fontSize: ScreenUtil().setSp(14),
+                                          fontWeight: FontWeight.w400,
+                                          letterSpacing: ScreenUtil().setSp(0.016),
+                                        ),
+                                        prefixText: 'Distrito: ',
+                                        suffixIcon: Icon(
+                                          Icons.keyboard,
+                                          color: Color(0XFFD1D1D1),
+                                        ),
+                                        hintText: 'Iquitos',
+                                        hintStyle: GoogleFonts.poppins(
+                                            fontSize: ScreenUtil().setSp(14),
+                                            fontWeight: FontWeight.w400,
+                                            letterSpacing: ScreenUtil().setSp(0.016),
+                                            fontStyle: FontStyle.normal),
+                                        enabledBorder: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                        border: InputBorder.none,
+                                      ),
+                                      style: GoogleFonts.poppins(
+                                        fontSize: ScreenUtil().setSp(14),
+                                        fontWeight: FontWeight.w400,
+                                        letterSpacing: ScreenUtil().setSp(0.016),
+                                      ),
                                     ),
                                   ),
-                                  SizedBox(
-                                    height: ScreenUtil().setHeight(8),
+                                  Container(
+                                    height: ScreenUtil().setHeight(35),
+                                    child: TextField(
+                                      controller: telefono,
+                                      maxLines: 1,
+                                      keyboardType: TextInputType.text,
+                                      decoration: InputDecoration(
+                                        prefixStyle: TextStyle(
+                                          fontSize: ScreenUtil().setSp(14),
+                                          fontWeight: FontWeight.w400,
+                                          letterSpacing: ScreenUtil().setSp(0.016),
+                                        ),
+                                        prefixText: 'Teléfono: ',
+                                        suffixIcon: Icon(
+                                          Icons.keyboard,
+                                          color: Color(0XFFD1D1D1),
+                                        ),
+                                        hintText: ' 912 456 789',
+                                        hintStyle: GoogleFonts.poppins(
+                                            fontSize: ScreenUtil().setSp(14),
+                                            fontWeight: FontWeight.w400,
+                                            letterSpacing: ScreenUtil().setSp(0.016),
+                                            fontStyle: FontStyle.normal),
+                                        enabledBorder: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                        border: InputBorder.none,
+                                      ),
+                                      style: GoogleFonts.poppins(
+                                        fontSize: ScreenUtil().setSp(14),
+                                        fontWeight: FontWeight.w400,
+                                        letterSpacing: ScreenUtil().setSp(0.016),
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
+                              Align(
+                                alignment: Alignment.centerRight,
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: ScreenUtil().setHeight(8),
+                                    ),
+                                    Container(
+                                      child: SvgPicture.asset(
+                                        'assets/carrito/selectOption.svg',
+                                        fit: BoxFit.cover,
+                                        height: ScreenUtil().setHeight(30),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
                             ],
                           ),
                         ),
@@ -372,7 +450,7 @@ class MetodoEntregaPage extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  'Consto de envío',
+                                  'Costo de envío',
                                   style: TextStyle(
                                     fontSize: ScreenUtil().setSp(16),
                                     fontWeight: FontWeight.w500,

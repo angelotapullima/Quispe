@@ -216,7 +216,7 @@ class MetodoPagoPage extends StatelessWidget {
                               ),
                               Container(
                                 child: Image.asset(
-                                  'assets/carrito/master.png',
+                                  'assets/carrito/mastercard.png',
                                   fit: BoxFit.cover,
                                   height: ScreenUtil().setHeight(30),
                                   width: ScreenUtil().setWidth(54),
@@ -540,7 +540,7 @@ class MetodoPagoPage extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  'Consto de envío',
+                                  'Costo de envío',
                                   style: TextStyle(
                                     fontSize: ScreenUtil().setSp(16),
                                     fontWeight: FontWeight.w500,
@@ -641,7 +641,7 @@ class MetodoPagoPage extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      'GENERAR PEDIDO',
+                      'FINALIZAR TU COMPRA',
                       style: TextStyle(
                         fontSize: ScreenUtil().setSp(16),
                         fontWeight: FontWeight.w600,

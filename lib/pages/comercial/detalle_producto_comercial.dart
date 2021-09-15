@@ -31,8 +31,7 @@ class DetalleProductoComercial extends StatelessWidget {
                     pageBuilder: (context, animation, secondaryAnimation) {
                       return Agregarcarrito(urlImage: '$calzado');
                     },
-                    transitionsBuilder:
-                        (context, animation, secondaryAnimation, child) {
+                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
                       var begin = Offset(0.0, 1.0);
                       var end = Offset.zero;
                       var curve = Curves.ease;
@@ -52,18 +51,15 @@ class DetalleProductoComercial extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.green,
+                  color: Colors.white,
+                  border: Border.all(color: Colors.green, width: 2),
                 ),
-                padding: EdgeInsets.only(
-                    bottom: responsive.hp(3),
-                    top: responsive.hp(2),
-                    left: responsive.wp(3),
-                    right: responsive.wp(3)),
+                padding: EdgeInsets.only(bottom: responsive.hp(3), top: responsive.hp(2), left: responsive.wp(3), right: responsive.wp(3)),
                 child: Center(
                   child: Text(
-                    'Agregar',
+                    'Agregar al carrito',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.green,
                       fontSize: responsive.ip(3),
                     ),
                   ),
@@ -105,12 +101,8 @@ class DetalleProductoComercial extends StatelessWidget {
         height: size.height * 0.50,
         child: ClipRRect(
           child: CachedNetworkImage(
-            placeholder: (context, url) => Image(
-                image: const AssetImage('assets/jar-loading.gif'),
-                fit: BoxFit.cover),
-            errorWidget: (context, url, error) => Image(
-                image: AssetImage('assets/carga_fallida.jpg'),
-                fit: BoxFit.cover),
+            placeholder: (context, url) => Image(image: const AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
+            errorWidget: (context, url, error) => Image(image: AssetImage('assets/carga_fallida.jpg'), fit: BoxFit.cover),
             imageUrl: '$calzado',
             imageBuilder: (context, imageProvider) => Container(
               decoration: BoxDecoration(
@@ -136,9 +128,7 @@ class DetalleProductoComercial extends StatelessWidget {
         minChildSize: 0.7,
         builder: (context, controller) {
           return Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadiusDirectional.circular(20),
-                color: Colors.white),
+            decoration: BoxDecoration(borderRadius: BorderRadiusDirectional.circular(20), color: Colors.white),
             padding: EdgeInsets.symmetric(
               horizontal: responsive.wp(5),
             ),
@@ -156,19 +146,14 @@ class DetalleProductoComercial extends StatelessWidget {
                         flex: 2,
                         child: Text(
                           'Adidas Zero',
-                          style: TextStyle(
-                              fontSize: responsive.ip(3),
-                              fontWeight: FontWeight.w600),
+                          style: TextStyle(fontSize: responsive.ip(3), fontWeight: FontWeight.w600),
                           textAlign: TextAlign.start,
                         ),
                       ),
                       SizedBox(width: responsive.wp(3)),
                       Text(
                         'S/ 30.00',
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: responsive.ip(3),
-                            fontWeight: FontWeight.bold),
+                        style: TextStyle(color: Colors.red, fontSize: responsive.ip(3), fontWeight: FontWeight.bold),
                       )
                     ],
                   ),

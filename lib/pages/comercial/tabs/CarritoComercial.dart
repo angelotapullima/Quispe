@@ -271,7 +271,7 @@ class CarritoComercial extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          'Consto de envío',
+                          'Costo de envío',
                           style: TextStyle(
                             fontSize: ScreenUtil().setSp(16),
                             fontWeight: FontWeight.w500,
@@ -353,7 +353,7 @@ class CarritoComercial extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      'CONTINUAR',
+                      'COMPRAR',
                       style: TextStyle(
                         fontSize: ScreenUtil().setSp(16),
                         fontWeight: FontWeight.w600,

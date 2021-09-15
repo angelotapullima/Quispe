@@ -41,7 +41,7 @@ class _SplashState extends State<SplashQuispe> {
             'assets/quispe_splash.png',
             height: double.infinity,
             width: double.infinity,
-            fit: BoxFit.fitWidth,
+            fit: BoxFit.fitHeight,
           ),
           Positioned(
             bottom: responsive.hp(10),

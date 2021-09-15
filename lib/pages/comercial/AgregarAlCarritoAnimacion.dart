@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:quispe_ui/bloc/provider_bloc.dart'; 
+import 'package:quispe_ui/bloc/provider_bloc.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class Agregarcarrito extends StatefulWidget {
@@ -11,8 +11,7 @@ class Agregarcarrito extends StatefulWidget {
   _AgregarcarritoState createState() => _AgregarcarritoState();
 }
 
-class _AgregarcarritoState extends State<Agregarcarrito>
-    with SingleTickerProviderStateMixin {
+class _AgregarcarritoState extends State<Agregarcarrito> with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation _animationButton1;
   Animation _animationMovementIn;
@@ -73,8 +72,7 @@ class _AgregarcarritoState extends State<Agregarcarrito>
       child: AnimatedBuilder(
           animation: _controller,
           builder: (context, child) {
-            final buttonSize =
-                (responsive.wp(30) * _animationButton1.value).clamp(
+            final buttonSize = (responsive.wp(30) * _animationButton1.value).clamp(
               responsive.ip(6),
               responsive.wp(30),
             );
@@ -99,16 +97,10 @@ class _AgregarcarritoState extends State<Agregarcarrito>
                     children: [
                       (_animationMovementIn.value != 1)
                           ? Positioned(
-                              top: responsive.hp(45) +
-                                  (_animationMovementIn.value),
-                              left: responsive.wp(50) -
-                                  (responsive.wp(100) * _animationButton1.value)
-                                          .clamp(responsive.ip(6),
-                                              responsive.wp(100)) /
-                                      2,
-                              width:
-                                  (responsive.wp(100) * _animationButton1.value)
-                                      .clamp(
+                              top: responsive.hp(45) + (_animationMovementIn.value),
+                              left:
+                                  responsive.wp(50) - (responsive.wp(100) * _animationButton1.value).clamp(responsive.ip(6), responsive.wp(100)) / 2,
+                              width: (responsive.wp(100) * _animationButton1.value).clamp(
                                 responsive.ip(6),
                                 responsive.wp(100),
                               ),
@@ -116,8 +108,7 @@ class _AgregarcarritoState extends State<Agregarcarrito>
                             )
                           : Positioned(
                               bottom: responsive.hp(45),
-                              left: responsive.wp(50) +
-                                  (_animationMovementOut.value * 100),
+                              left: responsive.wp(50) + (_animationMovementOut.value * 100),
                               child: TweenAnimationBuilder(
                                 duration: Duration(milliseconds: 600),
                                 curve: Curves.easeIn,
@@ -139,9 +130,7 @@ class _AgregarcarritoState extends State<Agregarcarrito>
                                   //ancho del circular == responsive.wp(10)
                                   child: Container(
                                     width: buttonSize,
-                                    height: (responsive.hp(5) *
-                                            _animationButton1.value)
-                                        .clamp(
+                                    height: (responsive.hp(5) * _animationButton1.value).clamp(
                                       responsive.ip(6),
                                       responsive.wp(30),
                                     ),
@@ -150,8 +139,7 @@ class _AgregarcarritoState extends State<Agregarcarrito>
                                     ),
                                     decoration: BoxDecoration(
                                       color: Colors.black,
-                                      borderRadius:
-                                          BorderRadiusDirectional.circular(100),
+                                      borderRadius: BorderRadiusDirectional.circular(100),
                                     ),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
@@ -216,13 +204,9 @@ class _AgregarcarritoState extends State<Agregarcarrito>
                     : Container(), */
                 (_animationMovementOut.value == 1)
                     ? Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal: responsive.wp(4),
-                            vertical: responsive.hp(35)),
+                        margin: EdgeInsets.symmetric(horizontal: responsive.wp(4), vertical: responsive.hp(35)),
                         height: responsive.hp(30),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.white),
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.white),
                         child: Column(
                           children: [
                             SizedBox(
@@ -236,19 +220,11 @@ class _AgregarcarritoState extends State<Agregarcarrito>
                                   height: responsive.ip(8),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(100),
-                                    child: CachedNetworkImage( 
-                                      placeholder: (context, url) => Image(
-                                          image: AssetImage(
-                                              'assets/jar-loading.gif'),
-                                          fit: BoxFit.cover),
-                                      errorWidget: (context, url, error) =>
-                                          Image(
-                                              image: AssetImage(
-                                                  'assets/carga_fallida.jpg'),
-                                              fit: BoxFit.cover),
+                                    child: CachedNetworkImage(
+                                      placeholder: (context, url) => Image(image: AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
+                                      errorWidget: (context, url, error) => Image(image: AssetImage('assets/carga_fallida.jpg'), fit: BoxFit.cover),
                                       imageUrl: widget.urlImage,
-                                      imageBuilder: (context, imageProvider) =>
-                                          Container(
+                                      imageBuilder: (context, imageProvider) => Container(
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
                                             image: imageProvider,
@@ -266,24 +242,15 @@ class _AgregarcarritoState extends State<Agregarcarrito>
                                   children: [
                                     Text(
                                       'Adidas Zero',
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: responsive.ip(2),
-                                          fontWeight: FontWeight.w700),
+                                      style: TextStyle(color: Colors.black, fontSize: responsive.ip(2), fontWeight: FontWeight.w700),
                                     ),
                                     Text(
                                       '1 Und',
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: responsive.ip(2),
-                                          fontWeight: FontWeight.w700),
+                                      style: TextStyle(color: Colors.black, fontSize: responsive.ip(2), fontWeight: FontWeight.w700),
                                     ),
                                     Text(
                                       'S/ 130.00',
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: responsive.ip(2),
-                                          fontWeight: FontWeight.w700),
+                                      style: TextStyle(color: Colors.black, fontSize: responsive.ip(2), fontWeight: FontWeight.w700),
                                     )
                                   ],
                                 )
@@ -294,6 +261,7 @@ class _AgregarcarritoState extends State<Agregarcarrito>
                             ),
                             InkWell(
                               onTap: () {
+                                Navigator.pop(context);
                                 Navigator.pop(context);
                               },
                               child: Container(
@@ -317,10 +285,9 @@ class _AgregarcarritoState extends State<Agregarcarrito>
                             ),
                             InkWell(
                               onTap: () {
-                                final buttonBloc =
-                                    ProviderBloc.homeComercial(context);
+                                final buttonBloc = ProviderBloc.homeComercial(context);
                                 buttonBloc.changePage(3);
-                                
+
                                 Navigator.pushReplacementNamed(context, 'homeComercial');
                               },
                               child: Container(
@@ -335,7 +302,7 @@ class _AgregarcarritoState extends State<Agregarcarrito>
                                   color: Colors.white,
                                 ),
                                 child: Center(
-                                  child: Text('Ver el Carrito'),
+                                  child: Text('Ver Carrito'),
                                 ),
                               ),
                             )
@@ -368,25 +335,15 @@ class _AgregarcarritoState extends State<Agregarcarrito>
             child: child);
       },
       child: Container(
-        height: (responsive.hp(55) * _animationButton1.value)
-            .clamp(responsive.ip(6), responsive.hp(55)),
-        width: (responsive.wp(100) * _animationButton1.value)
-            .clamp(responsive.ip(6), responsive.wp(100)),
+        height: (responsive.hp(55) * _animationButton1.value).clamp(responsive.ip(6), responsive.hp(55)),
+        width: (responsive.wp(100) * _animationButton1.value).clamp(responsive.ip(6), responsive.wp(100)),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
-            topLeft: (_animationButton1.value == 1)
-                ? Radius.circular(30)
-                : Radius.circular(100),
-            topRight:(_animationButton1.value == 1)
-                ? Radius.circular(30)
-                : Radius.circular(100),
-            bottomLeft: (_animationButton1.value == 1)
-                ? Radius.circular(0)
-                : Radius.circular(100),
-            bottomRight: (_animationButton1.value == 1)
-                ? Radius.circular(0)
-                : Radius.circular(100),
+            topLeft: (_animationButton1.value == 1) ? Radius.circular(30) : Radius.circular(100),
+            topRight: (_animationButton1.value == 1) ? Radius.circular(30) : Radius.circular(100),
+            bottomLeft: (_animationButton1.value == 1) ? Radius.circular(0) : Radius.circular(100),
+            bottomRight: (_animationButton1.value == 1) ? Radius.circular(0) : Radius.circular(100),
           ),
         ),
         child: (_animationButton1.value == 1)
@@ -397,24 +354,16 @@ class _AgregarcarritoState extends State<Agregarcarrito>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        height: (responsive.hp(25) * _animationButton1.value)
-                            .clamp(responsive.ip(4.5), responsive.hp(25)),
-                        width: (responsive.wp(35) * _animationButton1.value)
-                            .clamp(responsive.ip(4.5), responsive.wp(35)),
+                        height: (responsive.hp(25) * _animationButton1.value).clamp(responsive.ip(4.5), responsive.hp(25)),
+                        width: (responsive.wp(35) * _animationButton1.value).clamp(responsive.ip(4.5), responsive.wp(35)),
                         child: Stack(
                           children: [
                             Container(
-                              child: CachedNetworkImage( 
-                                placeholder: (context, url) => Image(
-                                    image: AssetImage('assets/jar-loading.gif'),
-                                    fit: BoxFit.cover),
-                                errorWidget: (context, url, error) => Image(
-                                    image:
-                                        AssetImage('assets/carga_fallida.jpg'),
-                                    fit: BoxFit.cover),
+                              child: CachedNetworkImage(
+                                placeholder: (context, url) => Image(image: AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
+                                errorWidget: (context, url, error) => Image(image: AssetImage('assets/carga_fallida.jpg'), fit: BoxFit.cover),
                                 imageUrl: widget.urlImage,
-                                imageBuilder: (context, imageProvider) =>
-                                    Container(
+                                imageBuilder: (context, imageProvider) => Container(
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       image: imageProvider,

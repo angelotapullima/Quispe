@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quispe_ui/Models/Comercial/categorias.dart';
+import 'package:quispe_ui/bloc/provider_bloc.dart';
 import 'package:quispe_ui/pages/comercial/detalle_producto_comercial.dart';
 import 'package:quispe_ui/utils/constants.dart';
 import 'package:quispe_ui/utils/responsive.dart';
@@ -30,35 +31,41 @@ class InicioComercial extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: categoryList.length,
                 itemBuilder: (_, index) {
-                  return Container(
-                    margin: EdgeInsetsDirectional.only(
-                      end: responsive.wp(2),
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadiusDirectional.circular(20),
-                      color: Colors.yellow[600],
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          height: responsive.hp(5),
-                          padding: EdgeInsets.symmetric(
-                            horizontal: responsive.wp(2),
+                  return InkWell(
+                    onTap: () {
+                      final bottomBloc = ProviderBloc.homeComercial(context);
+                      bottomBloc.changePage(4);
+                    },
+                    child: Container(
+                      margin: EdgeInsetsDirectional.only(
+                        end: responsive.wp(2),
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadiusDirectional.circular(20),
+                        color: Colors.yellow[600],
+                      ),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: responsive.hp(5),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: responsive.wp(2),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadiusDirectional.circular(20),
+                              color: Colors.yellow[300],
+                            ),
+                            child: Icon(Icons.security_sharp),
                           ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadiusDirectional.circular(20),
-                            color: Colors.yellow[300],
+                          SizedBox(
+                            width: responsive.wp(1),
                           ),
-                          child: Icon(Icons.security_sharp),
-                        ),
-                        SizedBox(
-                          width: responsive.wp(1),
-                        ),
-                        Text('${categoryList[index].nombre}'),
-                        SizedBox(
-                          width: responsive.wp(1),
-                        ),
-                      ],
+                          Text('${categoryList[index].nombre}'),
+                          SizedBox(
+                            width: responsive.wp(1),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -74,19 +81,31 @@ class InicioComercial extends StatelessWidget {
             SizedBox(
               height: responsive.hp(2),
             ),
-            ProductosInicio(alturaCard: ScreenUtil().setHeight(250), anchoCard: responsive.wp(45), imagen: '$cartera', titulo: 'Carteras', responsive: responsive),
+            ProductosInicio(
+                alturaCard: ScreenUtil().setHeight(250),
+                anchoCard: responsive.wp(45),
+                imagen: '$cartera',
+                titulo: 'Carteras',
+                responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
             ),
-            ProductosInicio(alturaCard: ScreenUtil().setHeight(250), anchoCard: responsive.wp(60), imagen: '$deporte', titulo: 'Deporte', responsive: responsive),
+            ProductosInicio(
+                alturaCard: ScreenUtil().setHeight(250), anchoCard: responsive.wp(60), imagen: '$deporte', titulo: 'Deporte', responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
             ),
-            ProductosInicio(alturaCard: ScreenUtil().setHeight(250), imagen: '$lenceria', anchoCard: responsive.wp(55), titulo: 'Lenceria', responsive: responsive),
+            ProductosInicio(
+                alturaCard: ScreenUtil().setHeight(250),
+                imagen: '$lenceria',
+                anchoCard: responsive.wp(55),
+                titulo: 'Lenceria',
+                responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
             ),
-            ProductosInicio(alturaCard: ScreenUtil().setHeight(250), imagen: '$muebles', anchoCard: responsive.wp(45), titulo: 'Muebles', responsive: responsive),
+            ProductosInicio(
+                alturaCard: ScreenUtil().setHeight(250), imagen: '$muebles', anchoCard: responsive.wp(45), titulo: 'Muebles', responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
             ),
@@ -101,7 +120,9 @@ class InicioComercial extends StatelessWidget {
 }
 
 class ProductosInicio extends StatelessWidget {
-  const ProductosInicio({Key key, @required this.responsive, @required this.titulo, @required this.alturaCard, @required this.imagen, @required this.anchoCard}) : super(key: key);
+  const ProductosInicio(
+      {Key key, @required this.responsive, @required this.titulo, @required this.alturaCard, @required this.imagen, @required this.anchoCard})
+      : super(key: key);
 
   final Responsive responsive;
   final String titulo;
@@ -329,7 +350,7 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: CachedNetworkImage(
-                imageUrl: 'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
+                imageUrl: 'https://d13xymm0hzzbsd.cloudfront.net/1/20210911/16313938192419.jpg',
                 errorWidget: (context, url, error) => Image(image: AssetImage('assets/carga_fallida.jpg'), fit: BoxFit.cover),
                 placeholder: (context, url) => Image(image: const AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
                 imageBuilder: (context, imageProvider) => Container(
@@ -345,7 +366,8 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: CachedNetworkImage(
-                imageUrl: 'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
+                imageUrl:
+                    'https://calimod.vteximg.com.br/arquivos/ids/206172/ACCESORIOS%20CALIMOD%20DE%20CUERO%20PORTA%20CELULAR%20PORTA%20TABLET%20MOUSEPAD%20WEB.jpg?v=637593638858200000',
                 errorWidget: (context, url, error) => Image(image: AssetImage('assets/carga_fallida.jpg'), fit: BoxFit.cover),
                 placeholder: (context, url) => Image(image: const AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
                 imageBuilder: (context, imageProvider) => Container(
@@ -360,7 +382,7 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: CachedNetworkImage(
-                imageUrl: 'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
+                imageUrl: 'https://cdn.evergage.com/promotions/superdeporteperu/marathonstorepeprd/I7pZY/Zsx5R.jpg?decache=1631201044052',
                 errorWidget: (context, url, error) => Image(image: AssetImage('assets/carga_fallida.jpg'), fit: BoxFit.cover),
                 placeholder: (context, url) => Image(image: const AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
                 imageBuilder: (context, imageProvider) => Container(

@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quispe_ui/Models/Comercial/carrito_data.dart';
 import 'package:quispe_ui/bloc/provider_bloc.dart';
+import 'package:quispe_ui/pages/comercial/tabs/carrito/comprobante_page.dart';
 
 class DetallePedido extends StatelessWidget {
   const DetallePedido({Key key}) : super(key: key);
@@ -106,8 +107,8 @@ class DetallePedido extends StatelessWidget {
                               width: ScreenUtil().setWidth(16),
                             ),
                             Container(
-                              child: Image.asset(
-                                'assets/carrito/happy.png',
+                              child: SvgPicture.asset(
+                                'assets/carrito/coffeti.svg',
                                 fit: BoxFit.cover,
                                 height: ScreenUtil().setHeight(24),
                               ),
@@ -123,7 +124,7 @@ class DetallePedido extends StatelessWidget {
                           horizontal: ScreenUtil().setWidth(24),
                         ),
                         child: Text(
-                          'Detalles de pedido',
+                          'Detalles de compra',
                           style: TextStyle(
                             fontSize: ScreenUtil().setSp(18),
                             fontWeight: FontWeight.w700,
@@ -293,7 +294,7 @@ class DetallePedido extends StatelessWidget {
                           horizontal: ScreenUtil().setWidth(24),
                         ),
                         child: Text(
-                          'Dirección de entrega',
+                          'Detalle de entrega',
                           style: TextStyle(
                             fontSize: ScreenUtil().setSp(18),
                             fontWeight: FontWeight.w700,
@@ -309,13 +310,61 @@ class DetallePedido extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            // Row(
+                            //   children: [
+                            //     Text(
+                            //       'Angelo Tapullima',
+                            //       style: TextStyle(
+                            //         fontSize: ScreenUtil().setSp(16),
+                            //         fontWeight: FontWeight.w600,
+                            //         letterSpacing: ScreenUtil().setSp(0.016),
+                            //       ),
+                            //     ),
+                            //     Spacer(),
+                            //     Text(
+                            //       '71124578',
+                            //       style: TextStyle(
+                            //         color: Color(0XFF808080),
+                            //         fontSize: ScreenUtil().setSp(16),
+                            //         fontWeight: FontWeight.w400,
+                            //         letterSpacing: ScreenUtil().setSp(0.016),
+                            //       ),
+                            //     ),
+                            //   ],
+                            // ),
                             Row(
                               children: [
+                                Text(
+                                  'Cliente',
+                                  style: TextStyle(
+                                    color: Color(0XFF808080),
+                                    fontSize: ScreenUtil().setSp(16),
+                                    fontWeight: FontWeight.w400,
+                                    letterSpacing: ScreenUtil().setSp(0.016),
+                                  ),
+                                ),
+                                Spacer(),
                                 Text(
                                   'Angelo Tapullima',
                                   style: TextStyle(
                                     fontSize: ScreenUtil().setSp(16),
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FontWeight.w400,
+                                    letterSpacing: ScreenUtil().setSp(0.016),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: ScreenUtil().setHeight(8),
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  'DNI',
+                                  style: TextStyle(
+                                    color: Color(0XFF808080),
+                                    fontSize: ScreenUtil().setSp(16),
+                                    fontWeight: FontWeight.w400,
                                     letterSpacing: ScreenUtil().setSp(0.016),
                                   ),
                                 ),
@@ -323,7 +372,6 @@ class DetallePedido extends StatelessWidget {
                                 Text(
                                   '71124578',
                                   style: TextStyle(
-                                    color: Color(0XFF808080),
                                     fontSize: ScreenUtil().setSp(16),
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: ScreenUtil().setSp(0.016),
@@ -541,21 +589,21 @@ class DetallePedido extends StatelessWidget {
               ),
               child: InkWell(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   PageRouteBuilder(
-                  //     transitionDuration: const Duration(milliseconds: 700),
-                  //     pageBuilder: (context, animation, secondaryAnimation) {
-                  //       return DetallePedido();
-                  //     },
-                  //     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                  //       return FadeTransition(
-                  //         opacity: animation,
-                  //         child: child,
-                  //       );
-                  //     },
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      transitionDuration: const Duration(milliseconds: 700),
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return ComprobantePage();
+                      },
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
                 },
                 child: Container(
                   height: ScreenUtil().setHeight(40),
