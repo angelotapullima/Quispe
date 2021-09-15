@@ -18,8 +18,7 @@ class FavoritosComercial extends StatelessWidget {
             ),
             child: Text(
               'Productos Favoritos',
-              style: TextStyle(
-                  fontSize: responsive.ip(2.5), fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: responsive.ip(2.5), fontWeight: FontWeight.bold),
             ),
           ),
           SizedBox(
@@ -50,13 +49,9 @@ class FavoritosComercial extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: CachedNetworkImage(
-                            imageUrl:
-                                'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
-                            errorWidget: (context, url, error) => Image(
-                                image: AssetImage('assets/carga_fallida.jpg'),
-                                fit: BoxFit.cover),placeholder: (context, url) => Image(
-                image: const AssetImage('assets/jar-loading.gif'),
-                fit: BoxFit.cover),
+                            imageUrl: 'https://i.pinimg.com/originals/f4/bd/cc/f4bdcc873bee50a7243851567ee6be5a.jpg',
+                            errorWidget: (context, url, error) => Image(image: AssetImage('assets/carga_fallida.jpg'), fit: BoxFit.cover),
+                            placeholder: (context, url) => Image(image: const AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
                             imageBuilder: (context, imageProvider) => Container(
                               decoration: BoxDecoration(
                                 image: DecorationImage(

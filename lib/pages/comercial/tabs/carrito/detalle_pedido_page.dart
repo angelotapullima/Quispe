@@ -589,6 +589,11 @@ class DetallePedido extends StatelessWidget {
               ),
               child: InkWell(
                 onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                  final bottomBloc = ProviderBloc.homeComercial(context);
+                  bottomBloc.changePage(0);
                   Navigator.push(
                     context,
                     PageRouteBuilder(

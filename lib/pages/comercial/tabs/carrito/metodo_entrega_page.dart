@@ -16,11 +16,13 @@ class _MetodoEntregaPageState extends State<MetodoEntregaPage> {
   final TextEditingController direccion = TextEditingController();
   final TextEditingController telefono = TextEditingController();
   final TextEditingController distrito = TextEditingController();
+  final TextEditingController referencia = TextEditingController();
   @override
   void initState() {
     direccion.text = 'Ricardo Palma N° 132';
     telefono.text = '912 456 789';
     distrito.text = 'Iquitos';
+    referencia.text = ' ';
     super.initState();
   }
 
@@ -220,6 +222,40 @@ class _MetodoEntregaPageState extends State<MetodoEntregaPage> {
                                           color: Color(0XFFD1D1D1),
                                         ),
                                         hintText: ' 912 456 789',
+                                        hintStyle: GoogleFonts.poppins(
+                                            fontSize: ScreenUtil().setSp(14),
+                                            fontWeight: FontWeight.w400,
+                                            letterSpacing: ScreenUtil().setSp(0.016),
+                                            fontStyle: FontStyle.normal),
+                                        enabledBorder: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                        border: InputBorder.none,
+                                      ),
+                                      style: GoogleFonts.poppins(
+                                        fontSize: ScreenUtil().setSp(14),
+                                        fontWeight: FontWeight.w400,
+                                        letterSpacing: ScreenUtil().setSp(0.016),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: ScreenUtil().setHeight(35),
+                                    child: TextField(
+                                      controller: referencia,
+                                      maxLines: 1,
+                                      keyboardType: TextInputType.text,
+                                      decoration: InputDecoration(
+                                        prefixStyle: TextStyle(
+                                          fontSize: ScreenUtil().setSp(14),
+                                          fontWeight: FontWeight.w400,
+                                          letterSpacing: ScreenUtil().setSp(0.016),
+                                        ),
+                                        prefixText: 'Referencia: ',
+                                        suffixIcon: Icon(
+                                          Icons.keyboard,
+                                          color: Color(0XFFD1D1D1),
+                                        ),
+                                        hintText: ' ',
                                         hintStyle: GoogleFonts.poppins(
                                             fontSize: ScreenUtil().setSp(14),
                                             fontWeight: FontWeight.w400,

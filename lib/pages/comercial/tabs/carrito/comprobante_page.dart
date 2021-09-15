@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ComprobantePage extends StatelessWidget {
@@ -26,7 +27,7 @@ class ComprobantePage extends StatelessWidget {
                           backgroundColor: Color(0xFFC4C4C4),
                           child: IconButton(
                             icon: Icon(
-                              Icons.arrow_back_ios,
+                              FontAwesomeIcons.times,
                               color: Colors.black,
                             ),
                             iconSize: ScreenUtil().setSp(24),
