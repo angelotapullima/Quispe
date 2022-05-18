@@ -10,7 +10,7 @@ import 'package:quispe_ui/utils/constants.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class InicioComercial extends StatelessWidget {
-  const InicioComercial({Key key}) : super(key: key);
+  const InicioComercial({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -121,14 +121,14 @@ class InicioComercial extends StatelessWidget {
 
 class ProductosInicio extends StatelessWidget {
   const ProductosInicio(
-      {Key key, @required this.responsive, @required this.titulo, @required this.alturaCard, @required this.imagen, @required this.anchoCard})
+      {Key? key, @required this.responsive, @required this.titulo, @required this.alturaCard, @required this.imagen, @required this.anchoCard})
       : super(key: key);
 
-  final Responsive responsive;
-  final String titulo;
-  final String imagen;
-  final double alturaCard;
-  final double anchoCard;
+  final Responsive? responsive;
+  final String? titulo;
+  final String? imagen;
+  final double? alturaCard;
+  final double? anchoCard;
 
   @override
   Widget build(BuildContext context) {
@@ -136,18 +136,18 @@ class ProductosInicio extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: responsive.wp(2)),
+          padding: EdgeInsets.symmetric(horizontal: responsive!.wp(2)),
           child: Row(
             children: [
               Text(
                 '$titulo',
-                style: TextStyle(fontSize: responsive.ip(2), fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: responsive!.ip(2), fontWeight: FontWeight.bold),
               ),
               Spacer(),
               Container(
                 padding: EdgeInsets.symmetric(
-                  horizontal: responsive.wp(1),
-                  vertical: responsive.hp(.3),
+                  horizontal: responsive!.wp(1),
+                  vertical: responsive!.hp(.3),
                 ),
                 decoration: BoxDecoration(
                   color: Colors.green[600],
@@ -157,7 +157,7 @@ class ProductosInicio extends StatelessWidget {
                   'Ver más',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: responsive.ip(1.8),
+                    fontSize: responsive!.ip(1.8),
                   ),
                 ),
               )
@@ -165,7 +165,7 @@ class ProductosInicio extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: responsive.hp(1),
+          height: responsive!.hp(1),
         ),
         Container(
           height: alturaCard,
@@ -197,18 +197,18 @@ class ProductosInicio extends StatelessWidget {
                     ));
                   },
                   child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: responsive.wp(2)),
+                    margin: EdgeInsets.symmetric(horizontal: responsive!.wp(2)),
                     height: alturaCard,
                     width: anchoCard,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey[300]),
+                      border: Border.all(color: Colors.grey[300]!),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          height: alturaCard - ScreenUtil().setHeight(110),
+                          height: alturaCard! - ScreenUtil().setHeight(110),
                           child: Stack(
                             children: [
                               ClipRRect(
@@ -217,7 +217,7 @@ class ProductosInicio extends StatelessWidget {
                                   topRight: Radius.circular(10),
                                 ),
                                 child: CachedNetworkImage(
-                                  imageUrl: imagen,
+                                  imageUrl: imagen!,
                                   placeholder: (context, url) => Image(image: const AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
                                   errorWidget: (context, url, error) => Image(image: AssetImage('assets/carga_fallida.jpg'), fit: BoxFit.cover),
                                   imageBuilder: (context, imageProvider) => Container(
@@ -257,8 +257,8 @@ class ProductosInicio extends StatelessWidget {
                         ),
                         Container(
                           padding: EdgeInsets.symmetric(
-                            horizontal: responsive.wp(2),
-                            vertical: responsive.hp(.3),
+                            horizontal: responsive!.wp(2),
+                            vertical: responsive!.hp(.3),
                           ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
@@ -274,7 +274,7 @@ class ProductosInicio extends StatelessWidget {
                                 'Nombre del producto',
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: responsive.ip(2),
+                                  fontSize: responsive!.ip(2),
                                 ),
                               ),
                               SizedBox(
@@ -304,11 +304,11 @@ class ProductosInicio extends StatelessWidget {
 
 class PromocionesInicio extends StatefulWidget {
   const PromocionesInicio({
-    Key key,
+    Key? key,
     @required this.responsive,
   }) : super(key: key);
 
-  final Responsive responsive;
+  final Responsive? responsive;
 
   @override
   _PromocionesInicioState createState() => _PromocionesInicioState();
@@ -320,10 +320,10 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
   Widget build(BuildContext context) {
     return Column(children: [
       Container(
-        height: widget.responsive.hp(15),
+        height: widget.responsive!.hp(15),
         child: CarouselSlider(
           options: CarouselOptions(
-            height: widget.responsive.hp(100),
+            height: widget.responsive!.hp(100),
             //aspectRatio: 16/9,
             //carouselController: buttonCarouselController,
             enlargeCenterPage: true,
@@ -334,7 +334,7 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             viewportFraction: 0.8,
             onScrolled: (data) {
               setState(() {
-                _current = data.toInt();
+                _current = data!.toInt();
               });
               /* _scrollController.animateTo(
           data * size.width,
@@ -432,16 +432,16 @@ class _Puntos extends StatelessWidget {
 
 class CabeceraInicio extends StatelessWidget {
   const CabeceraInicio({
-    Key key,
+    Key? key,
     @required this.responsive,
   }) : super(key: key);
 
-  final Responsive responsive;
+  final Responsive? responsive;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: responsive.hp(26),
+      height: responsive!.hp(26),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
           bottomRight: Radius.circular(25),
@@ -456,79 +456,79 @@ class CabeceraInicio extends StatelessWidget {
             Row(
               children: [
                 SizedBox(
-                  width: responsive.wp(2),
+                  width: responsive!.wp(2),
                 ),
                 CircleAvatar(
-                  radius: responsive.hp(2.5),
+                  radius: responsive!.hp(2.5),
                 ),
                 SizedBox(
-                  width: responsive.wp(2),
+                  width: responsive!.wp(2),
                 ),
                 Text(
                   'Hola, Angelo',
-                  style: TextStyle(fontSize: responsive.ip(1.8), fontWeight: FontWeight.bold, color: Colors.black),
+                  style: TextStyle(fontSize: responsive!.ip(1.8), fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 Spacer(),
                 IconButton(icon: Icon(FontAwesomeIcons.bell, color: Colors.black), onPressed: null)
               ],
             ),
             SizedBox(
-              height: responsive.hp(.8),
+              height: responsive!.hp(.8),
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: responsive.wp(4),
+                horizontal: responsive!.wp(4),
               ),
               child: Text(
                 'Encuentra los mejores productos, ',
-                style: TextStyle(fontSize: responsive.ip(1.8), fontWeight: FontWeight.bold, color: Colors.black),
+                style: TextStyle(fontSize: responsive!.ip(1.8), fontWeight: FontWeight.bold, color: Colors.black),
               ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: responsive.wp(4),
+                horizontal: responsive!.wp(4),
               ),
               child: Text(
                 'Solo Aquí',
-                style: TextStyle(fontSize: responsive.ip(1.8), fontWeight: FontWeight.bold, color: Colors.black),
+                style: TextStyle(fontSize: responsive!.ip(1.8), fontWeight: FontWeight.bold, color: Colors.black),
               ),
             ),
             SizedBox(
-              height: responsive.hp(1),
+              height: responsive!.hp(1),
             ),
             Row(
               children: [
                 SizedBox(
-                  width: responsive.wp(3),
+                  width: responsive!.wp(3),
                 ),
                 Image.asset(
                   'assets/quispe_logo.png',
-                  height: responsive.hp(5),
+                  height: responsive!.hp(5),
                 ),
                 SizedBox(
-                  width: responsive.wp(5),
+                  width: responsive!.wp(5),
                 ),
                 Expanded(
                   child: Container(
-                    height: responsive.hp(5),
+                    height: responsive!.hp(5),
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.grey[300]),
                     child: Row(
                       children: [
                         SizedBox(
-                          width: responsive.wp(3),
+                          width: responsive!.wp(3),
                         ),
                         Text('Buscar'),
                         Spacer(),
                         Icon(Icons.search),
                         SizedBox(
-                          width: responsive.wp(2),
+                          width: responsive!.wp(2),
                         )
                       ],
                     ),
                   ),
                 ),
                 SizedBox(
-                  width: responsive.wp(5),
+                  width: responsive!.wp(5),
                 )
               ],
             )

@@ -3,7 +3,7 @@ import 'package:quispe_ui/utils/responsive.dart';
 import 'package:quispe_ui/utils/sliver_header_delegate.dart';
 
 class DetalleFundo2 extends StatelessWidget {
-  const DetalleFundo2({Key key}) : super(key: key);
+  const DetalleFundo2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,21 +43,15 @@ class DetalleFundo2 extends StatelessWidget {
                             child: Card(
                               elevation: 2,
                               child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: responsive.wp(1),
-                                    vertical: responsive.hp(.5)),
+                                padding: EdgeInsets.symmetric(horizontal: responsive.wp(1), vertical: responsive.hp(.5)),
                                 child: Column(
                                   children: [
                                     Row(
                                       children: [
                                         CircleAvatar(
                                           child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(100),
-                                            child: Image.asset(
-                                                'assets/social1.jpg',
-                                                height: double.infinity,
-                                                fit: BoxFit.cover),
+                                            borderRadius: BorderRadius.circular(100),
+                                            child: Image.asset('assets/social1.jpg', height: double.infinity, fit: BoxFit.cover),
                                           ),
                                         ),
                                         SizedBox(
@@ -65,14 +59,11 @@ class DetalleFundo2 extends StatelessWidget {
                                         ),
                                         Expanded(
                                           child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.start,
                                             children: [
                                               Text(
                                                 'Angelo Tapullima',
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
+                                                style: TextStyle(fontWeight: FontWeight.bold),
                                               ),
                                               Text('14 de febrero del 2021'),
                                             ],
@@ -85,8 +76,7 @@ class DetalleFundo2 extends StatelessWidget {
                                     ),
                                     (index.isOdd)
                                         ? ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(15),
+                                            borderRadius: BorderRadius.circular(15),
                                             child: Image.asset(
                                               'assets/social4.jpg',
                                               height: responsive.hp(14),
@@ -116,8 +106,8 @@ class DetalleFundo2 extends StatelessWidget {
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({
-    Key key,
-    @required this.responsive,
+    Key? key,
+    required this.responsive,
   }) : super(key: key);
 
   final Responsive responsive;
@@ -183,11 +173,9 @@ class HeaderWidget extends StatelessWidget {
                               height: responsive.hp(2),
                             ),
                             Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: responsive.wp(2)),
+                              padding: EdgeInsets.symmetric(horizontal: responsive.wp(2)),
                               child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Expanded(
                                     child: Text('Reservas : 965656799'),

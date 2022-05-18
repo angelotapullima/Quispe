@@ -28,30 +28,32 @@ class MyApp extends StatelessWidget {
         ],
         child: ScreenUtilInit(
           designSize: Size(375, 812),
-          builder: () => MaterialApp(
-              title: 'Quispe',
-              debugShowCheckedModeBanner: false,
-              theme: ThemeData(
-                primarySwatch: Colors.blue,
-                visualDensity: VisualDensity.adaptivePlatformDensity,
-              ),
-              home: Splash(),
-              routes: {
-                //"login": (BuildContext context) => LoginPage(),
-                "homeComercial": (BuildContext context) => HomeComercialPage(),
-                "inicio2": (BuildContext context) => SeleccionInicial(),
-                "inicio": (BuildContext context) => InicioQuispe(),
-                /*  "pruebas": (BuildContext context) => PuebasPage(),
+          builder: (_, e) {
+            return MaterialApp(
+                title: 'Quispe',
+                debugShowCheckedModeBanner: false,
+                theme: ThemeData(
+                  primarySwatch: Colors.blue,
+                  visualDensity: VisualDensity.adaptivePlatformDensity,
+                ),
+                home: Splash(),
+                routes: {
+                  //"login": (BuildContext context) => LoginPage(),
+                  "homeComercial": (BuildContext context) => HomeComercialPage(),
+                  "inicio2": (BuildContext context) => SeleccionInicial(),
+                  "inicio": (BuildContext context) => InicioQuispe(),
+                  /*  "pruebas": (BuildContext context) => PuebasPage(),
                   //"splash": (BuildContext context) => Splash(),*/
 
-                //FerroCentro
-                "homeFerreteria": (BuildContext context) => HomeFerreteriaPage(),
-                //"inicioFerro": (BuildContext context) => InicioFerro(),
+                  //FerroCentro
+                  "homeFerreteria": (BuildContext context) => HomeFerreteriaPage(),
+                  //"inicioFerro": (BuildContext context) => InicioFerro(),
 
-                //Fundo
-                "homeFundo": (BuildContext context) => HomeFundoPage(),
-                // "inicioFundo": (BuildContext context) => InicioFundoPage(),
-              }),
+                  //Fundo
+                  "homeFundo": (BuildContext context) => HomeFundoPage(),
+                  // "inicioFundo": (BuildContext context) => InicioFundoPage(),
+                });
+          },
         ),
       ),
     );

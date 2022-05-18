@@ -6,7 +6,7 @@ import 'package:quispe_ui/Models/Comercial/carrito_data.dart';
 import 'package:quispe_ui/pages/comercial/tabs/carrito/metodo_entrega_page.dart';
 
 class CarritoComercial extends StatelessWidget {
-  const CarritoComercial({Key key}) : super(key: key);
+  const CarritoComercial({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ import 'package:quispe_ui/utils/constants.dart';
 import '../../../utils/responsive.dart';
 
 class CarritoFerroPage extends StatelessWidget {
-  const CarritoFerroPage({Key key}) : super(key: key);
+  const CarritoFerroPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +26,7 @@ class CarritoFerroPage extends StatelessWidget {
                   child: Center(
                     child: Text(
                       'Carrito',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: responsive.ip(3),
-                          fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Colors.black, fontSize: responsive.ip(3), fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -38,8 +35,7 @@ class CarritoFerroPage extends StatelessWidget {
                       itemCount: 10,
                       itemBuilder: (_, index) {
                         if (index == 9) {
-                          return Container(
-                              height: responsive.hp(15), color: Colors.white);
+                          return Container(height: responsive.hp(15), color: Colors.white);
                         }
                         return _productoCarrito(responsive);
                       }),
@@ -68,9 +64,7 @@ class CarritoFerroPage extends StatelessWidget {
                         child: Center(
                           child: Text(
                             'Pagar S/300.0',
-                            style: TextStyle(
-                                fontSize: responsive.ip(2.5),
-                                fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: responsive.ip(2.5), fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
@@ -106,13 +100,9 @@ class CarritoFerroPage extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: CachedNetworkImage(
-                    imageUrl:
-                        '$iluminacion',
-                    errorWidget: (context, url, error) => Image(
-                        image: AssetImage('assets/carga_fallida.jpg'),
-                        fit: BoxFit.cover),placeholder: (context, url) => Image(
-                image: const AssetImage('assets/jar-loading.gif'),
-                fit: BoxFit.cover),
+                    imageUrl: '$iluminacion',
+                    errorWidget: (context, url, error) => Image(image: AssetImage('assets/carga_fallida.jpg'), fit: BoxFit.cover),
+                    placeholder: (context, url) => Image(image: const AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
                     imageBuilder: (context, imageProvider) => Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
@@ -140,7 +130,8 @@ class CarritoFerroPage extends StatelessWidget {
                     ),
                   ),
                 ],
-              ),Spacer(),
+              ),
+              Spacer(),
               //iconos
               Container(
                 width: responsive.wp(3),

@@ -6,7 +6,7 @@ import 'package:quispe_ui/utils/constants.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class DetalleProductoFerreteria extends StatelessWidget {
-  const DetalleProductoFerreteria({Key key}) : super(key: key);
+  const DetalleProductoFerreteria({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +32,7 @@ class DetalleProductoFerreteria extends StatelessWidget {
                     pageBuilder: (context, animation, secondaryAnimation) {
                       return AgregarcarritoFerreteria(urlImage: '$iluminacion');
                     },
-                    transitionsBuilder:
-                        (context, animation, secondaryAnimation, child) {
+                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
                       var begin = Offset(0.0, 1.0);
                       var end = Offset.zero;
                       var curve = Curves.ease;
@@ -55,11 +54,7 @@ class DetalleProductoFerreteria extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.green,
                 ),
-                padding: EdgeInsets.only(
-                    bottom: responsive.hp(3),
-                    top: responsive.hp(2),
-                    left: responsive.wp(3),
-                    right: responsive.wp(3)),
+                padding: EdgeInsets.only(bottom: responsive.hp(3), top: responsive.hp(2), left: responsive.wp(3), right: responsive.wp(3)),
                 child: Center(
                   child: Text(
                     'Agregar',
@@ -97,7 +92,7 @@ class DetalleProductoFerreteria extends StatelessWidget {
         //Navigator.pushNamed(context, 'detalleProductoFoto', arguments: carrito);
       },
       onVerticalDragUpdate: (drag) {
-        if (drag.primaryDelta > 7) {
+        if (drag.primaryDelta! > 7) {
           Navigator.pop(context);
         }
       },
@@ -106,12 +101,8 @@ class DetalleProductoFerreteria extends StatelessWidget {
         height: size.height * 0.50,
         child: ClipRRect(
           child: CachedNetworkImage(
-            placeholder: (context, url) => Image(
-                image: const AssetImage('assets/jar-loading.gif'),
-                fit: BoxFit.cover),
-            errorWidget: (context, url, error) => Image(
-                image: AssetImage('assets/carga_fallida.jpg'),
-                fit: BoxFit.cover),
+            placeholder: (context, url) => Image(image: const AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
+            errorWidget: (context, url, error) => Image(image: AssetImage('assets/carga_fallida.jpg'), fit: BoxFit.cover),
             imageUrl: '$iluminacion',
             imageBuilder: (context, imageProvider) => Container(
               decoration: BoxDecoration(
@@ -137,9 +128,7 @@ class DetalleProductoFerreteria extends StatelessWidget {
         minChildSize: 0.7,
         builder: (context, controller) {
           return Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadiusDirectional.circular(20),
-                color: Colors.white),
+            decoration: BoxDecoration(borderRadius: BorderRadiusDirectional.circular(20), color: Colors.white),
             padding: EdgeInsets.symmetric(
               horizontal: responsive.wp(5),
             ),
@@ -157,19 +146,14 @@ class DetalleProductoFerreteria extends StatelessWidget {
                         flex: 2,
                         child: Text(
                           'Pack x3 Focos LED Ecohome',
-                          style: TextStyle(
-                              fontSize: responsive.ip(3),
-                              fontWeight: FontWeight.w600),
+                          style: TextStyle(fontSize: responsive.ip(3), fontWeight: FontWeight.w600),
                           textAlign: TextAlign.start,
                         ),
                       ),
                       SizedBox(width: responsive.wp(3)),
                       Text(
                         'S/ 30.00',
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: responsive.ip(3),
-                            fontWeight: FontWeight.bold),
+                        style: TextStyle(color: Colors.red, fontSize: responsive.ip(3), fontWeight: FontWeight.bold),
                       )
                     ],
                   ),

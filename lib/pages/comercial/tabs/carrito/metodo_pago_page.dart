@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quispe_ui/pages/comercial/tabs/carrito/detalle_pedido_page.dart';
 
 class MetodoPagoPage extends StatelessWidget {
-  const MetodoPagoPage({Key key}) : super(key: key);
+  const MetodoPagoPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

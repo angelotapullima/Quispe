@@ -1,9 +1,9 @@
 import 'package:meta/meta.dart';
 
 class CategoriasModel {
-  final String id;
-  final String nombre;
-  final String foto;
+  final String? id;
+  final String? nombre;
+  final String? foto;
 
   const CategoriasModel({
     @required this.id,
@@ -72,7 +72,8 @@ const listSubcategorias = [
   CategoriasModel(
     id: '3',
     nombre: 'Skate',
-    foto: 'https://media.revistagq.com/photos/5ca5e4bd3492a90ef0bee97d/master/w_1200,h_800,c_limit/zapatillas_skate_sneakers_moda_hombre_tendencias_312206596.jpg',
+    foto:
+        'https://media.revistagq.com/photos/5ca5e4bd3492a90ef0bee97d/master/w_1200,h_800,c_limit/zapatillas_skate_sneakers_moda_hombre_tendencias_312206596.jpg',
   ),
   CategoriasModel(
     id: '4',
@@ -92,6 +93,7 @@ const listSubcategorias = [
   CategoriasModel(
     id: '7',
     nombre: 'Botas',
-    foto: 'https://ae01.alicdn.com/kf/H8ae66d3de40841adbf5f73624d72b221F/DECARSDZ-hombres-botas-de-Primavera-de-2021-nuevos-zapatos-de-moda-de-hombre-al-aire-libre.jpg_q50.jpg',
+    foto:
+        'https://ae01.alicdn.com/kf/H8ae66d3de40841adbf5f73624d72b221F/DECARSDZ-hombres-botas-de-Primavera-de-2021-nuevos-zapatos-de-moda-de-hombre-al-aire-libre.jpg_q50.jpg',
   ),
 ];

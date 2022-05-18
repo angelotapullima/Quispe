@@ -8,14 +8,13 @@ const heigthCategory = 40.00;
 const heigthProduct = 130.00;
 
 class CategoriasFerreteria extends StatefulWidget {
-  const CategoriasFerreteria({Key key}) : super(key: key);
+  const CategoriasFerreteria({Key? key}) : super(key: key);
 
   @override
   _CategoriasComercialState createState() => _CategoriasComercialState();
 }
 
-class _CategoriasComercialState extends State<CategoriasFerreteria>
-    with SingleTickerProviderStateMixin {
+class _CategoriasComercialState extends State<CategoriasFerreteria> with SingleTickerProviderStateMixin {
   final bloc = CategoriaFerreteriaBloc();
 
   @override
@@ -45,10 +44,7 @@ class _CategoriasComercialState extends State<CategoriasFerreteria>
                 child: Center(
                   child: Text(
                     'Categorías',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: responsive.ip(3),
-                        fontWeight: FontWeight.bold),
+                    style: TextStyle(color: Colors.black, fontSize: responsive.ip(3), fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -79,11 +75,11 @@ class _CategoriasComercialState extends State<CategoriasFerreteria>
 
                       if (item.isCategory) {
                         return ProductoTittle(
-                          category: item.category,
+                          category: item.category!,
                         );
                       } else {
                         return ProductoItem(
-                          producto: item.productoModel,
+                          producto: item.productoModel!,
                         );
                       }
                     }),
@@ -97,25 +93,22 @@ class _CategoriasComercialState extends State<CategoriasFerreteria>
 }
 
 class WidgetTab extends StatelessWidget {
-  final CategoriaTab categoryTab;
-  final String index;
-  const WidgetTab({Key key, @required this.categoryTab, this.index})
-      : super(key: key);
+  final CategoriaTab? categoryTab;
+  final String? index;
+  const WidgetTab({Key? key, @required this.categoryTab, this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final selected = categoryTab.selected;
+    final selected = categoryTab!.selected;
     return Opacity(
-      opacity: selected ? 1 : 0.5,
+      opacity: selected! ? 1 : 0.5,
       child: Card(
         elevation: selected ? 6 : 0,
         child: Padding(
           padding: EdgeInsets.all(8.0),
           child: Text(
-            '${categoryTab.category.categoriaNombre} ',
-            style: TextStyle(
-                color: selected ? Colors.red : Colors.green,
-                fontWeight: FontWeight.bold),
+            '${categoryTab!.category!.categoriaNombre} ',
+            style: TextStyle(color: selected ? Colors.red : Colors.green, fontWeight: FontWeight.bold),
           ),
         ),
       ),
@@ -124,8 +117,8 @@ class WidgetTab extends StatelessWidget {
 }
 
 class ProductoTittle extends StatelessWidget {
-  final CategoriaModel category;
-  const ProductoTittle({Key key, @required this.category}) : super(key: key);
+  final CategoriaModel? category;
+  const ProductoTittle({Key? key, @required this.category}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -134,7 +127,7 @@ class ProductoTittle extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: responsive.wp(2)),
       height: heigthCategory,
       child: Text(
-        category.categoriaNombre,
+        category!.categoriaNombre!,
         style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: responsive.ip(2),
@@ -145,9 +138,9 @@ class ProductoTittle extends StatelessWidget {
 }
 
 class ProductoItem extends StatelessWidget {
-  const ProductoItem({Key key, @required this.producto}) : super(key: key);
+  const ProductoItem({Key? key, @required this.producto}) : super(key: key);
 
-  final ProductoModel producto;
+  final ProductoModel? producto;
 
   @override
   Widget build(BuildContext context) {
@@ -168,13 +161,9 @@ class ProductoItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: CachedNetworkImage(
-                  imageUrl:
-                      'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
-                  errorWidget: (context, url, error) => Image(
-                      image: AssetImage('assets/carga_fallida.jpg'),
-                      fit: BoxFit.cover),placeholder: (context, url) => Image(
-                image: const AssetImage('assets/jar-loading.gif'),
-                fit: BoxFit.cover),
+                  imageUrl: 'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
+                  errorWidget: (context, url, error) => Image(image: AssetImage('assets/carga_fallida.jpg'), fit: BoxFit.cover),
+                  placeholder: (context, url) => Image(image: const AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
                   imageBuilder: (context, imageProvider) => Container(
                     decoration: BoxDecoration(
                       image: DecorationImage(
@@ -194,20 +183,14 @@ class ProductoItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(producto.nombreProducto),
+                Text(producto!.nombreProducto!),
                 Text(
-                  'S/ ${producto.precio}',
-                  style: TextStyle(
-                      fontSize: responsive.ip(2),
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold),
+                  'S/ ${producto!.precio}',
+                  style: TextStyle(fontSize: responsive.ip(2), color: Colors.red, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  'S/ ${producto.descriprion}',
-                  style: TextStyle(
-                      fontSize: responsive.ip(1.5),
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold),
+                  'S/ ${producto!.descriprion}',
+                  style: TextStyle(fontSize: responsive.ip(1.5), color: Colors.red, fontWeight: FontWeight.bold),
                 ),
               ],
             )),

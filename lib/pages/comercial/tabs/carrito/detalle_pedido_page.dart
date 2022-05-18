@@ -7,7 +7,7 @@ import 'package:quispe_ui/bloc/provider_bloc.dart';
 import 'package:quispe_ui/pages/comercial/tabs/carrito/comprobante_page.dart';
 
 class DetallePedido extends StatelessWidget {
-  const DetallePedido({Key key}) : super(key: key);
+  const DetallePedido({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

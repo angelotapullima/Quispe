@@ -7,7 +7,7 @@ import 'package:quispe_ui/bloc/provider_bloc.dart';
 import 'package:quispe_ui/pages/comercial/tabs/bloc_categoriass.dart';
 
 class Categorias2 extends StatefulWidget {
-  const Categorias2({Key key}) : super(key: key);
+  const Categorias2({Key? key}) : super(key: key);
 
   @override
   _Categorias2State createState() => _Categorias2State();
@@ -24,7 +24,7 @@ class _Categorias2State extends State<Categorias2> {
         bottom: false,
         child: ValueListenableBuilder(
             valueListenable: provider.page,
-            builder: (BuildContext context, CategoriasEnum data, Widget child) {
+            builder: (BuildContext context, CategoriasEnum data, Widget? child) {
               return Column(
                 children: [
                   Container(
@@ -60,12 +60,14 @@ class _Categorias2State extends State<Categorias2> {
                     ),
                     height: ScreenUtil().setHeight(50),
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey[400]),
+                      border: Border.all(color: Colors.grey[400]!),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Row(
                       children: [
-                        SizedBox(width: ScreenUtil().setWidth(8),),
+                        SizedBox(
+                          width: ScreenUtil().setWidth(8),
+                        ),
                         Icon(
                           Icons.search,
                           color: Colors.grey[400],
@@ -180,7 +182,12 @@ class _Categorias2State extends State<Categorias2> {
                                           padding: EdgeInsets.symmetric(
                                             horizontal: ScreenUtil().setWidth(16),
                                           ),
-                                          child: Text('${categoryList[index].nombre}',style: TextStyle(fontSize: ScreenUtil().setSp(16),),),
+                                          child: Text(
+                                            '${categoryList[index].nombre}',
+                                            style: TextStyle(
+                                              fontSize: ScreenUtil().setSp(16),
+                                            ),
+                                          ),
                                         ),
                                         Divider(),
                                       ],
@@ -193,7 +200,7 @@ class _Categorias2State extends State<Categorias2> {
                                 shrinkWrap: true,
                                 itemBuilder: (context, index) {
                                   return InkWell(
-                                     onTap: () {
+                                    onTap: () {
                                       final bottomBloc = ProviderBloc.homeComercial(context);
                                       bottomBloc.changePage(4);
                                     },

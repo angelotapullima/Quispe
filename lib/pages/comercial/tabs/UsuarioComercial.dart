@@ -1,17 +1,14 @@
-
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
-
 class UsuarioComercial extends StatelessWidget {
-  const UsuarioComercial({Key key}) : super(key: key);
+  const UsuarioComercial({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-   final responsive = Responsive.of(context);
+    final responsive = Responsive.of(context);
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(
@@ -26,9 +23,7 @@ class UsuarioComercial extends StatelessWidget {
                 vertical: responsive.hp(2),
                 horizontal: responsive.wp(2),
               ),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), 
-                  color: Colors.white
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white
                   //image: DecorationImage(image: NetworkImage("https://image.freepik.com/foto-gratis/cuatro-colores-amarillo-verde-rojo-azul-abstracto-fondo-carton-hojas-carton-apilan-encima-otras-copia-espacio_107288-1660.jpg"))
                   ),
               child: Column(
@@ -36,19 +31,13 @@ class UsuarioComercial extends StatelessWidget {
                   Container(
                     width: responsive.ip(15),
                     height: responsive.ip(15),
-                    
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(100),
                       child: CachedNetworkImage(
-                       placeholder: (context, url) => Image(
-                image: const AssetImage('assets/jar-loading.gif'),
-                fit: BoxFit.cover),
-                        errorWidget: (context, url, error) => Container(
-                            width: double.infinity,
-                            height: double.infinity,
-                            child: Center(child: Icon(Icons.error))),
-                        imageUrl:
-                            'https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png',
+                        placeholder: (context, url) => Image(image: const AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
+                        errorWidget: (context, url, error) =>
+                            Container(width: double.infinity, height: double.infinity, child: Center(child: Icon(Icons.error))),
+                        imageUrl: 'https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png',
                         imageBuilder: (context, imageProvider) => Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -62,8 +51,12 @@ class UsuarioComercial extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: responsive.hp(3)),
-
-                  Container(child: Text("Angelo Melendez", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),),
+                  Container(
+                    child: Text(
+                      "Angelo Melendez",
+                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    ),
+                  ),
                   SizedBox(height: responsive.hp(3)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -75,7 +68,7 @@ class UsuarioComercial extends StatelessWidget {
                             CircleAvatar(
                               backgroundColor: Colors.blue[100],
                               radius: responsive.wp(8),
-                              child: Icon(Icons.ad_units,color: Colors.red),
+                              child: Icon(Icons.ad_units, color: Colors.red),
                             ),
                             Text(
                               "Mis Pedidos",
@@ -91,7 +84,10 @@ class UsuarioComercial extends StatelessWidget {
                             CircleAvatar(
                               backgroundColor: Colors.green[100],
                               radius: responsive.wp(8),
-                              child: Icon(Icons.star ,color: Colors.red,),
+                              child: Icon(
+                                Icons.star,
+                                color: Colors.red,
+                              ),
                             ),
                             Text(
                               "Favoritos",
@@ -102,13 +98,12 @@ class UsuarioComercial extends StatelessWidget {
                       ),
                       Container(
                         width: responsive.wp(25),
-                        
                         child: Column(
                           children: [
                             CircleAvatar(
                               backgroundColor: Colors.yellow,
                               radius: responsive.wp(8),
-                              child: Icon(Icons.lightbulb,color: Colors.red),
+                              child: Icon(Icons.lightbulb, color: Colors.red),
                             ),
                             Text(
                               "Recomendados",
@@ -121,7 +116,7 @@ class UsuarioComercial extends StatelessWidget {
                   ),
                 ],
               )),
-         
+
           // SizedBox(
           //   height: responsive.hp(2),
           // ),
@@ -129,11 +124,9 @@ class UsuarioComercial extends StatelessWidget {
           _item(responsive, "Mi perfil", "perfil", FontAwesomeIcons.user),
 
           //Direccion
-          _item(responsive, "Direcciones de entrega", "direccion",
-              Icons.gps_fixed),
+          _item(responsive, "Direcciones de entrega", "direccion", Icons.gps_fixed),
 
-          _item(responsive, "Políticas de Privacidad", "direccion",
-              Icons.privacy_tip_outlined),
+          _item(responsive, "Políticas de Privacidad", "direccion", Icons.privacy_tip_outlined),
 
           _item(responsive, "Términos y Condiciones", "intro", Icons.save_alt),
 
@@ -142,12 +135,10 @@ class UsuarioComercial extends StatelessWidget {
           //SizedBox(height: responsive.hp(2)),
 
           Container(
-              margin: EdgeInsets.symmetric(
-                  horizontal: responsive.ip(1.5), vertical: responsive.ip(0.5)),
+              margin: EdgeInsets.symmetric(horizontal: responsive.ip(1.5), vertical: responsive.ip(0.5)),
               width: double.infinity,
               height: responsive.ip(8),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: Colors.white),
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white),
               child: ListTile(
                 title: Text("Versión de la app",
                     style: TextStyle(
@@ -171,16 +162,13 @@ class UsuarioComercial extends StatelessWidget {
                 decoration: new BoxDecoration(
                   boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 3)],
                   color: Colors.white,
-                  border: new Border.all(color: Colors.grey[300], width: 1.0),
+                  border: new Border.all(color: Colors.grey[300]!, width: 1.0),
                   borderRadius: new BorderRadius.circular(8.0),
                 ),
                 child: new Center(
                   child: new Text(
                     'Cerrar sesión',
-                    style: new TextStyle(
-                        fontSize: responsive.ip(2),
-                        fontWeight: FontWeight.w800,
-                        color: Colors.red),
+                    style: new TextStyle(fontSize: responsive.ip(2), fontWeight: FontWeight.w800, color: Colors.red),
                   ),
                 ),
               ),
@@ -193,18 +181,12 @@ class UsuarioComercial extends StatelessWidget {
 
   Widget _item(Responsive responsive, nombre, ruta, IconData icon) {
     return Container(
-        margin: EdgeInsets.symmetric(
-            horizontal: responsive.ip(1.5), vertical: responsive.ip(0.5)),
+        margin: EdgeInsets.symmetric(horizontal: responsive.ip(1.5), vertical: responsive.ip(0.5)),
         width: double.infinity,
         height: responsive.ip(8),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10), color: Colors.white),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white),
         child: ListTile(
-          title: Text(nombre,
-              style: TextStyle(
-                  color: Colors.blueGrey[900],
-                  fontSize: responsive.ip(2),
-                  fontWeight: FontWeight.bold)),
+          title: Text(nombre, style: TextStyle(color: Colors.blueGrey[900], fontSize: responsive.ip(2), fontWeight: FontWeight.bold)),
           leading: Icon(icon, color: Colors.blueGrey[500]),
           trailing: Icon(Icons.arrow_right_outlined, color: Colors.green),
           onTap: () {

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class FavoritosComercial extends StatelessWidget {
-  const FavoritosComercial({Key key}) : super(key: key);
+  const FavoritosComercial({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class FavoritosComercial extends StatelessWidget {
                     right: responsive.wp(3),
                   ),
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey[200]),
+                    border: Border.all(color: Colors.grey[200]!),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   height: responsive.hp(15),

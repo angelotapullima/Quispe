@@ -7,7 +7,7 @@ import 'package:quispe_ui/utils/constants.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class InicioFerro extends StatelessWidget {
-  const InicioFerro({Key key}) : super(key: key);
+  const InicioFerro({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -63,51 +63,29 @@ class InicioFerro extends StatelessWidget {
               ),
             ),
             ProductosInicio(
-                alturaCard: responsive.hp(15),
-                anchoCard: responsive.wp(55),
-                imagen: '$iluminacion',
-                titulo: 'Iluminación',
-                responsive: responsive),
+                alturaCard: responsive.hp(15), anchoCard: responsive.wp(55), imagen: '$iluminacion', titulo: 'Iluminación', responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
             ),
             ProductosInicio(
-                alturaCard: responsive.hp(17),
-                imagen: '$taladros',
-                anchoCard: responsive.wp(45),
-                titulo: 'Taladros',
-                responsive: responsive),
+                alturaCard: responsive.hp(17), imagen: '$taladros', anchoCard: responsive.wp(45), titulo: 'Taladros', responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
             ),
             ProductosInicio(
-                alturaCard: responsive.hp(18),
-                imagen: '$desarmadores',
-                anchoCard: responsive.wp(60),
-                titulo: 'Desarmadores',
-                responsive: responsive),
+                alturaCard: responsive.hp(18), imagen: '$desarmadores', anchoCard: responsive.wp(60), titulo: 'Desarmadores', responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
             ),
             ProductosInicio(
-                alturaCard: responsive.hp(19),
-                imagen: '$martillo',
-                anchoCard: responsive.wp(55),
-                titulo: 'Martillos',
-                responsive: responsive),
+                alturaCard: responsive.hp(19), imagen: '$martillo', anchoCard: responsive.wp(55), titulo: 'Martillos', responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
             ),
-            ProductosInicio(
-                alturaCard: responsive.hp(16),
-                imagen: '$tubos',
-                anchoCard: responsive.wp(45),
-                titulo: 'Tubos',
-                responsive: responsive),
+            ProductosInicio(alturaCard: responsive.hp(16), imagen: '$tubos', anchoCard: responsive.wp(45), titulo: 'Tubos', responsive: responsive),
             SizedBox(
               height: responsive.hp(2),
             ),
-           
             SizedBox(
               height: responsive.hp(12),
             ),
@@ -120,19 +98,14 @@ class InicioFerro extends StatelessWidget {
 
 class ProductosInicio extends StatelessWidget {
   const ProductosInicio(
-      {Key key,
-      @required this.responsive,
-      @required this.titulo,
-      @required this.alturaCard,
-      @required this.imagen,
-      @required this.anchoCard})
+      {Key? key, required this.responsive, required this.titulo, required this.alturaCard, required this.imagen, required this.anchoCard})
       : super(key: key);
 
-  final Responsive responsive;
-  final String titulo;
-  final double alturaCard;
-  final String  imagen;
-  final double anchoCard;
+  final Responsive? responsive;
+  final String? titulo;
+  final double? alturaCard;
+  final String? imagen;
+  final double? anchoCard;
 
   @override
   Widget build(BuildContext context) {
@@ -140,32 +113,29 @@ class ProductosInicio extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: responsive.wp(2)),
+          padding: EdgeInsets.symmetric(horizontal: responsive!.wp(2)),
           child: Row(
             children: [
               Text(
                 '$titulo',
-                style: TextStyle(
-                    fontSize: responsive.ip(2), fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: responsive!.ip(2), fontWeight: FontWeight.bold),
               ),
               Spacer(),
               Container(
-                padding: EdgeInsets.symmetric(
-                    horizontal: responsive.wp(1), vertical: responsive.hp(.3)),
+                padding: EdgeInsets.symmetric(horizontal: responsive!.wp(1), vertical: responsive!.hp(.3)),
                 decoration: BoxDecoration(
                   color: Colors.green[600],
                   borderRadius: BorderRadiusDirectional.circular(10),
                 ),
                 child: Text(
                   'Ver más',
-                  style: TextStyle(
-                      color: Colors.white, fontSize: responsive.ip(1.8)),
+                  style: TextStyle(color: Colors.white, fontSize: responsive!.ip(1.8)),
                 ),
               )
             ],
           ),
         ),
-        SizedBox(height: responsive.hp(1)),
+        SizedBox(height: responsive!.hp(1)),
         Container(
           height: alturaCard,
           width: double.infinity,
@@ -174,13 +144,12 @@ class ProductosInicio extends StatelessWidget {
               itemCount: 10,
               itemBuilder: (_, index) {
                 return InkWell(
-                  onTap: (){
+                  onTap: () {
                     Navigator.of(context).push(PageRouteBuilder(
                       pageBuilder: (context, animation, secondaryAnimation) {
                         return DetalleProductoFerreteria();
                       },
-                      transitionsBuilder:
-                          (context, animation, secondaryAnimation, child) {
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
                         var begin = Offset(0.0, 1.0);
                         var end = Offset.zero;
                         var curve = Curves.ease;
@@ -196,8 +165,8 @@ class ProductosInicio extends StatelessWidget {
                       },
                     ));
                   },
-                                  child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: responsive.wp(2)),
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: responsive!.wp(2)),
                     height: alturaCard,
                     width: anchoCard,
                     decoration: BoxDecoration(
@@ -208,12 +177,9 @@ class ProductosInicio extends StatelessWidget {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: CachedNetworkImage(
-                            imageUrl: imagen,placeholder: (context, url) => Image(
-                image: const AssetImage('assets/jar-loading.gif'),
-                fit: BoxFit.cover),
-                            errorWidget: (context, url, error) => Image(
-                                image: AssetImage('assets/carga_fallida.jpg'),
-                                fit: BoxFit.cover),
+                            imageUrl: imagen!,
+                            placeholder: (context, url) => Image(image: const AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
+                            errorWidget: (context, url, error) => Image(image: AssetImage('assets/carga_fallida.jpg'), fit: BoxFit.cover),
                             imageBuilder: (context, imageProvider) => Container(
                               decoration: BoxDecoration(
                                 image: DecorationImage(
@@ -230,8 +196,8 @@ class ProductosInicio extends StatelessWidget {
                           right: 0,
                           child: Container(
                             padding: EdgeInsets.symmetric(
-                              horizontal: responsive.wp(2),
-                              vertical: responsive.hp(.3),
+                              horizontal: responsive!.wp(2),
+                              vertical: responsive!.hp(.3),
                             ),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
@@ -244,7 +210,7 @@ class ProductosInicio extends StatelessWidget {
                               'Nombre de producto',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: responsive.ip(2),
+                                fontSize: responsive!.ip(2),
                               ),
                             ),
                           ),
@@ -262,11 +228,11 @@ class ProductosInicio extends StatelessWidget {
 
 class PromocionesInicio extends StatefulWidget {
   const PromocionesInicio({
-    Key key,
-    @required this.responsive,
+    Key? key,
+    required this.responsive,
   }) : super(key: key);
 
-  final Responsive responsive;
+  final Responsive? responsive;
 
   @override
   _PromocionesInicioState createState() => _PromocionesInicioState();
@@ -278,10 +244,10 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
   Widget build(BuildContext context) {
     return Column(children: [
       Container(
-        height: widget.responsive.hp(15),
+        height: widget.responsive!.hp(15),
         child: CarouselSlider(
           options: CarouselOptions(
-            height: widget.responsive.hp(100),
+            height: widget.responsive!.hp(100),
             //aspectRatio: 16/9,
             //carouselController: buttonCarouselController,
             viewportFraction: 0.8,
@@ -294,7 +260,7 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             enlargeCenterPage: true,
             onScrolled: (data) {
               setState(() {
-                _current = data.toInt();
+                _current = data!.toInt();
               });
               /* _scrollController.animateTo(
           data * size.width,
@@ -310,13 +276,9 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: CachedNetworkImage(
-                imageUrl:
-                    'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
-                errorWidget: (context, url, error) => Image(
-                    image: AssetImage('assets/carga_fallida.jpg'),
-                    fit: BoxFit.cover),placeholder: (context, url) => Image(
-                image: const AssetImage('assets/jar-loading.gif'),
-                fit: BoxFit.cover),
+                imageUrl: 'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
+                errorWidget: (context, url, error) => Image(image: AssetImage('assets/carga_fallida.jpg'), fit: BoxFit.cover),
+                placeholder: (context, url) => Image(image: const AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
                 imageBuilder: (context, imageProvider) => Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -330,13 +292,9 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: CachedNetworkImage(
-                imageUrl:
-                    'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
-                errorWidget: (context, url, error) => Image(
-                    image: AssetImage('assets/carga_fallida.jpg'),
-                    fit: BoxFit.cover),placeholder: (context, url) => Image(
-                image: const AssetImage('assets/jar-loading.gif'),
-                fit: BoxFit.cover),
+                imageUrl: 'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
+                errorWidget: (context, url, error) => Image(image: AssetImage('assets/carga_fallida.jpg'), fit: BoxFit.cover),
+                placeholder: (context, url) => Image(image: const AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
                 imageBuilder: (context, imageProvider) => Container(
                   decoration: BoxDecoration(
                       image: DecorationImage(
@@ -349,13 +307,9 @@ class _PromocionesInicioState extends State<PromocionesInicio> {
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: CachedNetworkImage(
-                imageUrl:
-                    'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
-                errorWidget: (context, url, error) => Image(
-                    image: AssetImage('assets/carga_fallida.jpg'),
-                    fit: BoxFit.cover),placeholder: (context, url) => Image(
-                image: const AssetImage('assets/jar-loading.gif'),
-                fit: BoxFit.cover),
+                imageUrl: 'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
+                errorWidget: (context, url, error) => Image(image: AssetImage('assets/carga_fallida.jpg'), fit: BoxFit.cover),
+                placeholder: (context, url) => Image(image: const AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
                 imageBuilder: (context, imageProvider) => Container(
                   decoration: BoxDecoration(
                       image: DecorationImage(
@@ -394,9 +348,7 @@ class _Puntos extends StatelessWidget {
       height: 10,
       margin: EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
-        color: (current >= index - 0.5 && current < index + 0.5)
-            ? Colors.redAccent
-            : Colors.grey,
+        color: (current >= index - 0.5 && current < index + 0.5) ? Colors.redAccent : Colors.grey,
         shape: BoxShape.circle,
       ),
     );
@@ -405,8 +357,8 @@ class _Puntos extends StatelessWidget {
 
 class CabeceraInicio extends StatelessWidget {
   const CabeceraInicio({
-    Key key,
-    @required this.responsive,
+    Key? key,
+    required this.responsive,
   }) : super(key: key);
 
   final Responsive responsive;
@@ -439,15 +391,10 @@ class CabeceraInicio extends StatelessWidget {
                 ),
                 Text(
                   'Hola, Angelo',
-                  style: TextStyle(
-                      fontSize: responsive.ip(1.8),
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
+                  style: TextStyle(fontSize: responsive.ip(1.8), fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 Spacer(),
-                IconButton(
-                    icon: Icon(FontAwesomeIcons.bell, color: Colors.black),
-                    onPressed: null)
+                IconButton(icon: Icon(FontAwesomeIcons.bell, color: Colors.black), onPressed: null)
               ],
             ),
             SizedBox(
@@ -459,10 +406,7 @@ class CabeceraInicio extends StatelessWidget {
               ),
               child: Text(
                 'Encuentra los mejores productos, ',
-                style: TextStyle(
-                    fontSize: responsive.ip(1.8),
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
+                style: TextStyle(fontSize: responsive.ip(1.8), fontWeight: FontWeight.bold, color: Colors.black),
               ),
             ),
             Padding(
@@ -471,10 +415,7 @@ class CabeceraInicio extends StatelessWidget {
               ),
               child: Text(
                 'Solo Aquí',
-                style: TextStyle(
-                    fontSize: responsive.ip(1.8),
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
+                style: TextStyle(fontSize: responsive.ip(1.8), fontWeight: FontWeight.bold, color: Colors.black),
               ),
             ),
             SizedBox(
@@ -495,9 +436,7 @@ class CabeceraInicio extends StatelessWidget {
                 Expanded(
                   child: Container(
                     height: responsive.hp(5),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.grey[300]),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.grey[300]),
                     child: Row(
                       children: [
                         SizedBox(

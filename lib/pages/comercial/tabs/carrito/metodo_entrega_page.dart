@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:quispe_ui/pages/comercial/tabs/carrito/metodo_pago_page.dart';
 
 class MetodoEntregaPage extends StatefulWidget {
-  const MetodoEntregaPage({Key key}) : super(key: key);
+  const MetodoEntregaPage({Key? key}) : super(key: key);
 
   @override
   _MetodoEntregaPageState createState() => _MetodoEntregaPageState();

@@ -5,7 +5,7 @@ import 'package:quispe_ui/utils/constants.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class DetalleProductoComercial extends StatelessWidget {
-  const DetalleProductoComercial({Key key}) : super(key: key);
+  const DetalleProductoComercial({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +92,7 @@ class DetalleProductoComercial extends StatelessWidget {
         //Navigator.pushNamed(context, 'detalleProductoFoto', arguments: carrito);
       },
       onVerticalDragUpdate: (drag) {
-        if (drag.primaryDelta > 7) {
+        if (drag.primaryDelta! > 7) {
           Navigator.pop(context);
         }
       },

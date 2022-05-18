@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quispe_ui/pages/comercial/detalle_producto_comercial.dart';
 
 class Listproduct extends StatelessWidget {
-  const Listproduct({Key key}) : super(key: key);
+  const Listproduct({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +81,7 @@ class Listproduct extends StatelessWidget {
                         width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Colors.grey[300]),
+                          border: Border.all(color: Colors.grey[300]!),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,

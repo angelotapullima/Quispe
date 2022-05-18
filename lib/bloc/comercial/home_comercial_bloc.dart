@@ -11,6 +11,6 @@ class HomeComercialBloc {
   int get page => selectTab.value;
 
   dispose() {
-    selectTab?.close();
+    selectTab.close();
   }
 }

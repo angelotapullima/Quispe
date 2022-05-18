@@ -9,14 +9,14 @@ import 'package:quispe_ui/pages/ferreteria/tabs/UsuarioFerreteria.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class HomeFerreteriaPage extends StatefulWidget {
-  const HomeFerreteriaPage({Key key}) : super(key: key);
+  const HomeFerreteriaPage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomeFerreteriaPage> {
-  List<Widget> listPages = List<Widget>();
+  List<Widget> listPages = [];
 
   @override
   void initState() {
@@ -79,17 +79,13 @@ class _HomePageState extends State<HomeFerreteriaPage> {
                             children: [
                               Icon(
                                 Icons.home,
-                                color: (buttonBloc.page == 0)
-                                    ? Colors.red
-                                    : Colors.black,
+                                color: (buttonBloc.page == 0) ? Colors.red : Colors.black,
                               ),
                               Text(
                                 "Inicio",
                                 style: TextStyle(
                                   fontSize: responsive.ip(1.5),
-                                  color: (buttonBloc.page == 0)
-                                      ? Colors.red
-                                      : Colors.black,
+                                  color: (buttonBloc.page == 0) ? Colors.red : Colors.black,
                                 ),
                               ),
                             ],
@@ -104,17 +100,13 @@ class _HomePageState extends State<HomeFerreteriaPage> {
                               Icon(
                                 FontAwesomeIcons.heart,
                                 //size: responsive.ip(2.7),
-                                color: (buttonBloc.page == 1)
-                                    ? Colors.red
-                                    : Colors.black,
+                                color: (buttonBloc.page == 1) ? Colors.red : Colors.black,
                               ),
                               Text(
                                 "Favoritos",
                                 style: TextStyle(
                                   fontSize: responsive.ip(1.5),
-                                  color: (buttonBloc.page == 1)
-                                      ? Colors.red
-                                      : Colors.black,
+                                  color: (buttonBloc.page == 1) ? Colors.red : Colors.black,
                                 ),
                               ),
                             ],
@@ -128,17 +120,13 @@ class _HomePageState extends State<HomeFerreteriaPage> {
                             children: [
                               Icon(
                                 Icons.category_sharp,
-                                color: (buttonBloc.page == 2)
-                                    ? Colors.red
-                                    : Colors.black,
+                                color: (buttonBloc.page == 2) ? Colors.red : Colors.black,
                               ),
                               Text(
                                 "Cátegorias",
                                 style: TextStyle(
                                   fontSize: responsive.ip(1.5),
-                                  color: (buttonBloc.page == 2)
-                                      ? Colors.red
-                                      : Colors.black,
+                                  color: (buttonBloc.page == 2) ? Colors.red : Colors.black,
                                 ),
                               ),
                             ],
@@ -152,17 +140,13 @@ class _HomePageState extends State<HomeFerreteriaPage> {
                             children: [
                               Icon(
                                 Icons.shopping_cart,
-                                color: (buttonBloc.page == 3)
-                                    ? Colors.red
-                                    : Colors.black,
+                                color: (buttonBloc.page == 3) ? Colors.red : Colors.black,
                               ),
                               Text(
                                 "Carrito",
                                 style: TextStyle(
                                   fontSize: responsive.ip(1.5),
-                                  color: (buttonBloc.page == 3)
-                                      ? Colors.red
-                                      : Colors.black,
+                                  color: (buttonBloc.page == 3) ? Colors.red : Colors.black,
                                 ),
                               ),
                             ],
@@ -176,17 +160,13 @@ class _HomePageState extends State<HomeFerreteriaPage> {
                             children: [
                               Icon(
                                 Icons.verified_user_rounded,
-                                color: (buttonBloc.page == 4)
-                                    ? Colors.red
-                                    : Colors.black,
+                                color: (buttonBloc.page == 4) ? Colors.red : Colors.black,
                               ),
                               Text(
                                 "Usuario",
                                 style: TextStyle(
                                   fontSize: responsive.ip(1.5),
-                                  color: (buttonBloc.page == 4)
-                                      ? Colors.red
-                                      : Colors.black,
+                                  color: (buttonBloc.page == 4) ? Colors.red : Colors.black,
                                 ),
                               ),
                             ],

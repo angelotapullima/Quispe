@@ -6,7 +6,7 @@ import 'package:quispe_ui/pages/comercial/tabs/Categorias/CategoriasComercial.da
 class CategoriaComercialBloc with ChangeNotifier {
   List<CategoriaTab> tabs = [];
   List<CategoriaItems> items = [];
-  TabController tabController;
+  TabController? tabController;
   ScrollController scrollController = ScrollController();
 
   @override
@@ -27,27 +27,22 @@ class CategoriaComercialBloc with ChangeNotifier {
       final category = listCategorias[i];
 
       if (i > 0) {
-        offsetFrom += listCategorias[i - 1].productos.length * heigthProduct;
+        offsetFrom += listCategorias[i - 1].productos!.length * heigthProduct;
       }
 
       if (i < listCategorias.length - 1) {
-        offsetTo =
-            offsetFrom + listCategorias[i + 1].productos.length * heigthProduct;
+        offsetTo = offsetFrom + listCategorias[i + 1].productos!.length * heigthProduct;
       } else {
         offsetTo = double.infinity;
       }
 
       tabs.add(
-        CategoriaTab(
-            category: category,
-            selected: (i == 0),
-            offsetFrom: (heigthCategory * i) + offsetFrom,
-            offsetTo: offsetTo),
+        CategoriaTab(category: category, selected: (i == 0), offsetFrom: (heigthCategory * i) + offsetFrom, offsetTo: offsetTo),
       );
 
       items.add(CategoriaItems(category: category));
-      for (var j = 0; j < category.productos.length; j++) {
-        final product = category.productos[j];
+      for (var j = 0; j < category.productos!.length; j++) {
+        final product = category.productos![j];
         items.add(CategoriaItems(productoModel: product));
       }
     }
@@ -58,11 +53,9 @@ class CategoriaComercialBloc with ChangeNotifier {
   void _onScrolled() {
     for (var i = 0; i < tabs.length; i++) {
       final tab = tabs[i];
-      if (scrollController.offset >= tab.offsetFrom &&
-          scrollController.offset <= tab.offsetTo &&
-          !tab.selected) {
-        onCategorySelected(i,animationRequired: false);
-        tabController.animateTo(i + 1);
+      if (scrollController.offset >= tab.offsetFrom! && scrollController.offset <= tab.offsetTo! && !tab.selected!) {
+        onCategorySelected(i, animationRequired: false);
+        tabController!.animateTo(i + 1);
         break;
       }
     }
@@ -71,44 +64,34 @@ class CategoriaComercialBloc with ChangeNotifier {
   void onCategorySelected(int value, {bool animationRequired = true}) {
     final selected = tabs[value];
 
-    print(tabs[value].category.categoriaNombre);
+    print(tabs[value].category!.categoriaNombre);
     for (var i = 0; i < tabs.length; i++) {
-      final condition =
-          selected.category.categoriaNombre == tabs[i].category.categoriaNombre;
+      final condition = selected.category!.categoriaNombre == tabs[i].category!.categoriaNombre;
       print(condition);
       tabs[i] = tabs[i].copyWith(condition);
     }
     notifyListeners();
 
     if (animationRequired) {
-      scrollController.animateTo(selected.offsetFrom,
-          duration: Duration(milliseconds: 500), curve: Curves.linear);
+      scrollController.animateTo(selected.offsetFrom!, duration: Duration(milliseconds: 500), curve: Curves.linear);
     }
   }
 }
 
 class CategoriaTab {
-  final CategoriaModel category;
-  final bool selected;
-  final double offsetFrom;
-  final double offsetTo;
+  final CategoriaModel? category;
+  final bool? selected;
+  final double? offsetFrom;
+  final double? offsetTo;
 
-  CategoriaTab copyWith(bool selected) => CategoriaTab(
-      category: category,
-      selected: selected,
-      offsetFrom: offsetFrom,
-      offsetTo: offsetTo);
+  CategoriaTab copyWith(bool selected) => CategoriaTab(category: category, selected: selected, offsetFrom: offsetFrom, offsetTo: offsetTo);
 
-  CategoriaTab(
-      {@required this.category,
-      @required this.selected,
-      @required this.offsetFrom,
-      @required this.offsetTo});
+  CategoriaTab({@required this.category, @required this.selected, @required this.offsetFrom, @required this.offsetTo});
 }
 
 class CategoriaItems {
-  final CategoriaModel category;
-  final ProductoModel productoModel;
+  final CategoriaModel? category;
+  final ProductoModel? productoModel;
 
   bool get isCategory => category != null;
 

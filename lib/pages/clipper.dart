@@ -5,7 +5,7 @@ import 'package:quispe_ui/pages/fundo/splash_fundo.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class InicioQuispe extends StatefulWidget {
-  const InicioQuispe({Key key}) : super(key: key);
+  const InicioQuispe({Key? key}) : super(key: key);
 
   @override
   _InicioQuispeState createState() => _InicioQuispeState();
@@ -43,10 +43,8 @@ class _InicioQuispeState extends State<InicioQuispe> {
                           return SplashQuispe();
                         },
                         transitionDuration: Duration(milliseconds: 800),
-                        transitionsBuilder:
-                            (context, animation, anotherAnimation, child) {
-                          animation = CurvedAnimation(
-                              curve: Curves.easeInCubic, parent: animation);
+                        transitionsBuilder: (context, animation, anotherAnimation, child) {
+                          animation = CurvedAnimation(curve: Curves.easeInCubic, parent: animation);
                           return Align(
                             child: SizeTransition(
                               sizeFactor: animation,
@@ -69,7 +67,7 @@ class _InicioQuispeState extends State<InicioQuispe> {
                         fit: BoxFit.cover,
                       ),
                       Container(
-                        color: Colors.yellow[700].withOpacity(.6),
+                        color: Colors.yellow[700]!.withOpacity(.6),
                         child: Center(
                           child: Text(
                             'Centro Comercial Quispe',
@@ -87,7 +85,7 @@ class _InicioQuispeState extends State<InicioQuispe> {
                                 Shadow(
                                   offset: Offset(2.0, 2.0),
                                   blurRadius: 2.0,
-                                  color: Colors.grey[500],
+                                  color: Colors.grey[500]!,
                                 ),
                               ],
                             ),
@@ -114,10 +112,8 @@ class _InicioQuispeState extends State<InicioQuispe> {
                           return SplashFerreteria();
                         },
                         transitionDuration: Duration(milliseconds: 800),
-                        transitionsBuilder:
-                            (context, animation, anotherAnimation, child) {
-                          animation = CurvedAnimation(
-                              curve: Curves.easeInCubic, parent: animation);
+                        transitionsBuilder: (context, animation, anotherAnimation, child) {
+                          animation = CurvedAnimation(curve: Curves.easeInCubic, parent: animation);
                           return Align(
                             child: SizeTransition(
                               sizeFactor: animation,
@@ -158,7 +154,7 @@ class _InicioQuispeState extends State<InicioQuispe> {
                                 Shadow(
                                   offset: Offset(2.0, 2.0),
                                   blurRadius: 2.0,
-                                  color: Colors.grey[500],
+                                  color: Colors.grey[500]!,
                                 ),
                               ],
                             ),
@@ -185,10 +181,8 @@ class _InicioQuispeState extends State<InicioQuispe> {
                           return SplashFundo();
                         },
                         transitionDuration: Duration(milliseconds: 800),
-                        transitionsBuilder:
-                            (context, animation, anotherAnimation, child) {
-                          animation = CurvedAnimation(
-                              curve: Curves.easeInCubic, parent: animation);
+                        transitionsBuilder: (context, animation, anotherAnimation, child) {
+                          animation = CurvedAnimation(curve: Curves.easeInCubic, parent: animation);
                           return Align(
                             child: SizeTransition(
                               sizeFactor: animation,
@@ -229,7 +223,7 @@ class _InicioQuispeState extends State<InicioQuispe> {
                                 Shadow(
                                   offset: Offset(2.0, 2.0),
                                   blurRadius: 2.0,
-                                  color: Colors.grey[500],
+                                  color: Colors.grey[500]!,
                                 ),
                               ],
                             ),
@@ -258,11 +252,9 @@ class MyClipper extends CustomClipper<Path> {
     path.lineTo(00, size.height);
     path.lineTo(size.width, size.height);
     path.lineTo(size.width, size.height * 0);
-    path.quadraticBezierTo(size.width * 0.98, size.height * 0.18,
-        size.width * 0.85, size.height * 0.2);
+    path.quadraticBezierTo(size.width * 0.98, size.height * 0.18, size.width * 0.85, size.height * 0.2);
     path.lineTo(size.width * 0.28, size.height * 0.2);
-    path.quadraticBezierTo(
-        size.width * 0.012, size.height * 0.18, 0, size.height * 0.4);
+    path.quadraticBezierTo(size.width * 0.012, size.height * 0.18, 0, size.height * 0.4);
 
     return path;
   }

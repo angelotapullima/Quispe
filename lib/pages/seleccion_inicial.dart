@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class SeleccionInicial extends StatefulWidget {
-  const SeleccionInicial({Key key}) : super(key: key);
+  const SeleccionInicial({Key? key}) : super(key: key);
 
   @override
   _SeleccionInicialState createState() => _SeleccionInicialState();
@@ -17,13 +17,8 @@ class _SeleccionInicialState extends State<SeleccionInicial> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
-         
-         
-          Stack(
+      body: Stack(
         children: [
-         
-
           PageView(
             controller: _pageController,
             scrollDirection: Axis.horizontal,
@@ -44,8 +39,7 @@ class _SeleccionInicialState extends State<SeleccionInicial> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                    icon: Icon(Icons.arrow_back_ios,
-                        color: Colors.white, size: 37),
+                    icon: Icon(Icons.arrow_back_ios, color: Colors.white, size: 37),
                     onPressed: () {
                       if (page == 0) {
                       } else {
@@ -58,8 +52,7 @@ class _SeleccionInicialState extends State<SeleccionInicial> {
                     }),
                 Spacer(),
                 IconButton(
-                    icon: Icon(Icons.arrow_forward_ios,
-                        color: Colors.white, size: 37),
+                    icon: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 37),
                     onPressed: () {
                       if (page == 2) {
                       } else {
@@ -80,13 +73,13 @@ class _SeleccionInicialState extends State<SeleccionInicial> {
 }
 
 class ContainerItem extends StatelessWidget {
-  final Color color;
-  final String titulo;
+  final Color? color;
+  final String? titulo;
   const ContainerItem({
-    Key key,
-    @required this.responsive,
-    @required this.color,
-    @required this.titulo,
+    Key? key,
+    required this.responsive,
+    required this.color,
+    required this.titulo,
   }) : super(key: key);
 
   final Responsive responsive;
@@ -118,7 +111,7 @@ class ContainerItem extends StatelessWidget {
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
                 child: Container(
-                  color: color.withOpacity(.8),
+                  color: color!.withOpacity(.8),
                 ),
               ),
             ),
@@ -126,10 +119,7 @@ class ContainerItem extends StatelessWidget {
           Center(
             child: Text(
               'Centro Comercial',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: responsive.ip(3),
-                  fontWeight: FontWeight.w500),
+              style: TextStyle(color: Colors.white, fontSize: responsive.ip(3), fontWeight: FontWeight.w500),
             ),
           )
         ],
@@ -150,10 +140,8 @@ class OpenPainter extends CustomPainter {
     final path = new Path();
 
     path.lineTo(0, size.height * 0.25);
-    path.quadraticBezierTo(
-        size.width * 0.2, size.height * 0.5, size.width / 2, size.height * 0.2);
-    path.quadraticBezierTo(
-        size.width * 0.75, size.height * 0.05, size.width, size.height * 0.25);
+    path.quadraticBezierTo(size.width * 0.2, size.height * 0.5, size.width / 2, size.height * 0.2);
+    path.quadraticBezierTo(size.width * 0.75, size.height * 0.05, size.width, size.height * 0.25);
 
     canvas.drawPath(path, paint1);
   }
@@ -163,7 +151,7 @@ class OpenPainter extends CustomPainter {
 }
 
 class FundoQuispe extends StatelessWidget {
-  const FundoQuispe({Key key}) : super(key: key);
+  const FundoQuispe({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -228,9 +216,7 @@ class FundoQuispe extends StatelessWidget {
                         ),
                         child: Text(
                           'Deslizar hacia arriba para conocer nuestros servicios',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: responsive.ip(1.8)),
+                          style: TextStyle(color: Colors.white, fontSize: responsive.ip(1.8)),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -254,7 +240,7 @@ class FundoQuispe extends StatelessWidget {
 }
 
 class FerroQuispe extends StatelessWidget {
-  const FerroQuispe({Key key}) : super(key: key);
+  const FerroQuispe({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -319,9 +305,7 @@ class FerroQuispe extends StatelessWidget {
                         ),
                         child: Text(
                           'Deslizar hacia arriba para conocer nuestros productos',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: responsive.ip(1.8)),
+                          style: TextStyle(color: Colors.white, fontSize: responsive.ip(1.8)),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -346,7 +330,7 @@ class FerroQuispe extends StatelessWidget {
 
 class QuispeInicio extends StatelessWidget {
   const QuispeInicio({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -394,7 +378,7 @@ class QuispeInicio extends StatelessWidget {
               onVerticalDragUpdate: (update) {
                 print(update.primaryDelta);
 
-                if (update.primaryDelta < -7) {
+                if (update.primaryDelta! < -7) {
                   Navigator.pushNamed(context, 'homeComercial');
                 }
               },
@@ -415,9 +399,7 @@ class QuispeInicio extends StatelessWidget {
                         ),
                         child: Text(
                           'Deslizar hacia arriba para conocer nuestros productos',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: responsive.ip(1.8)),
+                          style: TextStyle(color: Colors.white, fontSize: responsive.ip(1.8)),
                           textAlign: TextAlign.center,
                         ),
                       ),

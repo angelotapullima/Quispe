@@ -4,7 +4,7 @@ import 'package:quispe_ui/pages/fundo/detalle_fundo.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class HomeFundoPage extends StatefulWidget {
-  const HomeFundoPage({Key key}) : super(key: key);
+  const HomeFundoPage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -36,8 +36,7 @@ class _HomePageState extends State<HomeFundoPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                    icon: Icon(Icons.arrow_back_ios,
-                        color: Colors.white, size: 37),
+                    icon: Icon(Icons.arrow_back_ios, color: Colors.white, size: 37),
                     onPressed: () {
                       if (page == 0) {
                       } else {
@@ -50,8 +49,7 @@ class _HomePageState extends State<HomeFundoPage> {
                     }),
                 Spacer(),
                 IconButton(
-                    icon: Icon(Icons.arrow_forward_ios,
-                        color: Colors.white, size: 37),
+                    icon: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 37),
                     onPressed: () {
                       if (page == 2) {
                       } else {
@@ -72,7 +70,7 @@ class _HomePageState extends State<HomeFundoPage> {
 }
 
 class CanchaSintetica extends StatelessWidget {
-  const CanchaSintetica({Key key}) : super(key: key);
+  const CanchaSintetica({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -161,10 +159,7 @@ class CanchaSintetica extends StatelessWidget {
                     Icon(FontAwesomeIcons.heart, color: Colors.white),
                     Text(
                       '20',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: responsive.ip(2),
-                          fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Colors.white, fontSize: responsive.ip(2), fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
                       width: responsive.wp(5),
@@ -172,10 +167,7 @@ class CanchaSintetica extends StatelessWidget {
                     Icon(FontAwesomeIcons.comment, color: Colors.white),
                     Text(
                       '20',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: responsive.ip(2),
-                          fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Colors.white, fontSize: responsive.ip(2), fontWeight: FontWeight.bold),
                     ),
                     Spacer(),
                   ],
@@ -243,7 +235,7 @@ class CanchaSintetica extends StatelessWidget {
               },
               onVerticalDragUpdate: (update) {
                 print(update.primaryDelta);
-                if (update.primaryDelta <10) {
+                if (update.primaryDelta! < 10) {
                   print(update.primaryDelta);
 
                   Navigator.of(context).push(
@@ -251,8 +243,7 @@ class CanchaSintetica extends StatelessWidget {
                       pageBuilder: (context, animation, secondaryAnimation) {
                         return DetalleFundo2();
                       },
-                      transitionsBuilder:
-                          (context, animation, secondaryAnimation, child) {
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
                         var begin = Offset(0.0, 1.0);
                         var end = Offset.zero;
                         var curve = Curves.ease;
@@ -284,7 +275,7 @@ class CanchaSintetica extends StatelessWidget {
 }
 
 class PatioDeComidad extends StatelessWidget {
-  const PatioDeComidad({Key key}) : super(key: key);
+  const PatioDeComidad({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -375,10 +366,7 @@ class PatioDeComidad extends StatelessWidget {
                     Icon(FontAwesomeIcons.heart, color: Colors.white),
                     Text(
                       '20',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: responsive.ip(2),
-                          fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Colors.white, fontSize: responsive.ip(2), fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
                       width: responsive.wp(5),
@@ -386,10 +374,7 @@ class PatioDeComidad extends StatelessWidget {
                     Icon(FontAwesomeIcons.comment, color: Colors.white),
                     Text(
                       '20',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: responsive.ip(2),
-                          fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Colors.white, fontSize: responsive.ip(2), fontWeight: FontWeight.bold),
                     ),
                     Spacer(),
                   ],
@@ -457,7 +442,7 @@ class PatioDeComidad extends StatelessWidget {
               },
               onVerticalDragUpdate: (update) {
                 print(update.primaryDelta);
-                if (update.primaryDelta < 10) {
+                if (update.primaryDelta! < 10) {
                   print(update.primaryDelta);
 
                   Navigator.of(context).push(
@@ -465,8 +450,7 @@ class PatioDeComidad extends StatelessWidget {
                       pageBuilder: (context, animation, secondaryAnimation) {
                         return DetalleFundo2();
                       },
-                      transitionsBuilder:
-                          (context, animation, secondaryAnimation, child) {
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
                         var begin = Offset(0.0, 1.0);
                         var end = Offset.zero;
                         var curve = Curves.ease;

@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
 class Splash extends StatefulWidget {
   @override
   _SplashState createState() => _SplashState();
@@ -11,12 +10,10 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
+    WidgetsBinding.instance!.addPostFrameCallback((_) async {
       Future.delayed(Duration(milliseconds: 1000), () {
         Navigator.pushReplacementNamed(context, 'inicio'); //home
       });
-    
-    
     });
 
     super.initState();

@@ -6,7 +6,7 @@ import 'package:quispe_ui/bloc/provider_bloc.dart';
 import 'package:quispe_ui/pages/comercial/tabs/Categorias/lista_productos.dart';
 
 class DetailCategory extends StatelessWidget {
-  const DetailCategory({Key key}) : super(key: key);
+  const DetailCategory({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

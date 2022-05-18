@@ -11,7 +11,7 @@ import 'package:quispe_ui/pages/comercial/tabs/detail_categoria.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class HomeComercialPage extends StatefulWidget {
-  const HomeComercialPage({Key key}) : super(key: key);
+  const HomeComercialPage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -117,7 +117,7 @@ class _HomePageState extends State<HomeComercialPage> {
                                 Container(
                                   height: ScreenUtil().setHeight(23),
                                   width: ScreenUtil().setWidth(23),
-                                  child: (bottomBloc.page == 1|| bottomBloc.page == 4)
+                                  child: (bottomBloc.page == 1 || bottomBloc.page == 4)
                                       ? SvgPicture.asset(
                                           'assets/svg/search_b.svg',
                                         )

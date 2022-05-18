@@ -7,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../utils/responsive.dart';
 
 class UsuarioFerroPage extends StatelessWidget {
-  const UsuarioFerroPage({Key key}) : super(key: key);
+  const UsuarioFerroPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -70,17 +70,12 @@ class UsuarioFerroPage extends StatelessWidget {
                         child: CachedNetworkImage(
                           // cacheManager: CustomCacheManager(),
 
-                         placeholder: (context, url) => Image(
-                image: const AssetImage('assets/jar-loading.gif'),
-                fit: BoxFit.cover),
+                          placeholder: (context, url) => Image(image: const AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
 
-                          errorWidget: (context, url, error) => Container(
-                              width: double.infinity,
-                              height: double.infinity,
-                              child: Center(child: Icon(Icons.error))),
+                          errorWidget: (context, url, error) =>
+                              Container(width: double.infinity, height: double.infinity, child: Center(child: Icon(Icons.error))),
 
-                          imageUrl:
-                              'https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png',
+                          imageUrl: 'https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png',
 
                           imageBuilder: (context, imageProvider) => Container(
                             decoration: BoxDecoration(
@@ -113,9 +108,8 @@ class UsuarioFerroPage extends StatelessWidget {
           SizedBox(height: responsive.hp(1)),
           Card(
             //elevation: 4,
-                      child: Container(
-              margin: EdgeInsets.symmetric(
-                  horizontal: responsive.ip(1.5), vertical: responsive.ip(0.5)),
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: responsive.ip(1.5), vertical: responsive.ip(0.5)),
               width: double.infinity,
               height: responsive.ip(15),
               color: Colors.white,
@@ -135,12 +129,16 @@ class UsuarioFerroPage extends StatelessWidget {
                           CircleAvatar(
                             backgroundColor: Colors.blue[500],
                             radius: responsive.wp(8),
-                            child: Icon(Icons.ad_units, color: Colors.white,size: 30,),
+                            child: Icon(
+                              Icons.ad_units,
+                              color: Colors.white,
+                              size: 30,
+                            ),
                           ),
                           Text(
                             "Mis Pedidos",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                           )
                         ],
                       ),
@@ -161,7 +159,7 @@ class UsuarioFerroPage extends StatelessWidget {
                           Text(
                             "Favoritos",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                           )
                         ],
                       ),
@@ -173,12 +171,16 @@ class UsuarioFerroPage extends StatelessWidget {
                           CircleAvatar(
                             backgroundColor: Colors.yellow,
                             radius: responsive.wp(8),
-                            child: Icon(Icons.lightbulb, color: Colors.red,size: 30,),
+                            child: Icon(
+                              Icons.lightbulb,
+                              color: Colors.red,
+                              size: 30,
+                            ),
                           ),
                           Text(
                             "Recomendados",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                           )
                         ],
                       ),
@@ -196,12 +198,9 @@ class UsuarioFerroPage extends StatelessWidget {
           _item(responsive, "Mi perfil", "perfil", FontAwesomeIcons.user, Colors.green),
 
           //Direccion
-          _item(responsive, "Direcciones de entrega", "direccion",
-              Icons.gps_fixed, Colors.red),
-          
+          _item(responsive, "Direcciones de entrega", "direccion", Icons.gps_fixed, Colors.red),
 
-          _item(responsive, "Políticas de Privacidad", "direccion",
-              Icons.privacy_tip_outlined, Colors.blue),
+          _item(responsive, "Políticas de Privacidad", "direccion", Icons.privacy_tip_outlined, Colors.blue),
 
           _item(responsive, "Términos y Condiciones", "intro", Icons.save_alt, Colors.red),
 
@@ -210,12 +209,10 @@ class UsuarioFerroPage extends StatelessWidget {
           //SizedBox(height: responsive.hp(2)),
 
           Container(
-              margin: EdgeInsets.symmetric(
-                  horizontal: responsive.ip(1.5), vertical: responsive.ip(0.5)),
+              margin: EdgeInsets.symmetric(horizontal: responsive.ip(1.5), vertical: responsive.ip(0.5)),
               width: double.infinity,
               height: responsive.ip(8),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: Colors.white),
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white),
               child: ListTile(
                 title: Text("Versión de la app",
                     style: TextStyle(
@@ -239,16 +236,13 @@ class UsuarioFerroPage extends StatelessWidget {
                 decoration: new BoxDecoration(
                   boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 3)],
                   color: Colors.white,
-                  border: new Border.all(color: Colors.grey[300], width: 1.0),
+                  border: new Border.all(color: Colors.grey[300]!, width: 1.0),
                   borderRadius: new BorderRadius.circular(8.0),
                 ),
                 child: new Center(
                   child: new Text(
                     'Cerrar sesión',
-                    style: new TextStyle(
-                        fontSize: responsive.ip(2),
-                        fontWeight: FontWeight.w800,
-                        color: Colors.red),
+                    style: new TextStyle(fontSize: responsive.ip(2), fontWeight: FontWeight.w800, color: Colors.red),
                   ),
                 ),
               ),
@@ -261,18 +255,12 @@ class UsuarioFerroPage extends StatelessWidget {
 
   Widget _item(Responsive responsive, nombre, ruta, IconData icon, Color color) {
     return Container(
-        margin: EdgeInsets.symmetric(
-            horizontal: responsive.ip(1.5), vertical: responsive.ip(0.5)),
+        margin: EdgeInsets.symmetric(horizontal: responsive.ip(1.5), vertical: responsive.ip(0.5)),
         width: double.infinity,
         height: responsive.ip(8),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10), color: Colors.white),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white),
         child: ListTile(
-          title: Text(nombre,
-              style: TextStyle(
-                  color: Colors.blueGrey[900],
-                  fontSize: responsive.ip(2),
-                  fontWeight: FontWeight.bold)),
+          title: Text(nombre, style: TextStyle(color: Colors.blueGrey[900], fontSize: responsive.ip(2), fontWeight: FontWeight.bold)),
           leading: Icon(icon, color: color),
           trailing: Icon(Icons.arrow_right_outlined, color: Colors.green),
           onTap: () {
@@ -283,18 +271,12 @@ class UsuarioFerroPage extends StatelessWidget {
 
   Widget _item2(Responsive responsive, nombre, ruta, IconData icon, Color color) {
     return Container(
-        margin: EdgeInsets.symmetric(
-            horizontal: responsive.ip(1.5), vertical: responsive.ip(0.5)),
+        margin: EdgeInsets.symmetric(horizontal: responsive.ip(1.5), vertical: responsive.ip(0.5)),
         width: double.infinity,
         height: responsive.ip(8),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10), color: Colors.white),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white),
         child: ListTile(
-          title: Text(nombre,
-              style: TextStyle(
-                  color: Colors.blueGrey[900],
-                  fontSize: responsive.ip(2),
-                  fontWeight: FontWeight.bold)),
+          title: Text(nombre, style: TextStyle(color: Colors.blueGrey[900], fontSize: responsive.ip(2), fontWeight: FontWeight.bold)),
           leading: Icon(icon, color: color),
           trailing: Icon(Icons.arrow_right_outlined, color: Colors.green),
           onTap: () {

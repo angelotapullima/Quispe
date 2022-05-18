@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quispe_ui/utils/responsive.dart';
 
 class FavoritosFerroPage extends StatelessWidget {
-  const FavoritosFerroPage({Key key}) : super(key: key);
+  const FavoritosFerroPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +18,7 @@ class FavoritosFerroPage extends StatelessWidget {
             ),
             child: Text(
               'Productos Favoritos',
-              style: TextStyle(
-                  fontSize: responsive.ip(2.5), fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: responsive.ip(2.5), fontWeight: FontWeight.bold),
             ),
           ),
           SizedBox(
@@ -38,7 +37,7 @@ class FavoritosFerroPage extends StatelessWidget {
                     right: responsive.wp(3),
                   ),
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey[200]),
+                    border: Border.all(color: Colors.grey[200]!),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   height: responsive.hp(15),
@@ -50,13 +49,9 @@ class FavoritosFerroPage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: CachedNetworkImage(
-                            imageUrl:
-                                'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
-                            errorWidget: (context, url, error) => Image(
-                                image: AssetImage('assets/carga_fallida.jpg'),
-                                fit: BoxFit.cover),placeholder: (context, url) => Image(
-                image: const AssetImage('assets/jar-loading.gif'),
-                fit: BoxFit.cover),
+                            imageUrl: 'https://practika.com.mx/wp-content/uploads/2017/07/banner-promociones-practika-publicidad.jpg',
+                            errorWidget: (context, url, error) => Image(image: AssetImage('assets/carga_fallida.jpg'), fit: BoxFit.cover),
+                            placeholder: (context, url) => Image(image: const AssetImage('assets/jar-loading.gif'), fit: BoxFit.cover),
                             imageBuilder: (context, imageProvider) => Container(
                               decoration: BoxDecoration(
                                 image: DecorationImage(

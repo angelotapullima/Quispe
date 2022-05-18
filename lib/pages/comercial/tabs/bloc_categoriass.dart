@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 enum CategoriasEnum { categorias, marcas }
 
-class CategoriasBlocListener with ChangeNotifier { 
+class CategoriasBlocListener with ChangeNotifier {
   ValueNotifier<CategoriasEnum> _page = ValueNotifier(CategoriasEnum.categorias);
   ValueNotifier<CategoriasEnum> get page => this._page;
 
-  BuildContext context;
+  BuildContext? context;
 
   CategoriasBlocListener({this.context}) {
     _init();
@@ -14,12 +14,12 @@ class CategoriasBlocListener with ChangeNotifier {
   void _init() {}
 
   void changeToLugar() {
-    _page.value =CategoriasEnum.categorias;
+    _page.value = CategoriasEnum.categorias;
     notifyListeners();
   }
 
   void changeToHora() {
-    _page.value  = CategoriasEnum.marcas;
+    _page.value = CategoriasEnum.marcas;
     notifyListeners();
   }
 }

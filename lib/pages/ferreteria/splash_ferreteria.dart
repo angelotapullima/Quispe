@@ -11,9 +11,9 @@ class SplashFerreteria extends StatefulWidget {
 class _SplashState extends State<SplashFerreteria> {
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
+    WidgetsBinding.instance!.addPostFrameCallback((_) async {
       Future.delayed(Duration(milliseconds: 1500), () {
-       Navigator.pushReplacementNamed(context, 'homeFerreteria'); //home
+        Navigator.pushReplacementNamed(context, 'homeFerreteria'); //home
       });
     });
 
@@ -40,7 +40,6 @@ class _SplashState extends State<SplashFerreteria> {
             width: double.infinity,
             fit: BoxFit.cover,
           ),
-
           Container(
             width: double.infinity,
             height: double.infinity,
@@ -52,8 +51,6 @@ class _SplashState extends State<SplashFerreteria> {
               fit: BoxFit.cover,
             ),
           ),
-
-          
           Positioned(
             bottom: responsive.hp(10),
             left: responsive.wp(4),
